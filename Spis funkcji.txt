@@ -1,5 +1,5 @@
 Filip Borowiec 06.03.2022
-funkjca "print_array" w pliku array_handle.h
+funkjca "print_array" w pliku array_handle.c
 
 funckja wypisuje po przeicnku każdy element tabeli
 funkcja przyjmuje 2 argumty piewrtwszy z nich to tabela do wyświetlenia a drugi to zmirnna określająca ilość elementów
@@ -7,7 +7,7 @@ funkcja przyjmuje 2 argumty piewrtwszy z nich to tabela do wyświetlenia a drugi
 
 
 Filip Borowiec 06.03.2022
-funkjca "fill_array_rand" w pliku array_handle.h
+funkjca "fill_array_rand" w pliku array_handle.c
 
 funckja wypełania tebele losowoeymi wartośćiami z daneg ozakresu
 funkcja przyjmuje 4 argumty 
@@ -19,7 +19,7 @@ czwarty to maksymalna granica zakresu losowania
 
 
 Filip Borowiec 06.03.2022
-funkjca "fill_array_reveres" w pliku array_handle.h
+funkjca "fill_array_reveres" w pliku array_handle.c
 
 funckja wypełania tebele tabele wartosćiami od wartosci maksymalnej elemntów, dążąć do wartosci 1
 funkcja przyjmuje 2 argumty 
@@ -29,7 +29,7 @@ drugi to zmirnna określająca ilość elementów
 
 
 Filip Borowiec 06.03.2022
-funkjca "insert_sort" w pliku array_handle.h
+funkjca "insert_sort" w pliku array_handle.c
 
 funkcja wykonuje na podanej tabeli alogrytm sortowania przez wstawianie
 funkcja przyjmuje 2 argumty 
@@ -39,9 +39,31 @@ drugi to zmirnna określająca ilość elementów
 
 
 Filip Borowiec 06.03.2022
-funkjca "shell_sort" w pliku array_handle.h
+funkjca "shell_sort" w pliku array_handle.c
 
 funkcja wykonuje na podanej tabeli alogrytm sortowania metodą SHELL
 funkcja przyjmuje 2 argumty 
 piewrtwszy z nich to tabela do posortowania
 drugi to zmirnna określająca ilość elementów
+
+
+
+Filip Borowiec 06.03.2022
+funkjca " duplicate_array" w pliku array_handle.c
+
+funcja kopiuje dane z 1 tabeli do drugiej
+funkcja przyjmuje 3 argumty 
+piewrtwszy z nich to tabela do zduplikownia
+drugi z nich to tabela do której mają zostać zkopiowane dane 
+trzeic to zmirnna określająca ilość elementów
+
+
+
+Filip Borowiec 06.03.2022
+funkjca " calc_time" w pliku data_gather.calc_time
+
+funcja sortuja podana metoda sortowania pdoana tabele i wylicza czas jaki był potrzebny do jej wykonania na podstawie funkcji clock()
+funkcja przyjmuje 3 argumenty
+pierwszym jest tablle dla której maja zostac wyliczone
+drugim jest ilosc elementów tabeli
+trzecim jest wsakznik na funckje sortujaca która che sie sprawdzic
