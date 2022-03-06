@@ -1,0 +1,47 @@
+Filip Borowiec 06.03.2022
+funkjca "print_array" w pliku array_handle.h
+
+funckja wypisuje po przeicnku każdy element tabeli
+funkcja przyjmuje 2 argumty piewrtwszy z nich to tabela do wyświetlenia a drugi to zmirnna określająca ilość elementów
+
+
+
+Filip Borowiec 06.03.2022
+funkjca "fill_array_rand" w pliku array_handle.h
+
+funckja wypełania tebele losowoeymi wartośćiami z daneg ozakresu
+funkcja przyjmuje 4 argumty 
+piewrtwszy z nich to tabela do wypelnienia
+drugi to zmirnna określająca ilość elementów
+trzeci do minimalna granica zakresy losowania
+czwarty to maksymalna granica zakresu losowania
+
+
+
+Filip Borowiec 06.03.2022
+funkjca "fill_array_reveres" w pliku array_handle.h
+
+funckja wypełania tebele tabele wartosćiami od wartosci maksymalnej elemntów, dążąć do wartosci 1
+funkcja przyjmuje 2 argumty 
+piewrtwszy z nich to tabela do wypelnienia
+drugi to zmirnna określająca ilość elementów
+
+
+
+Filip Borowiec 06.03.2022
+funkjca "insert_sort" w pliku array_handle.h
+
+funkcja wykonuje na podanej tabeli alogrytm sortowania przez wstawianie
+funkcja przyjmuje 2 argumty 
+piewrtwszy z nich to tabela do posortowania
+drugi to zmirnna określająca ilość elementów
+
+
+
+Filip Borowiec 06.03.2022
+funkjca "shell_sort" w pliku array_handle.h
+
+funkcja wykonuje na podanej tabeli alogrytm sortowania metodą SHELL
+funkcja przyjmuje 2 argumty 
+piewrtwszy z nich to tabela do posortowania
+drugi to zmirnna określająca ilość elementów
