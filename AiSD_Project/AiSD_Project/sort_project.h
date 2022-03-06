@@ -22,5 +22,6 @@ extern void duplicate_array(int* array, int* array_to_copy, int N);
 
 //zodbywanie danych
 extern float calc_time(int* array, int N, void (*sort)(int*, int));
+extern void generarate_times(int limit, int dif);
 
 #endif

@@ -67,3 +67,14 @@ funkcja przyjmuje 3 argumenty
 pierwszym jest tablle dla której maja zostac wyliczone
 drugim jest ilosc elementów tabeli
 trzecim jest wsakznik na funckje sortujaca która che sie sprawdzic
+
+
+
+Filip Borowiec 06.03.2022
+funkjca "generarate_times" w pliku data_gather.calc_time
+
+funcja gernuej czasy sotrownaia dla tabel odwóconych o daej wielkosc, wyniki odaje na ekran oraz zapasiuej do pliku tct przsytepnego do akrusza kalukaclyjne
+funkcja przyjmjue dwa arugemtny pierwszym jest limit wielkosci talibcy drugi wartosc co ile ma ma wsywielac wynik
+
+
+
