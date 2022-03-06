@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="array_handle.c" />
+    <ClCompile Include="data_gather.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="sort_algorithms.c" />
   </ItemGroup>

@@ -32,3 +32,17 @@ void fill_array_reverse(int* array, int N)
 		array[i] =N-i;
 	}
 }
+
+
+
+
+void duplicate_array(int* array, int* array_to_copy, int N)
+{
+
+	for (int i = 0; i < N; i++)
+	{
+		array_to_copy[i] = array[i];
+	}
+
+
+}

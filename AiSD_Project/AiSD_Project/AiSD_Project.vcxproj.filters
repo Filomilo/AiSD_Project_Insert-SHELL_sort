@@ -24,6 +24,9 @@
     <ClCompile Include="array_handle.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="data_gather.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sort_project.h">
