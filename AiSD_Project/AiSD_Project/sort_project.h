@@ -6,7 +6,7 @@
 
 extern void insert_sort(int* array, int N);
 
-extern void shell_sort(int array[], int N);
+extern void shell_sort(int* array, int N);
 
 
 
@@ -14,8 +14,8 @@ extern void shell_sort(int array[], int N);
 
 extern void print_array(int* array, int N);
 
-extern void fill_array(int* array, int N, int min, int max);
-
+extern void fill_array_rand(int* array, int N, int min, int max);
+extern void fill_array_reverse(int* array, int N);
 
 
 #endif

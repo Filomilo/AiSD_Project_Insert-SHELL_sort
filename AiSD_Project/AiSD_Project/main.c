@@ -11,9 +11,9 @@ int main()
 	 array = (int*)calloc(N, sizeof(int));
 	 
 	
-	fill_array(array, N, min, max);
+	fill_array_reverse(array, N, min, max);
 	print_array(array, N);
-	insert_sort(array, N);
+	shell_sort (array, N);
 	printf("\n");
 	print_array(array, N);
 	
