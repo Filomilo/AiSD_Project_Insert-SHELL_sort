@@ -29,7 +29,7 @@ drugi to zmirnna określająca ilość elementów
 
 
 Filip Borowiec 06.03.2022
-funkjca "insert_sort" w pliku array_handle.c
+funkjca "insert_sort" w pliku sort_algorithms.c
 
 funkcja wykonuje na podanej tabeli alogrytm sortowania przez wstawianie
 funkcja przyjmuje 2 argumty 
@@ -39,7 +39,7 @@ drugi to zmirnna określająca ilość elementów
 
 
 Filip Borowiec 06.03.2022
-funkjca "shell_sort" w pliku array_handle.c
+funkjca "shell_sort" w pliku sort_algorithms.c
 
 funkcja wykonuje na podanej tabeli alogrytm sortowania metodą SHELL
 funkcja przyjmuje 2 argumty 
@@ -78,3 +78,24 @@ funkcja przyjmjue dwa arugemtny pierwszym jest limit wielkosci talibcy drugi war
 
 
 
+Filip Borowiec 07.03.2022
+funkjca "shell_sort_calc" & "insert_sort_calc" w pliku sort_algorithms.c
+
+funcje sortujace z ta róznica że zwracjaa ilosc wykonanych operacji znaczacych
+
+
+
+Filip Borowiec 07.03.2022
+funkjca "shell_sort_step" & "insert_sort_step" w pliku sort_algorithms.c
+
+funcje sortujace z ta róznica wyświetlaja etapa sortowania krok po kroku w miare wciaskania enter
+
+
+Filip Borowiec 07.03.2022
+fucnkja "print_array_a" w pluku array_handle.c
+
+funckja wypisuje po przeicnku każdy element tabeli
+funkcja przyjmuje 6 argumtów piewrtwszy z nich to tabela do wyświetlenia a drugi to zmirnna określająca ilość elementów
+3 i 4 są to indeksy elemntów które maja być pokolorrane na zielono
+5 i 6 są to indeksy elemntów które maja być pokolorrane na zółto
+Kolor zielony nadpsiuje kolor żółty

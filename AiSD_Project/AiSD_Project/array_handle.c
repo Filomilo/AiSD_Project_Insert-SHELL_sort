@@ -3,6 +3,11 @@
 #include <stdio.h>
 #include <time.h>
 
+
+#define GREEN "\033[0;32m"
+#define WHITE "\033[0;37m"
+#define YELLOW "\033[0;33m"
+
 void print_array(int* array, int N)
 {
 	for (int i = 0; i < N; i++)
@@ -11,7 +16,37 @@ void print_array(int* array, int N)
 	}
 }
 
-
+void print_array_a(int* array, int N, int g, int g1, int y, int y2)
+{
+	for (int i = 0; i < N; i++)
+	{
+		if (i == g)
+		{
+			printf(GREEN "%d", array[i]);
+			printf(WHITE", ");
+		}
+		else
+			if (i == g1)
+			{
+				printf(GREEN "%d", array[i]);
+				printf(WHITE", ");
+			}
+			else
+			if (i == y)
+			{
+				printf(YELLOW "%d", array[i]);
+				printf(WHITE", ");
+			}
+			else
+				if (i == y2)
+				{
+					printf(YELLOW "%d", array[i]);
+					printf(WHITE", ");
+				}
+				else
+		printf(WHITE "%d, ", array[i]);
+	}
+}
 
 
 
