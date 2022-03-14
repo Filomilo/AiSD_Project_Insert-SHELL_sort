@@ -4,6 +4,7 @@
 
 int main()
 {
+	system("CHCP 1250 >NUL");
 	int min = 0;
 	int max = 10;
 	int N = 10;
