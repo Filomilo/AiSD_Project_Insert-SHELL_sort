@@ -25,7 +25,7 @@ extern void fill_array_rand(int* array, int N, int min, int max);
 extern void fill_array_reverse(int* array, int N);
 extern void duplicate_array(int* array, int* array_to_copy, int N);
 
-
+void save_array(char name[50], int array[], int N);
 
 
 //zodbywanie danych

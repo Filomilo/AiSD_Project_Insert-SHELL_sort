@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
-
+#include <string.h>
 
 #define GREEN "\033[0;32m"
 #define WHITE "\033[0;37m"
@@ -78,6 +78,31 @@ void duplicate_array(int* array, int* array_to_copy, int N)
 	{
 		array_to_copy[i] = array[i];
 	}
+
+
+}
+
+
+void save_array(char name[50], int array[], int N)
+{
+	FILE* file;
+	
+
+	
+	char file_name[54];
+
+	strncpy_s(file_name,54, name, 50);
+	strncat_s(file_name, 50, ".txt", 4);
+
+
+	fopen_s(&file, file_name, "w");
+	for (int i = 0; i < N; i++)
+	{
+		fprintf(file,"%d \n",array[i]);
+
+
+	}
+	fclose(file);
 
 
 }

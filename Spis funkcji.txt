@@ -99,3 +99,14 @@ funkcja przyjmuje 6 argumtów piewrtwszy z nich to tabela do wyświetlenia a dru
 3 i 4 są to indeksy elemntów które maja być pokolorrane na zielono
 5 i 6 są to indeksy elemntów które maja być pokolorrane na zółto
 Kolor zielony nadpsiuje kolor żółty
+
+
+
+Filip Borowiec 17.03.2022
+fucnkja "save_array" w pluku array_handle.c
+
+funkja zapisuje wartosci tablei wierwsz po iwerszu do pliku
+funkcja przyjmuje  ]3 argumetny
+pierszym jest nazwa tabeli pod któa che sie zapisac
+drugim jest tabela
+trzecim jest ilosc elemntow tabeli
