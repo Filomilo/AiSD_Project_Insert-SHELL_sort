@@ -5,7 +5,7 @@
 int main()
 {
 	system("CHCP 1250 >NUL");
-	int min = 0;
+	/*int min = 0;
 	int max = 10;
 	int N = 10000000;
 
@@ -37,4 +37,6 @@ save_array("tabela_soreted", array, N);
 	//insert_sort_step(array, N);
 		//printf("insert:%d\nshell:%d", proces_insert, proces_shell);
 	printf("\n\n\n");
+	*/
+	start_gui();
 }

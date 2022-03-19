@@ -110,3 +110,36 @@ funkcja przyjmuje  ]3 argumetny
 pierszym jest nazwa tabeli pod któa che sie zapisac
 drugim jest tabela
 trzecim jest ilosc elemntow tabeli
+
+
+
+Filip Borowiec 19.03.2022
+fucnkja "start_gui" w pluku gui.c
+
+funckja rozpcizyna prace z intefreejsme graifcznym
+
+Filip Borowiec 19.03.2022
+funkcja draw_array(int array[], int N, int max, int r,int g,int b)
+
+funkja rsyujac tablel o podanym kolorze ufnkcje przyjmuje 6 arugmentuw
+1: wsaknisk na tabele do wsywieltenia
+2: ilosc elemntwp w tablei
+3: maksymlanaya wartosc elemtow w tablwi
+4,5,6: oznaczenia kolorw rgb
+
+
+Filip Borowiec 19.03.2022
+funkcja draw_array_a w pliku gui.c
+
+funckaj dzilaa jak fukncaj print_array_a z tym dla gui
+
+Filip Borowiec 19.03.2022
+insert_sort_draw & shell_sort_draw she w pliku sort_algorithms.c
+
+fucnkej sortujace według podanych elgoerynw z tym ze kazdy krok jest wyseilany z biblioteki allego
+
+
+Filip Borowiec 19.03.2022
+insert_sort_draw & shell_sort_draw she w pliku sort_algorithms.c
+
+fucnkej sortujace według podanych elgoerynw z tym ze kazdy krok jest wyseilany z biblioteki allego

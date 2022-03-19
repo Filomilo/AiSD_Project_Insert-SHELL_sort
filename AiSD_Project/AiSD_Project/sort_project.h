@@ -1,6 +1,6 @@
 #ifndef SORT_PROJECT
 #define SORT_PROJECT
-
+#define BLACK al_map_rgb(0, 0, 0)
 //algorytmy sortowania
 
 
@@ -17,6 +17,9 @@ extern int shell_sort_calc(int* array, int N);
 extern void shell_sort_step(int* array, int N);
 extern void insert_sort_step(int* array, int N);
 
+extern void shell_sort_draw(int* array, int N, int max);
+
+
 //zarzadzanie tabela
 
 extern void print_array(int* array, int N);
@@ -32,4 +35,7 @@ void save_array(char name[50], int array[], int N);
 extern float calc_time(int* array, int N, void (*sort)(int*, int));
 extern void generarate_times(int limit, int dif);
 
+
+extern void start_gui();
+extern void draw_array(int array[], int N, int max);
 #endif
