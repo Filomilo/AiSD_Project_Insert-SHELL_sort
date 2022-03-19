@@ -140,6 +140,45 @@ fucnkej sortujace według podanych elgoerynw z tym ze kazdy krok jest wyseilany 
 
 
 Filip Borowiec 19.03.2022
-insert_sort_draw & shell_sort_draw she w pliku sort_algorithms.c
+funkcja get_user_valuew pliku gui.c
 
-fucnkej sortujace według podanych elgoerynw z tym ze kazdy krok jest wyseilany z biblioteki allego
+funkcja lsuzy umozliwnieia uztokwinkowi wpisnaiai wartosci lcizbowej
+funkcja przyjumuje tablice znakow text ktory ma szotac wsywitony
+
+
+Filip Borowiec 19.03.2022
+funkcja choice_menu w pliku gui.c
+
+funkcja lsuzy umozliwnieia wybrania opcji z wysietlonych
+funkcja przyjumuje  tablce tablicy znakow tpyu text pierwszy elemt odpowiada za tekst pozstale elmenty za teksty wyboru
+wartosc calkowita oznaczja ilsoc wyborow
+
+Filip Borowiec 19.03.2022
+funkcja absf w pliku gui.c
+
+pomocnicza funkcja dzialajaca jak abs tyle ze na typie flaot
+
+Filip Borowiec 19.03.2022
+funkcja observation_ui w pliku gui.c
+funkcja odpowaiaa ze czesc wysietlania dzilanai sortowanai w gui
+
+
+Filip Borowiec 19.03.2022
+funkcja decision_ui w pliku gui.c
+funkcja odpowaiaa ze czesc wysietlania dzilanai sortowanai w gui
+
+funkcaja odpwoada z ui odpwoaidajace za wybor pomiedzy porwonainem a obserwacaj
+
+
+Filip Borowiec 19.03.2022
+funkcja start_ui w pliku gui.c
+
+funkcaj opowida za start komuniakji z unzryowiem 
+
+funkcaja odpwoada z ui odpwoaidajace za wybor pomiedzy porwonainem
+
+
+Filip Borowiec 19.03.2022
+funkcja start_gui w pliku gui.c
+
+funkcaj odpawaida za start pracy z intefejsme graficznym
