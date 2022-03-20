@@ -106,3 +106,23 @@ void save_array(char name[50], int array[], int N)
 
 
 }
+
+void swap(int* a, int* b)
+{
+	int tmp =* a;
+	*a = *b;
+	*b = tmp;
+}
+
+
+void shuffle_arry(int* array, int N)
+{
+	srand(time(0));
+	for (int i = 0; i < N; i++)
+	{
+		swap(&array[i], &array[rand() % (N - i) + i]);
+
+
+	}
+
+}

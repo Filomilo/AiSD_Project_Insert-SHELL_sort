@@ -19,7 +19,7 @@ extern void insert_sort_step(int* array, int N);
 
 extern void shell_sort_draw(int* array, int N, int max);
 
-
+void shuffle_arry(int* array, int N);
 //zarzadzanie tabela
 
 extern void print_array(int* array, int N);
@@ -34,8 +34,9 @@ void save_array(char name[50], int array[], int N);
 //zodbywanie danych
 extern float calc_time(int* array, int N, void (*sort)(int*, int));
 extern void generarate_times(int limit, int dif);
-
+extern float calc_proces(int* array, int N, int (*sort)(int*, int));
 
 extern void start_gui();
 extern void draw_array(int array[], int N, int max);
+void wait_enter();
 #endif

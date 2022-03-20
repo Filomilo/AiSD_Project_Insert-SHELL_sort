@@ -33,6 +33,7 @@ int choice_menu(text choices[], int N)
 	ALLEGRO_COLOR white = al_map_rgb(255, 255, 255);
 	ALLEGRO_COLOR black = al_map_rgb(0, 0, 0);
 	ALLEGRO_COLOR red = al_map_rgb(255, 0, 0);
+	ALLEGRO_COLOR blue = al_map_rgb(10, 10, 255);
 	ALLEGRO_COLOR choice_color = al_map_rgb(50, 20, 10);
 	ALLEGRO_FONT* font = al_load_ttf_font("arial.ttf", 25, NULL);
 	ALLEGRO_KEYBOARD_STATE key;
@@ -53,7 +54,8 @@ int choice_menu(text choices[], int N)
 		rad = -1 *( 2*M_PI - rad );
 
 		float seg = -2 * M_PI / N;
-		for (int i=0; i < N; i++)
+		/*
+		for (int i = 0; i < N; i++)
 		{
 			if (rad<seg * i && rad>seg * (i + 1))
 			{
@@ -69,18 +71,77 @@ int choice_menu(text choices[], int N)
 					
 			}
 			}
+			
+		*/
+
+
+		
+
+
+		//hililghting
+		al_clear_to_color(black);
+		for (int i = 0; i < N; i++)
+		{
+			
+			if (rad<seg * i && rad>seg * (i + 1))
+			{
+				if (mouse.buttons == 1)
+				{
+					al_destroy_font(font);
+					return i;
+				}
+				if (N > 2)
+				{
+					ALLEGRO_VERTEX v[] =
+					{
+						{SCREEN_W / 2 ,SCREEN_H / 2,0,0,0,blue},
+						{SCREEN_W / 2 + cos(seg * i) * SCREEN_W, SCREEN_H / 2 + sin(seg * i) * SCREEN_W,0,0,0,black},
+						{SCREEN_W / 2 + cos(seg * (i + 1)) * SCREEN_W, SCREEN_H / 2 + sin(seg * (i + 1)) * SCREEN_W,0,0,0,black}
+						//{10,100,0,0,0,black},
+						//{800,800,0,0,0,black},
+					};
+
+					al_draw_prim(v, NULL, NULL, 0, 3, ALLEGRO_PRIM_TRIANGLE_FAN);
+				}
+				else
+				{
+					ALLEGRO_VERTEX v[] =
+					{
+						{0 ,SCREEN_H / 2,0,0,0,blue},
+						{SCREEN_W  ,SCREEN_H / 2 ,0,0,0,blue},
+						{0,(mouse.y>SCREEN_H/2)?SCREEN_H:0,0,0,0,black},
+						{SCREEN_W, (mouse.y > SCREEN_H / 2) ? SCREEN_H : 0,0,0,0,black}
+					};
+
+					al_draw_prim(v, NULL, NULL, 0, 4, ALLEGRO_PRIM_TRIANGLE_STRIP);
+				}
+			}
+
+
+		}
+		
+
+
+
+
+
+
+
+
+
 		al_draw_filled_ellipse(SCREEN_W / 2, SCREEN_H / 2, 200, 100, white);
 		float width = al_get_text_width(font, choices[0]);
 		float height = al_get_font_line_height(font);
 		al_draw_text(font, red, SCREEN_W / 2 - width / 2, SCREEN_H/2-height/2, 0, choices[0]);
 		for (int i = 0; i < N; i++)
 		{
-			int dist = 500;
+			int dist =150;
 			float rad2 = seg / 2 + seg * i;
-			float mult = (absf(absf(rad2 + M_PI) - M_PI * 0.5 + 0.5)) * dist;
-			 width = al_get_text_width(font, choices[i+1]);
-			al_draw_text(font, red, SCREEN_W/2+ mult *cos(rad2)-width/2, SCREEN_H/2 + mult *sin(rad2), 0, choices[i + 1]);
 
+			float mult = dist*(absf(absf(rad2+M_PI)-M_PI/2)/(M_PI/2)+2);
+
+			 width = al_get_text_width(font, choices[i+1]);
+			al_draw_text(font, red, SCREEN_W/2 + mult *cos(rad2)- width /2, SCREEN_H/2 + mult *sin(rad2), 0, choices[i + 1]);
 		}
 		/*
 		text mouse_test;
@@ -114,8 +175,38 @@ return - 5;
 }
 
 
+void wait_enter()
+{
+	al_rest(0.2);
+	ALLEGRO_KEYBOARD_STATE key;
+
+	while (1)
+	{
+		al_get_keyboard_state(&key);
+		if (al_key_down(&key, ALLEGRO_KEY_ENTER))
+			break;
+	}
+}
 
 
+void press_enter()
+{
+	ALLEGRO_COLOR black = al_map_rgb(0, 0, 0);
+	ALLEGRO_COLOR white = al_map_rgb(255,255,255);
+	al_clear_to_color(black);
+	ALLEGRO_FONT* font = al_load_ttf_font("arial.ttf", 25, NULL);
+	text txt = "wcisninj enter aby kontynuwac";
+	float width = al_get_text_width(font, txt);
+	float height = al_get_font_line_height(font);
+	al_draw_text(font, white, SCREEN_W / 2 - width / 2, SCREEN_H / 2 + height, 0, txt);
+	al_flip_display();
+	wait_enter();
+	
+
+
+
+	al_destroy_font(font);
+}
 
 
 
@@ -191,7 +282,7 @@ get_user_value(text messsege)
 				input[N + 1] = '\0';
 			}
 
-			if (ev.keyboard.keycode + 11 >= '0' && ev.keyboard.keycode + 11 <= '9' && N<=6)
+			if (ev.keyboard.keycode + 11 >= '0' && ev.keyboard.keycode + 11 <= '9' && N<=7)
 			{
 				c = ev.keyboard.keycode + 11;
 
@@ -257,24 +348,28 @@ void observation_ui()
 	text messege = "na ilu lemntach chia³byœ przetesotwac sortowanie";
 	int N = get_user_value(messege);
 	int* array = calloc(N, sizeof(int));
-	text choices[] = { "wolisz przetesoowac na lsowej tabeli czy odworcej","losowej","odworoenj" };
-	int max = 0;
-	int ch = choice_menu(choices, 2);
+	text choices[] = { "na jakiej tabeli chesz osberowac","losowej","odworoenj","pomiesznej"};
+	int max = N;
+	int ch = choice_menu(choices, 3);
+	int min = 0;
 	if (ch == 0)
 	{
-		int min = 0;
+		
 		 max = get_user_value("podaj maksymlany  zakres lsowania");
 		fill_array_rand(array, N, min, max);
 	}
 	else
 	{
 		fill_array_reverse(array, N);
-	 max = N;
+		if (ch == 2)
+		{
+			shuffle_arry(array, N);
+		}
 	}
 
-	al_rest(0.01);
+	al_rest(0.1);
 
-	print_array(array, N);
+	//print_array(array, N);
 	text choices2[] = {"wolisz prztestowac na krok po kroku czy czy cala operacje", "krok po korku", "cale"};
 	ch= choice_menu(choices2, 2);
 	al_rest(0.1);
@@ -285,11 +380,13 @@ void observation_ui()
 		 
 		 if (ch1 == 0)
 		{
-
+			 press_enter();
+			 shell_sort_draw_step(array, N, max);
 		}
 		else
 		{
-
+			 press_enter();
+			 insert_sort_draw_step(array, N, max);
 		}
 	}
 	else
@@ -314,15 +411,249 @@ void observation_ui()
 }
 
 
+
+void cmp_ui()
+{
+	ALLEGRO_COLOR white = al_map_rgb(255, 255, 255);
+	ALLEGRO_COLOR black = al_map_rgb(0, 0, 0);
+	ALLEGRO_FONT* font = al_load_ttf_font("arial.ttf", 25, NULL);
+	int def = get_user_value("podaj co ile mentow cheszcz zbierac dane");
+	int max_el = get_user_value("jakka jest maksymlana ilosc elemtow");
+	while (max_el < def){
+		max_el = get_user_value("jakka jest maksymlana ilosc elemtow");
+}
+
+
+	text choices[] = { "na jakiej tabeli chesz osberowac","losowej","odworoenj","pomiesznej" };
+	int ch_array = choice_menu(choices, 3);
+	int min = 0;
+	int max = 0;
+	al_rest(0.1);
+	if (ch_array == 0)
+	{
+
+		max = get_user_value("podaj maksymlany  zakres lsowania");
+	}
+	text choices2[] = { "sortowac wzgledem czasu wykonia czy ilosci operacji","czas","opracje" };
+	int ch_data = choice_menu(choices2, 2);
+
+
+	al_clear_to_color(black);
+	text txt = "prosze czekac genrueje dane";
+	float width = al_get_text_width(font, txt);
+	float height = al_get_font_line_height(font);
+	al_draw_text(font, white, SCREEN_W / 2 - width / 2,  height+20, 0, txt);
+	
+	
+	strcpy_s(txt,150, "elemnety w tabeli");
+	 width = al_get_text_width(font, txt);
+	 height = al_get_font_line_height(font);
+	al_draw_text(font, white, SCREEN_W / 2 - width / 2, height + 20+height*2, 0, txt);
+	float width_cube=(SCREEN_W)/((int)(max_el / def));
+	for (float i = 0; i < SCREEN_W; i += width_cube)
+	{
+		al_draw_rectangle(i, height + 20 + height * 3, i + width_cube, height + 20 + height * 4,white,2);
+
+	}
+
+
+	strcpy_s(txt, 150, "shell sort");
+	width = al_get_text_width(font, txt);
+	height = al_get_font_line_height(font);
+	al_draw_text(font, white, SCREEN_W / 2 - width / 2, height + 20 + height * 9, 0, txt);
+	for (float i = 0; i < SCREEN_W; i += width_cube)
+	{
+		al_draw_rectangle(i, height + 20 + height * 10, i + width_cube, height + 20 + height * 11, white, 2);
+
+	}
+
+	strcpy_s(txt, 150, "insert sort");
+	width = al_get_text_width(font, txt);
+	height = al_get_font_line_height(font);
+	al_draw_text(font, white, SCREEN_W / 2 - width / 2, height + 20 + height * 5, 0, txt);
+	for (float i = 0; i < SCREEN_W; i += width_cube)
+	{
+		al_draw_rectangle(i, height + 20 + height * 6, i + width_cube, height + 20 + height * 7, white, 2);
+
+	}
+	FILE* file;
+	fopen_s(&file, "results.txt", "w");
+	fprintf(file, "ilosc; czas insert; czas shell\n");
+	int counter = 0;
+	float time_insert = 0;
+	float time_shell= 0;
+	int dif = max_el / def;
+	int j = 0;
+	if(ch_data==0)
+	for (int i = def; i <= max_el; i += def)
+	{
+		int* array = (int*)calloc(i, sizeof(int));
+		
+
+
+		if (ch_array == 0)
+		{
+			fill_array_rand(array, i, min, max);
+		}
+		else
+		{
+			fill_array_reverse(array, i);
+			if (ch_array == 2)
+			{
+				shuffle_arry(array, i);
+			}
+		}
+
+
+		sprintf_s(txt, 150, "%d", i);
+		width = al_get_text_width(font, txt);
+		height = al_get_font_line_height(font);
+		al_draw_text(font, white, width_cube / 2 + (j * width_cube) - width / 2, height + 20 + height * 3, 0, txt);
+
+
+
+		time_shell = calc_time(array, i, shell_sort);
+		sprintf_s(txt, 150, "%.2f", time_shell);
+		width = al_get_text_width(font, txt);
+		height = al_get_font_line_height(font);
+		al_draw_text(font, white, width_cube / 2 + (j * width_cube) - width / 2, height + 20 + height * 10, 0, txt);
+		al_flip_display();
+
+
+
+
+
+		time_insert = calc_time(array, i, insert_sort);
+		sprintf_s(txt, 150, "%.2f", time_insert);
+		width = al_get_text_width(font, txt);
+		height = al_get_font_line_height(font);
+		al_draw_text(font, white, width_cube / 2 + (j * width_cube) - width / 2, height + 20 + height * 6, 0, txt);
+		al_flip_display();
+
+
+
+
+		fprintf(file, "%d;%.3f;%.3f\n", i, time_insert, time_shell);
+
+	
+
+		j++;
+		free(array);
+	}
+	else
+	{
+		for (int i = def; i <= max_el; i += def)
+		{
+			int* array = (int*)calloc(i, sizeof(int));
+
+
+
+			if (ch_array == 0)
+			{
+				fill_array_rand(array, i, min, max);
+			}
+			else
+			{
+				fill_array_reverse(array, i);
+				if (ch_array == 2)
+				{
+					shuffle_arry(array, i);
+				}
+			}
+
+
+			sprintf_s(txt, 150, "%d", i);
+			width = al_get_text_width(font, txt);
+			height = al_get_font_line_height(font);
+			al_draw_text(font, white, width_cube / 2 + (j * width_cube) - width / 2, height + 20 + height * 3, 0, txt);
+
+
+
+			time_shell = calc_proces(array, i, shell_sort_calc);
+			sprintf_s(txt, 150, "%.0f", time_shell);
+			width = al_get_text_width(font, txt);
+			height = al_get_font_line_height(font);
+			al_draw_text(font, white, width_cube / 2 + (j * width_cube) - width / 2, height + 20 + height * 10, 0, txt);
+			al_flip_display();
+
+
+
+
+
+			time_insert = calc_proces(array, i, insert_sort_calc);
+			sprintf_s(txt, 150, "%.0f", time_insert);
+			width = al_get_text_width(font, txt);
+			height = al_get_font_line_height(font);
+			al_draw_text(font, white, width_cube / 2 + (j * width_cube) - width / 2, height + 20 + height * 6, 0, txt);
+			al_flip_display();
+
+
+
+
+			fprintf(file, "%d;%.0f;%.0f\n", i, time_insert, time_shell);
+
+
+
+			j++;
+			free(array);
+		}
+
+	}
+
+
+
+
+	strcpy_s(txt, 150, "wniki zpaisane w pliku results.txt");
+	width = al_get_text_width(font, txt);
+	height = al_get_font_line_height(font);
+	al_draw_text(font, white, SCREEN_W / 2 - width / 2, height + 20 + height * 22, 0, txt);
+	
+	
+	
+
+
+
+
+
+
+
+
+
+	fclose(file);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	al_flip_display();
+
+
+	
+
+
+
+
+
+	wait_enter();
+	al_destroy_font(font);
+
+}
+
 void decision_ui()
 {
 
 
 		text choice[] = { "co chialbys zrobic", "porwonac prekosc dzialania algorytmow", "zaobserowac dzialanie algorytmow" };
-		
+		al_rest(0.2);
 		int ch = choice_menu(choice, 2);
 		if (ch == 1)
-		observation_ui();
+			observation_ui();
+		else
+			cmp_ui();
 
 
 	
@@ -370,8 +701,8 @@ void start_gui()
 
 	 start_ui();
 	//observation_ui();
-
-
+	//text a[] = { "123","aaaaaaaaa","bbbbbbbbbb","cccccccccccc","ddddddddddd","eeeeeeeeeeeeeeeeeee","eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" };
+	//choice_menu(a, 2);
 
 
 

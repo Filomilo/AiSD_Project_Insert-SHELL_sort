@@ -10,9 +10,36 @@ float calc_time(int* array, int N, void (*sort)(int*, int))
 	duplicate_array(array, new, N);
 	sort(new, N);
 	time_t stop = clock(NULL);
+
 	free(new);
+
+
+
+
 	return (double)(stop-start)/CLOCKS_PER_SEC;
 }
+
+
+
+
+
+float calc_proces(int* array, int N, int (*sort)(int*, int))
+{
+	int a=0;
+	int* new = calloc(N, sizeof(int));
+	duplicate_array(array, new, N);
+	a=sort(new, N);
+
+	free(new);
+
+
+
+
+	return a;
+}
+
+
+
 
 
 
