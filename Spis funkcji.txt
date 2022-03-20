@@ -182,3 +182,47 @@ Filip Borowiec 19.03.2022
 funkcja start_gui w pliku gui.c
 
 funkcaj odpawaida za start pracy z intefejsme graficznym
+
+Filip Borowiec 19.03.2022
+funkcja swap w pliku array_handle.c
+
+funckja zmainia dwa elenty int;
+
+
+Filip Borowiec 19.03.2022
+funkcja swap w pliku array_handle.c
+
+funckja zmainia dwa elenty int;
+
+Filip Borowiec 19.03.2022
+funkcja swap w pliku calc_procese.c
+
+funckja dziala jak calc time z tym że wraca ilosc operacji i przyjmuje funkce sortując z koncowka _calc
+
+
+Filip Borowiec 19.03.2022
+funkcja wait_enter w pliku gui.c
+
+funckje przyrywa wykonyanie porcesow do momentu wcisniecia enter
+
+
+Filip Borowiec 19.03.2022
+funkcja press_enter() w pliku gui.c
+
+funcjka wysiwtla komunikat wcisnij enter aby kontwuac
+
+ cmp_ui
+
+Filip Borowiec 19.03.2022
+funkcja cmp_ui w pliku gui.c
+
+funkcja odpowadajca za emnu porywnwyania czasu sortowania 
+
+
+Filip Borowiec 19.03.2022
+funkcja insert_sort_draw_step &  shell_sort_draw_step w pliku sort_algorithms.c
+
+funckja dziala jak insert_sort_draw i shell_sort_draw z tym że zatrzymuje sie i oczekiuje enter po kazdje opracji
+
+
+
