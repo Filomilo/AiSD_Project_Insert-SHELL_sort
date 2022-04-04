@@ -6,10 +6,30 @@
 #include <string.h>
 #include <stdio.h>
 #include <math.h>
+#include <stdlib.h>
+
+
+struct timers_struct
+{
+	int amount;
+	float insert_time;
+		float shell_time;
+};
+typedef struct timers_struct timers;
+
+
+
+
 
 #define M_PI 3.14159265359
 #define SCREEN_H 720
 #define SCREEN_W 1280
+
+
+
+
+#define UPPER_COMENT_H 40
+#define ARRAT_ELEMENT_WIDTH 1200/3
 
 
 typedef char text[250];
@@ -210,13 +230,6 @@ void press_enter()
 
 
 
-
-
-
-
-
-
-
 void draw_array(int array[], int N, int max, int r,int g,int b)
 {
 	float size_h =   SCREEN_H/(float)max;
@@ -412,11 +425,223 @@ void observation_ui()
 
 
 
-void cmp_ui()
+
+ALLEGRO_BITMAP* generate_bitmap(int amount_of_elements, timers data[])
 {
+	ALLEGRO_BITMAP* bitmap = al_create_bitmap(ARRAT_ELEMENT_WIDTH * 3, amount_of_elements * UPPER_COMENT_H);
+	al_set_target_bitmap(bitmap);
+	al_clear_to_color(al_map_rgb(255, 255, 255));
+	//al_draw_filled_rectangle(0, 0, 500, 500, al_map_rgb(255, 0, 0));
 	ALLEGRO_COLOR white = al_map_rgb(255, 255, 255);
 	ALLEGRO_COLOR black = al_map_rgb(0, 0, 0);
 	ALLEGRO_FONT* font = al_load_ttf_font("arial.ttf", 25, NULL);
+	text txt = "";
+	int txtH = al_get_font_line_height(font);
+	int txtW = 0;
+	for (int i = 0; i < amount_of_elements; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			al_draw_filled_rectangle(ARRAT_ELEMENT_WIDTH * j + 1, UPPER_COMENT_H * i, ARRAT_ELEMENT_WIDTH + ARRAT_ELEMENT_WIDTH * j, UPPER_COMENT_H + UPPER_COMENT_H * i, al_map_rgb(50, 128 * i + 50, 128 * i));
+
+			switch (j)
+			{
+
+			case 0: sprintf_s(txt, 200, "%d", data[i].amount); break;
+			case 1: sprintf_s(txt, 200, "%.3f", data[i].insert_time); if (data[i].insert_time < 0) strncpy_s(txt,200, "", 200); break;
+			case 2: sprintf_s(txt, 200, "%.3f", data[i].shell_time);  if (data[i].shell_time < 0) strncpy_s(txt, 200, "", 200); break;
+			}
+			txtW = al_get_text_width(font, txt);
+			al_draw_text(font, white, ARRAT_ELEMENT_WIDTH/2 - txtW / 2 + ARRAT_ELEMENT_WIDTH * j, UPPER_COMENT_H * i + txtH / 4, 0, txt);
+
+
+
+		}
+	}
+
+
+		return bitmap;
+	}
+
+
+
+
+void generate_results(ALLEGRO_DISPLAY* display,int def, int max_el, int ch_array, int max)
+{
+	ALLEGRO_COLOR white = al_map_rgb(255, 255, 255);
+	ALLEGRO_COLOR black = al_map_rgb(0, 0, 0);
+	ALLEGRO_COLOR green = al_map_rgb(10, 240, 10);
+	ALLEGRO_FONT* font = al_load_ttf_font("arial.ttf", 25, NULL);
+
+	al_draw_rectangle(0, 0, SCREEN_W, UPPER_COMENT_H, white, 2);
+
+	text messege = "prosze czekac genruje wyniki";
+	int txt_h = al_get_font_line_height(font);
+	int txt_w = al_get_text_width(font, messege);
+	al_draw_text(font, white, SCREEN_W / 2- txt_w/2, UPPER_COMENT_H / 2- txt_h/2, 0, messege);
+	
+
+
+	for (int i = 0; i < 3; i++)
+	{
+		switch (i)
+		{
+		case 0: strncpy_s(messege, 250, "liczna elementow", 250); txt_w = al_get_text_width(font, messege); break;
+		case 1: strncpy_s(messege, 250, "Insert_Sort", 250); txt_w = al_get_text_width(font, messege); break;
+		case 2: strncpy_s(messege, 250, "Shell_Sort", 250); txt_w = al_get_text_width(font, messege); break;
+		}
+		al_draw_text(font, white, SCREEN_W / 2 - ((3 * ARRAT_ELEMENT_WIDTH) / 2) + ARRAT_ELEMENT_WIDTH * i, UPPER_COMENT_H, 0, messege);
+		al_draw_rectangle(SCREEN_W / 2 - ((3 * ARRAT_ELEMENT_WIDTH)/2) + ARRAT_ELEMENT_WIDTH * i, UPPER_COMENT_H, SCREEN_W / 2 - ((3 * ARRAT_ELEMENT_WIDTH) / 2) + ARRAT_ELEMENT_WIDTH * (i+1), UPPER_COMENT_H * 2, al_map_rgb(100*i+100,100+200*i,100+300*i), 2);
+	}
+
+
+
+	int amount_of_elements = max_el / def;
+
+	
+	timers* data = calloc(amount_of_elements, sizeof(timers));
+	for (int i = 0; i < amount_of_elements; i++)
+	{
+		data[i].amount = def * (i + 1);
+		data[i].insert_time = -1;
+		data[i].shell_time = -1;
+	}
+
+
+
+
+
+
+	ALLEGRO_BITMAP* bitmap = generate_bitmap(amount_of_elements,data);
+	al_set_target_backbuffer(display);
+
+
+
+	ALLEGRO_MOUSE_STATE mouse;
+	float scroll = 0;
+	int min = 0;
+
+	FILE* file;
+	fopen_s(&file, "results.txt", "w");
+
+	for (int i = 0; i < amount_of_elements; i++)
+	{
+		int* array = (int*)calloc((i + 1) * def, sizeof(int));
+
+
+
+		if (ch_array == 0)
+		{
+			fill_array_rand(array, (i + 1) * def, min, max);
+		}
+		else
+		{
+			fill_array_reverse(array, (i + 1) * def);
+			if (ch_array == 2)
+			{
+				shuffle_arry(array, (i + 1) * def);
+			}
+		}
+
+
+
+
+
+
+
+		data[i].shell_time = calc_time(array, (i + 1) * def, shell_sort);
+		data[i].insert_time = calc_time(array, (i + 1) * def, insert_sort);
+		bitmap = generate_bitmap(amount_of_elements, data);
+		al_set_target_backbuffer(display);
+		al_draw_bitmap_region(bitmap, 0, i > 16 ? UPPER_COMENT_H * (i - 16) : 0, al_get_bitmap_width(bitmap), al_get_bitmap_height(bitmap), SCREEN_W / 2 - ((3 * ARRAT_ELEMENT_WIDTH) / 2) + ARRAT_ELEMENT_WIDTH * 0, UPPER_COMENT_H * 2, 0, 0);
+
+		al_flip_display();
+
+
+
+
+
+		fprintf(file, "%d;%.3f;%.3f\n", (i + 1) * def, data[i].insert_time, data[i].shell_time);
+
+
+
+		free(array);
+	}
+
+	fclose(file);
+
+
+
+
+
+
+
+
+	al_draw_filled_rectangle(0, 0, SCREEN_W, UPPER_COMENT_H, green );
+	strcpy_s( messege,200, "wyniki zpisane w pliku resuluts.txt, wcisnij enter aby kontynuwawac",200);
+	txt_w = al_get_text_width(font, messege);
+	al_draw_text(font, white, SCREEN_W / 2 - txt_w / 2, UPPER_COMENT_H / 2 - txt_h / 2, 0, messege);
+
+
+
+
+
+		ALLEGRO_KEYBOARD_STATE key;
+
+
+		al_set_target_backbuffer(display);
+		int is_done = 1;
+
+		do
+	{
+			al_get_mouse_state(& mouse);
+		al_get_keyboard_state(&key);
+		if (al_key_down(&key, ALLEGRO_KEY_ENTER))
+			is_done=0;
+		
+		
+		
+
+		if (mouse.z > 0)
+		{
+			al_set_mouse_z(0);
+		}
+		if (-mouse.z > (al_get_bitmap_height(bitmap) - (SCREEN_H - 2 * UPPER_COMENT_H))/10)
+		{
+			al_set_mouse_z(-((al_get_bitmap_height(bitmap) - (SCREEN_H - 2 * UPPER_COMENT_H)) / 10));
+		}
+
+		scroll = -1* mouse.z/ ((float)al_get_bitmap_height(bitmap)- (SCREEN_H - 2 * UPPER_COMENT_H));
+		
+		if (al_get_bitmap_height(bitmap) < SCREEN_H - 2 * UPPER_COMENT_H)
+			scroll = 0;
+		
+		scroll *= 10;
+			
+		
+		al_draw_bitmap_region(bitmap, 0, ((float)al_get_bitmap_height(bitmap) - (SCREEN_H - 2 * UPPER_COMENT_H)) * scroll, al_get_bitmap_width(bitmap), al_get_bitmap_height(bitmap), SCREEN_W / 2 - ((3 * ARRAT_ELEMENT_WIDTH) / 2) + ARRAT_ELEMENT_WIDTH * 0, UPPER_COMENT_H * 2, 0, 0);
+
+		
+	
+	
+	
+	
+	
+	
+	
+		al_flip_display();
+	
+	} while (is_done);
+	al_destroy_bitmap(bitmap);
+
+
+	al_destroy_font(font);
+}
+
+
+void cmp_ui(ALLEGRO_DISPLAY* display)
+{
+	
 	int def = get_user_value("podaj co ile mentow cheszcz zbierac dane");
 	int max_el = get_user_value("jakka jest maksymlana ilosc elemtow");
 	while (max_el < def){
@@ -426,7 +651,6 @@ void cmp_ui()
 
 	text choices[] = { "na jakiej tabeli chesz osberowac","losowej","odworoenj","pomiesznej" };
 	int ch_array = choice_menu(choices, 3);
-	int min = 0;
 	int max = 0;
 	al_rest(0.1);
 	if (ch_array == 0)
@@ -434,216 +658,17 @@ void cmp_ui()
 
 		max = get_user_value("podaj maksymlany  zakres lsowania");
 	}
-	text choices2[] = { "sortowac wzgledem czasu wykonia czy ilosci operacji","czas","opracje" };
-	int ch_data = choice_menu(choices2, 2);
-
-
-	al_clear_to_color(black);
-	text txt = "prosze czekac genrueje dane";
-	float width = al_get_text_width(font, txt);
-	float height = al_get_font_line_height(font);
-	al_draw_text(font, white, SCREEN_W / 2 - width / 2,  height+20, 0, txt);
 	
 	
-	strcpy_s(txt,150, "elemnety w tabeli");
-	 width = al_get_text_width(font, txt);
-	 height = al_get_font_line_height(font);
-	al_draw_text(font, white, SCREEN_W / 2 - width / 2, height + 20+height*2, 0, txt);
-	float width_cube=(SCREEN_W)/((int)(max_el / def));
-	for (float i = 0; i < SCREEN_W; i += width_cube)
-	{
-		al_draw_rectangle(i, height + 20 + height * 3, i + width_cube, height + 20 + height * 4,white,2);
-
-	}
-
-
-	strcpy_s(txt, 150, "shell sort");
-	width = al_get_text_width(font, txt);
-	height = al_get_font_line_height(font);
-	al_draw_text(font, white, SCREEN_W / 2 - width / 2, height + 20 + height * 9, 0, txt);
-	for (float i = 0; i < SCREEN_W; i += width_cube)
-	{
-		al_draw_rectangle(i, height + 20 + height * 10, i + width_cube, height + 20 + height * 11, white, 2);
-
-	}
-
-	strcpy_s(txt, 150, "insert sort");
-	width = al_get_text_width(font, txt);
-	height = al_get_font_line_height(font);
-	al_draw_text(font, white, SCREEN_W / 2 - width / 2, height + 20 + height * 5, 0, txt);
-	for (float i = 0; i < SCREEN_W; i += width_cube)
-	{
-		al_draw_rectangle(i, height + 20 + height * 6, i + width_cube, height + 20 + height * 7, white, 2);
-
-	}
-	FILE* file;
-	fopen_s(&file, "results.txt", "w");
-	fprintf(file, "ilosc; czas insert; czas shell\n");
-	int counter = 0;
-	float time_insert = 0;
-	float time_shell= 0;
-	int dif = max_el / def;
-	int j = 0;
-	if(ch_data==0)
-	for (int i = def; i <= max_el; i += def)
-	{
-		int* array = (int*)calloc(i, sizeof(int));
-		
-
-
-		if (ch_array == 0)
-		{
-			fill_array_rand(array, i, min, max);
-		}
-		else
-		{
-			fill_array_reverse(array, i);
-			if (ch_array == 2)
-			{
-				shuffle_arry(array, i);
-			}
-		}
-
-
-		sprintf_s(txt, 150, "%d", i);
-		width = al_get_text_width(font, txt);
-		height = al_get_font_line_height(font);
-		al_draw_text(font, white, width_cube / 2 + (j * width_cube) - width / 2, height + 20 + height * 3, 0, txt);
-
-
-
-		time_shell = calc_time(array, i, shell_sort);
-		sprintf_s(txt, 150, "%.2f", time_shell);
-		width = al_get_text_width(font, txt);
-		height = al_get_font_line_height(font);
-		al_draw_text(font, white, width_cube / 2 + (j * width_cube) - width / 2, height + 20 + height * 10, 0, txt);
-		al_flip_display();
-
-
-
-
-
-		time_insert = calc_time(array, i, insert_sort);
-		sprintf_s(txt, 150, "%.2f", time_insert);
-		width = al_get_text_width(font, txt);
-		height = al_get_font_line_height(font);
-		al_draw_text(font, white, width_cube / 2 + (j * width_cube) - width / 2, height + 20 + height * 6, 0, txt);
-		al_flip_display();
-
-
-
-
-		fprintf(file, "%d;%.3f;%.3f\n", i, time_insert, time_shell);
-
-	
-
-		j++;
-		free(array);
-	}
-	else
-	{
-		for (int i = def; i <= max_el; i += def)
-		{
-			int* array = (int*)calloc(i, sizeof(int));
-
-
-
-			if (ch_array == 0)
-			{
-				fill_array_rand(array, i, min, max);
-			}
-			else
-			{
-				fill_array_reverse(array, i);
-				if (ch_array == 2)
-				{
-					shuffle_arry(array, i);
-				}
-			}
-
-
-			sprintf_s(txt, 150, "%d", i);
-			width = al_get_text_width(font, txt);
-			height = al_get_font_line_height(font);
-			al_draw_text(font, white, width_cube / 2 + (j * width_cube) - width / 2, height + 20 + height * 3, 0, txt);
-
-
-
-			time_shell = calc_proces(array, i, shell_sort_calc);
-			sprintf_s(txt, 150, "%.0f", time_shell);
-			width = al_get_text_width(font, txt);
-			height = al_get_font_line_height(font);
-			al_draw_text(font, white, width_cube / 2 + (j * width_cube) - width / 2, height + 20 + height * 10, 0, txt);
-			al_flip_display();
-
-
-
-
-
-			time_insert = calc_proces(array, i, insert_sort_calc);
-			sprintf_s(txt, 150, "%.0f", time_insert);
-			width = al_get_text_width(font, txt);
-			height = al_get_font_line_height(font);
-			al_draw_text(font, white, width_cube / 2 + (j * width_cube) - width / 2, height + 20 + height * 6, 0, txt);
-			al_flip_display();
-
-
-
-
-			fprintf(file, "%d;%.0f;%.0f\n", i, time_insert, time_shell);
-
-
-
-			j++;
-			free(array);
-		}
-
-	}
-
-
-
-
-	strcpy_s(txt, 150, "wniki zpaisane w pliku results.txt");
-	width = al_get_text_width(font, txt);
-	height = al_get_font_line_height(font);
-	al_draw_text(font, white, SCREEN_W / 2 - width / 2, height + 20 + height * 22, 0, txt);
-	
-	
-	
-
-
-
-
-
-
-
-
-
-	fclose(file);
+	generate_results(display,def,max_el, ch_array,max);
 	
 	
 	
 	
-	
-	
-	
-	
-	
-	al_flip_display();
-
-
-	
-
-
-
-
-
-	wait_enter();
-	al_destroy_font(font);
 
 }
 
-void decision_ui()
+void decision_ui(ALLEGRO_DISPLAY* display)
 {
 
 
@@ -653,7 +678,7 @@ void decision_ui()
 		if (ch == 1)
 			observation_ui();
 		else
-			cmp_ui();
+			cmp_ui(display);
 
 
 	
@@ -663,7 +688,7 @@ void decision_ui()
 
 
 
-void start_ui()
+void start_ui(ALLEGRO_DISPLAY* display)
 {
 	while (1)
 	{
@@ -673,7 +698,7 @@ void start_ui()
 		if (ch == 1)
 			return 0;
 		else
-			decision_ui();
+			decision_ui(display);
 
 
 
@@ -698,8 +723,9 @@ void start_gui()
 	al_install_keyboard();
 	al_install_mouse();
 	display = al_create_display(SCREEN_W, SCREEN_H);
-
-	 start_ui();
+	//generate_results(display,2000, 10000, 1, 50);
+	//cmp_ui();
+	 start_ui(display);
 	//observation_ui();
 	//text a[] = { "123","aaaaaaaaa","bbbbbbbbbb","cccccccccccc","ddddddddddd","eeeeeeeeeeeeeeeeeee","eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" };
 	//choice_menu(a, 2);

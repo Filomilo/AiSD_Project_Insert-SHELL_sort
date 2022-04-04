@@ -58,22 +58,16 @@ int insert_sort_calc(int* array, int N)
 	int active;
 	for (int i = 1; i < N; i++)
 	{
-		proces++;
 		active = array[i];
-		proces++;
 		int j = i - 1;
-		proces++;
 		while (j >= 0 && array[j] > active)
 		{
 			proces++;
 			proces++;
 			array[j + 1] = array[j];
-			proces++;
 			j--;
-			proces++;
 		}
 		array[j + 1] = active;
-		proces++;
 		//printf("\n");
 		//print_array(array, N);
 		proces++;
@@ -93,11 +87,8 @@ int shell_sort_calc(int* array, int N)
 		//printf("\ngap: %d\n", gap);
 		for (int i = gap; i < N; i++)
 		{
-			proces++;
 			active = array[i];
-			proces++;
 			int j = i - gap;
-			proces++;
 			while (j >= 0 && array[j] > active)
 			{
 				array[j + gap] = array[j];
@@ -107,7 +98,6 @@ int shell_sort_calc(int* array, int N)
 				proces++;
 			}
 			array[j + gap] = active;
-			proces++;
 			//printf("\n");
 			//print_array(array, N);
 
