@@ -1,0 +1,60 @@
+\hypertarget{data__gather_8c}{}\doxysection{D\+:/gogle drive/studia/\+Semestr 2/\+Algorytmy i struktury danych/\+Projekt -\/ Algorytmy i struktury danych/new/\+Ai\+SD\+\_\+\+Project\+\_\+\+Insert-\/\+SHELL\+\_\+sort/\+Ai\+SD\+\_\+\+Project/\+Ai\+SD\+\_\+\+Project/data\+\_\+gather.c File Reference}
+\label{data__gather_8c}\index{D:/gogle drive/studia/Semestr  2/Algorytmy i struktury danych/Projekt -\/ Algorytmy i struktury danych/new/AiSD\_Project\_Insert-\/SHELL\_sort/AiSD\_Project/AiSD\_Project/data\_gather.c@{D:/gogle drive/studia/Semestr  2/Algorytmy i struktury danych/Projekt -\/ Algorytmy i struktury danych/new/AiSD\_Project\_Insert-\/SHELL\_sort/AiSD\_Project/AiSD\_Project/data\_gather.c}}
+
+
+funckje od zbierania danych odnośnie osrtowania  
+
+
+{\ttfamily \#include \char`\"{}sort\+\_\+project.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{data__gather_8c_a6439d811618499371b11c04a0d8dc499}{calc\+\_\+time}} (int $\ast$array, int N, void($\ast$sort)(int $\ast$, int))
+\begin{DoxyCompactList}\small\item\em funckja licząca czas potrzebny na posortwoanie tabeli \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+funckje od zbierania danych odnośnie osrtowania 
+
+\begin{DoxyAuthor}{Author}
+Tomasz Bogdan, Maciej Cedzyński, Filip Borowiec 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2022-\/04-\/05
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2022 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{data__gather_8c_a6439d811618499371b11c04a0d8dc499}\label{data__gather_8c_a6439d811618499371b11c04a0d8dc499}} 
+\index{data\_gather.c@{data\_gather.c}!calc\_time@{calc\_time}}
+\index{calc\_time@{calc\_time}!data\_gather.c@{data\_gather.c}}
+\doxysubsubsection{\texorpdfstring{calc\_time()}{calc\_time()}}
+{\footnotesize\ttfamily float calc\+\_\+time (\begin{DoxyParamCaption}\item[{int $\ast$}]{array,  }\item[{int}]{N,  }\item[{void($\ast$)(int $\ast$, int)}]{sort }\end{DoxyParamCaption})}
+
+
+
+funckja licząca czas potrzebny na posortwoanie tabeli 
+
+funckja ta przyjmuje wskaźńik na tablice o raz jej wielkośc a także wskaźnik na funckje sortująca której czes ma być obliczony funckja ta najpierw duplikuje table a nastęnie zapiuje stan zsgera procesora, następnie sortuje taablele i zapiusuje stan zegera po sortowaniu na stępnie dzieli różnice tych wartości prez CLOCKS\+\_\+\+PER\+\_\+\+SEC otrzymujac w ten sposoć ilość sekund potrzebnych na posortowanie
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & -\/ wskaźnik na tabele do posortownia \\
+\hline
+{\em N} & -\/ ilość elemntó tabeli \\
+\hline
+{\em sort} & -\/ wskaźnik na funkce sortująca \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float -\/ zwraca wartosć typu float okreslając czas potrzsbyn na sortowanie 
+\end{DoxyReturn}

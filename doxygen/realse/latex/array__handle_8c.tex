@@ -1,0 +1,243 @@
+\hypertarget{array__handle_8c}{}\doxysection{D\+:/gogle drive/studia/\+Semestr 2/\+Algorytmy i struktury danych/\+Projekt -\/ Algorytmy i struktury danych/new/\+Ai\+SD\+\_\+\+Project\+\_\+\+Insert-\/\+SHELL\+\_\+sort/\+Ai\+SD\+\_\+\+Project/\+Ai\+SD\+\_\+\+Project/array\+\_\+handle.c File Reference}
+\label{array__handle_8c}\index{D:/gogle drive/studia/Semestr  2/Algorytmy i struktury danych/Projekt -\/ Algorytmy i struktury danych/new/AiSD\_Project\_Insert-\/SHELL\_sort/AiSD\_Project/AiSD\_Project/array\_handle.c@{D:/gogle drive/studia/Semestr  2/Algorytmy i struktury danych/Projekt -\/ Algorytmy i struktury danych/new/AiSD\_Project\_Insert-\/SHELL\_sort/AiSD\_Project/AiSD\_Project/array\_handle.c}}
+
+
+plik ten zawiera funkcje do obsługi tabeli  
+
+
+{\ttfamily \#include \char`\"{}sort\+\_\+project.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{array__handle_8c_acfbc006ea433ad708fdee3e82996e721}{GREEN}}~\char`\"{}\textbackslash{}033\mbox{[}0;32m\char`\"{}
+\begin{DoxyCompactList}\small\item\em oznaczenie koloru zielonego do wykorzystania w printf \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{array__handle_8c_a87b537f5fa5c109d3c05c13d6b18f382}{WHITE}}~\char`\"{}\textbackslash{}033\mbox{[}0;37m\char`\"{}
+\begin{DoxyCompactList}\small\item\em oznaczenie koloru białego do wykorzystania w printf \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{array__handle_8c_abf681265909adf3d3e8116c93c0ba179}{YELLOW}}~\char`\"{}\textbackslash{}033\mbox{[}0;33m\char`\"{}
+\begin{DoxyCompactList}\small\item\em oznaczenie koloru żółtego do wykorzystania w printf \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{array__handle_8c_a08736efb038e9fcd89cf4debaf25c5a5}{print\+\_\+array}} (int $\ast$array, int N)
+\begin{DoxyCompactList}\small\item\em funkcja ta wypisuje zawawrtość wszystkich elementów w tablicy \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{array__handle_8c_ab947d48dfbc98d013e43449af1137b99}{print\+\_\+array\+\_\+a}} (int $\ast$array, int N, int g, int g1, int y, int y2)
+\begin{DoxyCompactList}\small\item\em funckja wypsiująca zawartośc ale z możłiwoścą wyboru 2 elemtów które mają się wyświetlić na zielono o raz dwóch ~\newline
+ elemtów które mają się wyświetlić na żółto \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{array__handle_8c_a02a84e31996398d188e2e1c6c47796a2}{fill\+\_\+array\+\_\+rand}} (int $\ast$array, int N, int min, int max)
+\begin{DoxyCompactList}\small\item\em funckcja wypełnia table losowymi wartościami z podanego zakresu \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{array__handle_8c_a2c969939a549cc4a3dc0500f2c89fe67}{fill\+\_\+array\+\_\+reverse}} (int $\ast$array, int N)
+\begin{DoxyCompactList}\small\item\em funckja wypełnijąca tablice wartościami od 1 do wielkości tablicy ale w kolejności odwrotnej \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{array__handle_8c_a9d83e0979dbefd17ee96fd97832a87e6}{duplicate\+\_\+array}} (int $\ast$array, int $\ast$array\+\_\+to\+\_\+copy, int N)
+\begin{DoxyCompactList}\small\item\em funckja duplikująca zawartosć tablicy do drugiej tablicy \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{array__handle_8c_ac72e98e7363d5751706884c967c4a534}{save\+\_\+array}} (char name\mbox{[}50\mbox{]}, int array\mbox{[}$\,$\mbox{]}, int N)
+\item 
+void \mbox{\hyperlink{array__handle_8c_a4b9708d87be7a409eff20e5e7e8b43c8}{swap}} (int $\ast$a, int $\ast$b)
+\begin{DoxyCompactList}\small\item\em funckja zamieniająca miedzy sobą wartości dwóch zmiennych \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{array__handle_8c_ab6fa64f9dbbc4adff44768fbb155e1c0}{shuffle\+\_\+arry}} (int $\ast$array, int N)
+\begin{DoxyCompactList}\small\item\em funcka przetasuwjąca wszystkie elemnty tablicy \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+plik ten zawiera funkcje do obsługi tabeli 
+
+\begin{DoxyAuthor}{Author}
+Tomasz Bogdan, Maciej Cedzyński, Filip Borowiec 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2022-\/04-\/05
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2022 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{array__handle_8c_acfbc006ea433ad708fdee3e82996e721}\label{array__handle_8c_acfbc006ea433ad708fdee3e82996e721}} 
+\index{array\_handle.c@{array\_handle.c}!GREEN@{GREEN}}
+\index{GREEN@{GREEN}!array\_handle.c@{array\_handle.c}}
+\doxysubsubsection{\texorpdfstring{GREEN}{GREEN}}
+{\footnotesize\ttfamily \#define GREEN~\char`\"{}\textbackslash{}033\mbox{[}0;32m\char`\"{}}
+
+
+
+oznaczenie koloru zielonego do wykorzystania w printf 
+
+\mbox{\Hypertarget{array__handle_8c_a87b537f5fa5c109d3c05c13d6b18f382}\label{array__handle_8c_a87b537f5fa5c109d3c05c13d6b18f382}} 
+\index{array\_handle.c@{array\_handle.c}!WHITE@{WHITE}}
+\index{WHITE@{WHITE}!array\_handle.c@{array\_handle.c}}
+\doxysubsubsection{\texorpdfstring{WHITE}{WHITE}}
+{\footnotesize\ttfamily \#define WHITE~\char`\"{}\textbackslash{}033\mbox{[}0;37m\char`\"{}}
+
+
+
+oznaczenie koloru białego do wykorzystania w printf 
+
+\mbox{\Hypertarget{array__handle_8c_abf681265909adf3d3e8116c93c0ba179}\label{array__handle_8c_abf681265909adf3d3e8116c93c0ba179}} 
+\index{array\_handle.c@{array\_handle.c}!YELLOW@{YELLOW}}
+\index{YELLOW@{YELLOW}!array\_handle.c@{array\_handle.c}}
+\doxysubsubsection{\texorpdfstring{YELLOW}{YELLOW}}
+{\footnotesize\ttfamily \#define YELLOW~\char`\"{}\textbackslash{}033\mbox{[}0;33m\char`\"{}}
+
+
+
+oznaczenie koloru żółtego do wykorzystania w printf 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{array__handle_8c_a9d83e0979dbefd17ee96fd97832a87e6}\label{array__handle_8c_a9d83e0979dbefd17ee96fd97832a87e6}} 
+\index{array\_handle.c@{array\_handle.c}!duplicate\_array@{duplicate\_array}}
+\index{duplicate\_array@{duplicate\_array}!array\_handle.c@{array\_handle.c}}
+\doxysubsubsection{\texorpdfstring{duplicate\_array()}{duplicate\_array()}}
+{\footnotesize\ttfamily void duplicate\+\_\+array (\begin{DoxyParamCaption}\item[{int $\ast$}]{array,  }\item[{int $\ast$}]{array\+\_\+to\+\_\+copy,  }\item[{int}]{N }\end{DoxyParamCaption})}
+
+
+
+funckja duplikująca zawartosć tablicy do drugiej tablicy 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & -\/ wskaźnik na tablice zawierająća elemnrty do skopiowniania \\
+\hline
+{\em array\+\_\+to\+\_\+copy} & -\/ wskaźnik na tablice do której ma zostać skopiowna tablica \\
+\hline
+{\em N} & -\/ zmienna informujaca o wielkośći tablicy do wypełnienia \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array__handle_8c_a02a84e31996398d188e2e1c6c47796a2}\label{array__handle_8c_a02a84e31996398d188e2e1c6c47796a2}} 
+\index{array\_handle.c@{array\_handle.c}!fill\_array\_rand@{fill\_array\_rand}}
+\index{fill\_array\_rand@{fill\_array\_rand}!array\_handle.c@{array\_handle.c}}
+\doxysubsubsection{\texorpdfstring{fill\_array\_rand()}{fill\_array\_rand()}}
+{\footnotesize\ttfamily void fill\+\_\+array\+\_\+rand (\begin{DoxyParamCaption}\item[{int $\ast$}]{array,  }\item[{int}]{N,  }\item[{int}]{min,  }\item[{int}]{max }\end{DoxyParamCaption})}
+
+
+
+funckcja wypełnia table losowymi wartościami z podanego zakresu 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & -\/ wskaźnik na tablice zawierająća elemnrty do wypełninia \\
+\hline
+{\em N} & -\/ zmienna informujaca o wielkośći tablicy do wypełnienia \\
+\hline
+{\em min} & -\/ minimalny zakres losowania \\
+\hline
+{\em max} & -\/ maksymalny zakres losowania \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array__handle_8c_a2c969939a549cc4a3dc0500f2c89fe67}\label{array__handle_8c_a2c969939a549cc4a3dc0500f2c89fe67}} 
+\index{array\_handle.c@{array\_handle.c}!fill\_array\_reverse@{fill\_array\_reverse}}
+\index{fill\_array\_reverse@{fill\_array\_reverse}!array\_handle.c@{array\_handle.c}}
+\doxysubsubsection{\texorpdfstring{fill\_array\_reverse()}{fill\_array\_reverse()}}
+{\footnotesize\ttfamily void fill\+\_\+array\+\_\+reverse (\begin{DoxyParamCaption}\item[{int $\ast$}]{array,  }\item[{int}]{N }\end{DoxyParamCaption})}
+
+
+
+funckja wypełnijąca tablice wartościami od 1 do wielkości tablicy ale w kolejności odwrotnej 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & -\/ wskaźnik na tablice zawierająća elemnrty do wypełninia \\
+\hline
+{\em N} & -\/ zmienna informujaca o wielkośći tablicy do wypełnienia \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array__handle_8c_a08736efb038e9fcd89cf4debaf25c5a5}\label{array__handle_8c_a08736efb038e9fcd89cf4debaf25c5a5}} 
+\index{array\_handle.c@{array\_handle.c}!print\_array@{print\_array}}
+\index{print\_array@{print\_array}!array\_handle.c@{array\_handle.c}}
+\doxysubsubsection{\texorpdfstring{print\_array()}{print\_array()}}
+{\footnotesize\ttfamily void print\+\_\+array (\begin{DoxyParamCaption}\item[{int $\ast$}]{array,  }\item[{int}]{N }\end{DoxyParamCaption})}
+
+
+
+funkcja ta wypisuje zawawrtość wszystkich elementów w tablicy 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & -\/ wskaźnik na tablice zawierająća elemnrty do wyświeltenia \\
+\hline
+{\em N} & -\/ zmienna informujaca o wielkośći tablicy do wyświetlenia \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array__handle_8c_ab947d48dfbc98d013e43449af1137b99}\label{array__handle_8c_ab947d48dfbc98d013e43449af1137b99}} 
+\index{array\_handle.c@{array\_handle.c}!print\_array\_a@{print\_array\_a}}
+\index{print\_array\_a@{print\_array\_a}!array\_handle.c@{array\_handle.c}}
+\doxysubsubsection{\texorpdfstring{print\_array\_a()}{print\_array\_a()}}
+{\footnotesize\ttfamily void print\+\_\+array\+\_\+a (\begin{DoxyParamCaption}\item[{int $\ast$}]{array,  }\item[{int}]{N,  }\item[{int}]{g,  }\item[{int}]{g1,  }\item[{int}]{y,  }\item[{int}]{y2 }\end{DoxyParamCaption})}
+
+
+
+funckja wypsiująca zawartośc ale z możłiwoścą wyboru 2 elemtów które mają się wyświetlić na zielono o raz dwóch ~\newline
+ elemtów które mają się wyświetlić na żółto 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & -\/ wskaźnik na tablice zawierająća elemnrty do wyświeltenia \\
+\hline
+{\em N} & -\/ zmienna informujaca o wielkośći tablicy do wyświetlenia \\
+\hline
+{\em g} & -\/ index elementu który ma się wyświetlić na zielono \\
+\hline
+{\em g1} & -\/ index drugiego elementu który ma się wyświetlić na zielono \\
+\hline
+{\em y} & -\/ index elementu który ma się wyświetlić na żółto \\
+\hline
+{\em y2} & -\/ index drugiego elementu który ma się wyświetlić na zółto \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array__handle_8c_ac72e98e7363d5751706884c967c4a534}\label{array__handle_8c_ac72e98e7363d5751706884c967c4a534}} 
+\index{array\_handle.c@{array\_handle.c}!save\_array@{save\_array}}
+\index{save\_array@{save\_array}!array\_handle.c@{array\_handle.c}}
+\doxysubsubsection{\texorpdfstring{save\_array()}{save\_array()}}
+{\footnotesize\ttfamily void save\+\_\+array (\begin{DoxyParamCaption}\item[{char}]{name\mbox{[}50\mbox{]},  }\item[{int}]{array\mbox{[}$\,$\mbox{]},  }\item[{int}]{N }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & -\/ nazwa pliku do którego ma zostać zapisana \\
+\hline
+{\em array} & -\/ wskaźnik na tablice zawierająća elemnrty do zapisania \\
+\hline
+{\em N} & -\/ zmienna informujaca o wielkośći tablicy do wypełnienia \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array__handle_8c_ab6fa64f9dbbc4adff44768fbb155e1c0}\label{array__handle_8c_ab6fa64f9dbbc4adff44768fbb155e1c0}} 
+\index{array\_handle.c@{array\_handle.c}!shuffle\_arry@{shuffle\_arry}}
+\index{shuffle\_arry@{shuffle\_arry}!array\_handle.c@{array\_handle.c}}
+\doxysubsubsection{\texorpdfstring{shuffle\_arry()}{shuffle\_arry()}}
+{\footnotesize\ttfamily void shuffle\+\_\+arry (\begin{DoxyParamCaption}\item[{int $\ast$}]{array,  }\item[{int}]{N }\end{DoxyParamCaption})}
+
+
+
+funcka przetasuwjąca wszystkie elemnty tablicy 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & -\/ wskaźnik na tablice zawierająća elemnrty do zapisania \\
+\hline
+{\em N} & -\/ zmienna informujaca o wielkośći tablicy do wypełnienia \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array__handle_8c_a4b9708d87be7a409eff20e5e7e8b43c8}\label{array__handle_8c_a4b9708d87be7a409eff20e5e7e8b43c8}} 
+\index{array\_handle.c@{array\_handle.c}!swap@{swap}}
+\index{swap@{swap}!array\_handle.c@{array\_handle.c}}
+\doxysubsubsection{\texorpdfstring{swap()}{swap()}}
+{\footnotesize\ttfamily void swap (\begin{DoxyParamCaption}\item[{int $\ast$}]{a,  }\item[{int $\ast$}]{b }\end{DoxyParamCaption})}
+
+
+
+funckja zamieniająca miedzy sobą wartości dwóch zmiennych 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & -\/ wskaźnik na pierwszą zmienna do zamieniania \\
+\hline
+{\em b} & -\/ wskaźnik na druga zmienna do zamieniania \\
+\hline
+\end{DoxyParams}

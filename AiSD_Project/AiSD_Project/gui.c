@@ -1,3 +1,13 @@
+/**
+ * @file gui.c
+ * @author Tomasz Bogdan, Maciej Cedzyński, Filip Borowiec
+ * @brief funckcje odpowiadajće za interefjs graficzny
+ * @version 0.1
+ * @date 2022-04-05
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_primitives.h>
 #include <allegro5/allegro_font.h>
@@ -8,7 +18,13 @@
 #include <math.h>
 #include <stdlib.h>
 
-
+/**
+ * @brief struktura przeznaczone na dane czasu sortowania
+ *
+ * funkcja ta przechowuje dane odnośćnie czasu sortowania tabeli, zawiwera elent określjący ilośc elemntów któe były sorotwane
+ * czas potrzebbny na posortowanie tej talbeli przrz wstaweinai o praz metoda shella
+ * 
+ */
 struct timers_struct
 {
 	int amount;
@@ -37,7 +53,12 @@ typedef char text[250];
 
 
 
-
+/**
+ * @brief - wartosc bezegledna dla zminnej float
+ * 
+ * @param x - liczba float która ma zostać zamieniona na wartosć z  
+ * @return float - zwraca wartość bezwględną podanej liczby float
+ */
 float absf(float x)
 {
 	if (x >= 0)
@@ -46,7 +67,15 @@ float absf(float x)
 
 }
 
-
+/**
+ * @brief wysietlea menu wyboru
+ *
+ * funckja wyswitalajca porceduralnie generoewawne menu wyboru na postwie opdanych danych
+ * 
+ * @param choices - tablica ciagów znaków zawierająca nagłówek/pytanie oraz opcje wyboru 
+ * @param N - wartość określająca ilość wyborów 
+ * @return int - funckja zwraca wartość od 0 do n-1 w zależnośći od wybranego elemenru w menu
+ */
 int choice_menu(text choices[], int N)
 {
 	
@@ -194,7 +223,12 @@ int choice_menu(text choices[], int N)
 return - 5;
 }
 
-
+/**
+ * @brief funkcja oczekujaca na wciśniecie enter
+ *
+ * funkcja wchodzi w pętle i oczekuje wciśnięcie enter przez użytkownika
+ * 
+ */
 void wait_enter()
 {
 	al_rest(0.2);
@@ -208,7 +242,10 @@ void wait_enter()
 	}
 }
 
-
+/**
+ * @brief funkcja wyświetlająca komunikat o wciśnięciu  enter
+ * 
+ */
 void press_enter()
 {
 	ALLEGRO_COLOR black = al_map_rgb(0, 0, 0);
@@ -229,7 +266,18 @@ void press_enter()
 }
 
 
-
+/**
+ * @brief funckja rysująca tabele w formie graficzncyh kolumn
+ *
+ * funkcja rysuje tabele w formie kolumn na ekranie wypelniajacyych cały ekran
+ * 
+ * @param array - wskźńik na talbice do wyświetlenia 
+ * @param N - ilość elemtów w tablice
+ * @param max - wartosć maksymalnego elemntu w tabeli
+ * @param r - wartość koluru czerwonego
+ * @param g - wartość kolru zielonego
+ * @param b - wartość koloru niebieskiego
+ */
 void draw_array(int array[], int N, int max, int r,int g,int b)
 {
 	float size_h =   SCREEN_H/(float)max;
@@ -245,7 +293,13 @@ void draw_array(int array[], int N, int max, int r,int g,int b)
 	al_flip_display();
 }
 
-
+/**
+ * @brief funckja wyświetlajća menu do wpsisywania wartosći
+ *
+ * funckja wyświetla komunikat podaje jako paremter i umożliwa użytkownikowi wpisanie wartości liczbowej która jest zwracana
+ * 
+ * @param messsege - ciągóg znaków wyświelany jako nagłówek
+ */
 get_user_value(text messsege)
 {
 
@@ -315,7 +369,20 @@ get_user_value(text messsege)
 
 }
 
-
+/**
+ * @brief funckja wyświetlajća graficznie tablice wartosći z możłiwośćią oznaczenia 2 elementów kolorem żółtem i 2 elemntów zielonym
+ *
+ * funkcja wyświetela talbica graficznie w formie kolumn z tą różnica że że wybrane 2 zielone elemnty wyświetlaja sie na ziolone a 2 
+ * wybrane elemnty wyświetlają się na żółto
+ * 
+ * @param array - wskaźnik na tablice do wyświetlenia
+ * @param N - ilość elemntów tablicy
+ * @param max - wartosć maksymalnego elemntu tablicy
+ * @param g - indeks elemntu do narysowania na zielono
+ * @param g1 - indeks drugiego elemntu do narsyowania na zielono
+ * @param y - indeks elemntu do narysowania na żółto
+ * @param y2 - indeks drugiego elementu do narysowania na żółto
+ */
 void draw_array_a(int array[], int N, int max, int g, int g1, int y, int y2)
 {
 	float size_h = SCREEN_H / (float)max;
@@ -354,11 +421,18 @@ void draw_array_a(int array[], int N, int max, int g, int g1, int y, int y2)
 }
 
 
-
+/**
+ * @brief menu odpowiedzialne za zaobserwoanie algorytmu sortowania
+ *
+ * funckja ta pozwala na wybór na jak wypełnionej tablicy użytkownik chce zaobserować talibce,
+ * ,czy chce zaobserować od razu całe sortowanie czy może krok po kroku,   
+ * czy chce zaobserowować sortowanie shella czy przez wstawianie , 
+ * 
+ */
 void observation_ui()
 {
 
-	text messege = "na ilu lemntach chia�by� przetesotwac sortowanie";
+	text messege = "na elemntach chia�bys przetesotwac sortowanie";
 	int N = get_user_value(messege);
 	int* array = calloc(N, sizeof(int));
 	text choices[] = { "na jakiej tabeli chesz osberowac","losowej","odworoenj","pomiesznej"};
@@ -425,7 +499,15 @@ void observation_ui()
 
 
 
-
+/**
+ * @brief funckja genruje tabele czasu sortowania w zależnośći od elemntów
+ *
+ * funckja generuje bitmape tabeli z danym odnosnie czasu sortownia 
+ * 
+ * @param amount_of_elements - ilość elemntów talbicy do wyświetlenia
+ * @param data - wksaźnik tablice zawierajca dane do wyświetlenia 
+ * @return ALLEGRO_BITMAP* - zwraca wygenrowana tablice w formie bitmapy
+ */
 ALLEGRO_BITMAP* generate_bitmap(int amount_of_elements, timers data[])
 {
 	ALLEGRO_BITMAP* bitmap = al_create_bitmap(ARRAT_ELEMENT_WIDTH * 3, amount_of_elements * UPPER_COMENT_H);
@@ -465,16 +547,28 @@ ALLEGRO_BITMAP* generate_bitmap(int amount_of_elements, timers data[])
 
 
 
-
+/**
+ * @brief segemnt menu odpowiadajcy za genrowanie czasów sortowania
+ * 
+ * funckja geneurje wstępne menu a następnie sortuje tabele w o ilości elemntów w zależnośći od podanych arugmentów, co każdą ilosć
+ * elemntó wysietelana tabela jest aktualizowana
+ * 
+ * @param display - wksaźnika na ekran na któym ma być wyśiwetlane dane
+ * @param def - wartosć startowa oraz róznica pomiedzy kolejnymi ilosciami danych do sortownia
+ * @param max_el - maksymalna ilosc elemntow do dla ktoórhc moga być zbierane dane
+ * @param ch_array - arugment określający sposób wypełnienia tablicy
+ * @param max - maksymalna wartość elemtnów do wpyełnienia w przpyadku wyboru wpełnienia losowego
+ */
 void generate_results(ALLEGRO_DISPLAY* display,int def, int max_el, int ch_array, int max)
 {
+	
 	ALLEGRO_COLOR white = al_map_rgb(255, 255, 255);
 	ALLEGRO_COLOR black = al_map_rgb(0, 0, 0);
 	ALLEGRO_COLOR green = al_map_rgb(10, 240, 10);
 	ALLEGRO_FONT* font = al_load_ttf_font("arial.ttf", 25, NULL);
 
 	al_draw_rectangle(0, 0, SCREEN_W, UPPER_COMENT_H, white, 2);
-
+	al_clear_to_color(black);
 	text messege = "prosze czekac genruje wyniki";
 	int txt_h = al_get_font_line_height(font);
 	int txt_w = al_get_text_width(font, messege);
@@ -638,7 +732,14 @@ void generate_results(ALLEGRO_DISPLAY* display,int def, int max_el, int ch_array
 	al_destroy_font(font);
 }
 
-
+/**
+ * @brief menu odpwiadajce za wybór paremtów do porówynwia sortownnia
+ * 
+ * fucnkja ta pyta się użytkownika co ile elmtów chce wygenrerować dane , jaki jest góny limit elemntów do bliczenia czasu
+ *  jak ma być wpełnionoa taliblica i maksymlana wartosć elemntów którymi będzie wypelniona w przypadku wypełnienia losowego
+ * 
+ * @param display 
+ */
 void cmp_ui(ALLEGRO_DISPLAY* display)
 {
 	
@@ -668,6 +769,13 @@ void cmp_ui(ALLEGRO_DISPLAY* display)
 
 }
 
+/**
+ * @brief menu odpoadajace za wybór dalszego działania programu
+ *
+ * funckja pozwala wybtać użytkonikowi czy che zaobserować działanie algrytmo czy wygenerować dane odnoścnie czasu sortowania
+ * 
+ * @param display - wksaźńik na ekran na którym ma być rysunki
+ */
 void decision_ui(ALLEGRO_DISPLAY* display)
 {
 
@@ -687,7 +795,13 @@ void decision_ui(ALLEGRO_DISPLAY* display)
 
 
 
-
+/**
+ * @brief menu startowe
+ * 
+ * funckja wyśeitla menu starowrgo pozwalajace na kontynuwanie pracy z programem lub jej zakończenie
+ * 
+ * @param display - wksaźńik na ekran na którym ma być rysunki
+ */
 void start_ui(ALLEGRO_DISPLAY* display)
 {
 	while (1)
@@ -712,7 +826,10 @@ void start_ui(ALLEGRO_DISPLAY* display)
 
 
 
-
+/**
+ * @brief * funkcja ropzycznajca działanie programu w formie graficznej
+ * 
+ */
 void start_gui()
 {
 	ALLEGRO_DISPLAY* display;

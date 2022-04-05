@@ -1,3 +1,14 @@
+/**
+ * @file sort_project.h
+ * @author Tomasz Bogdan, Maciej Cedzyński, Filip Borowiec
+ * @brief nagłówek biblioteki łączący pliki z kodem programmu
+ * @version 0.1
+ * @date 2022-04-05
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
+
 #ifndef SORT_PROJECT
 #define SORT_PROJECT
 #define BLACK al_map_rgb(0, 0, 0)

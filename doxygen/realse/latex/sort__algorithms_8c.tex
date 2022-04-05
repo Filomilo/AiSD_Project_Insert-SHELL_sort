@@ -1,0 +1,237 @@
+\hypertarget{sort__algorithms_8c}{}\doxysection{D\+:/gogle drive/studia/\+Semestr 2/\+Algorytmy i struktury danych/\+Projekt -\/ Algorytmy i struktury danych/new/\+Ai\+SD\+\_\+\+Project\+\_\+\+Insert-\/\+SHELL\+\_\+sort/\+Ai\+SD\+\_\+\+Project/\+Ai\+SD\+\_\+\+Project/sort\+\_\+algorithms.c File Reference}
+\label{sort__algorithms_8c}\index{D:/gogle drive/studia/Semestr  2/Algorytmy i struktury danych/Projekt -\/ Algorytmy i struktury danych/new/AiSD\_Project\_Insert-\/SHELL\_sort/AiSD\_Project/AiSD\_Project/sort\_algorithms.c@{D:/gogle drive/studia/Semestr  2/Algorytmy i struktury danych/Projekt -\/ Algorytmy i struktury danych/new/AiSD\_Project\_Insert-\/SHELL\_sort/AiSD\_Project/AiSD\_Project/sort\_algorithms.c}}
+
+
+plik zawierajce wszystkie funkcje sortujace  
+
+
+{\ttfamily \#include \char`\"{}sort\+\_\+project.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$allegro5/allegro.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{sort__algorithms_8c_abbc9aa805502bee334dee31dca5f32a0}{insert\+\_\+sort}} (int $\ast$array, int N)
+\begin{DoxyCompactList}\small\item\em funckja sortująca poprzez wstawinie \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sort__algorithms_8c_a1f86ccd67c5da129142e4f403c6d55e6}{shell\+\_\+sort}} (int $\ast$array, int N)
+\begin{DoxyCompactList}\small\item\em funckja sortująca metoda shella \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{sort__algorithms_8c_a942abae17d63fb41e6038baac3ee2525}{insert\+\_\+sort\+\_\+calc}} (int $\ast$array, int N)
+\begin{DoxyCompactList}\small\item\em funcja liczaća ilosć operacji w sortwoaniu przez wstawianiae \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{sort__algorithms_8c_abf8c0f92597e9a43b11de42c71dd6c31}{shell\+\_\+sort\+\_\+calc}} (int $\ast$array, int N)
+\begin{DoxyCompactList}\small\item\em funcja liczaća ilosć operacji w sortwoaniu przez metoda shella \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sort__algorithms_8c_afbc3a087bee7497f0e1a3aed587a4902}{insert\+\_\+sort\+\_\+step}} (int $\ast$array, int N)
+\begin{DoxyCompactList}\small\item\em funcja sortująca przez wstawiania wypisująca i zatrzymujaca się na znaczącym etapie \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sort__algorithms_8c_a0c1aac2e04a33de0148eff7237854b67}{shell\+\_\+sort\+\_\+step}} (int $\ast$array, int N)
+\begin{DoxyCompactList}\small\item\em funcja sortująca metoda shella wypsyiująca i zatrzymujaca się na znaczącym etapie \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sort__algorithms_8c_ac966620e21783f03d5efbd3f1dace2d4}{shell\+\_\+sort\+\_\+draw}} (int $\ast$array, int N, int max)
+\begin{DoxyCompactList}\small\item\em funckja sortująca metoda shella i wyświetlająća grafczinnie tabelel po każdym znaczącym etapie \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sort__algorithms_8c_af543d7221694fae112cda058a0ca809f}{insert\+\_\+sort\+\_\+draw}} (int $\ast$array, int N, int max)
+\begin{DoxyCompactList}\small\item\em funckja sortująca przez wstawianie i wyświetlająća grafczinnie tabelel po każdym znaczącym etapie \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sort__algorithms_8c_add2e665d83f67344a315c95e561dfe91}{insert\+\_\+sort\+\_\+draw\+\_\+step}} (int $\ast$array, int N, int max)
+\begin{DoxyCompactList}\small\item\em funckja sortująca przez wstawianie i wyświetlająća grafczinnie tabelel po każdym znaczącym etapie zatrzymując sie przy tym \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sort__algorithms_8c_a350c3d3323a6b0586cd3491703367bad}{shell\+\_\+sort\+\_\+draw\+\_\+step}} (int $\ast$array, int N, int max)
+\begin{DoxyCompactList}\small\item\em funckja sortująca metodą shella i wyświetlająća grafczinnie tabelel po każdym znaczącym etapie \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+plik zawierajce wszystkie funkcje sortujace 
+
+\begin{DoxyAuthor}{Author}
+Tomasz Bogdan, Maciej Cedzyński, Filip Borowiec 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2022-\/04-\/05
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2022 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{sort__algorithms_8c_abbc9aa805502bee334dee31dca5f32a0}\label{sort__algorithms_8c_abbc9aa805502bee334dee31dca5f32a0}} 
+\index{sort\_algorithms.c@{sort\_algorithms.c}!insert\_sort@{insert\_sort}}
+\index{insert\_sort@{insert\_sort}!sort\_algorithms.c@{sort\_algorithms.c}}
+\doxysubsubsection{\texorpdfstring{insert\_sort()}{insert\_sort()}}
+{\footnotesize\ttfamily void insert\+\_\+sort (\begin{DoxyParamCaption}\item[{int $\ast$}]{array,  }\item[{int}]{N }\end{DoxyParamCaption})}
+
+
+
+funckja sortująca poprzez wstawinie 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & -\/ wskaźnik na tablice która ma być posortowana \\
+\hline
+{\em N} & -\/ ilośc elemntów tablicy \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sort__algorithms_8c_a942abae17d63fb41e6038baac3ee2525}\label{sort__algorithms_8c_a942abae17d63fb41e6038baac3ee2525}} 
+\index{sort\_algorithms.c@{sort\_algorithms.c}!insert\_sort\_calc@{insert\_sort\_calc}}
+\index{insert\_sort\_calc@{insert\_sort\_calc}!sort\_algorithms.c@{sort\_algorithms.c}}
+\doxysubsubsection{\texorpdfstring{insert\_sort\_calc()}{insert\_sort\_calc()}}
+{\footnotesize\ttfamily int insert\+\_\+sort\+\_\+calc (\begin{DoxyParamCaption}\item[{int $\ast$}]{array,  }\item[{int}]{N }\end{DoxyParamCaption})}
+
+
+
+funcja liczaća ilosć operacji w sortwoaniu przez wstawianiae 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & -\/ wskaźnik na tablice która ma być posortowana \\
+\hline
+{\em N} & -\/ ilośc elemntów tablicy \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int -\/ zwraca ilośc wykoanych operacji 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sort__algorithms_8c_af543d7221694fae112cda058a0ca809f}\label{sort__algorithms_8c_af543d7221694fae112cda058a0ca809f}} 
+\index{sort\_algorithms.c@{sort\_algorithms.c}!insert\_sort\_draw@{insert\_sort\_draw}}
+\index{insert\_sort\_draw@{insert\_sort\_draw}!sort\_algorithms.c@{sort\_algorithms.c}}
+\doxysubsubsection{\texorpdfstring{insert\_sort\_draw()}{insert\_sort\_draw()}}
+{\footnotesize\ttfamily void insert\+\_\+sort\+\_\+draw (\begin{DoxyParamCaption}\item[{int $\ast$}]{array,  }\item[{int}]{N,  }\item[{int}]{max }\end{DoxyParamCaption})}
+
+
+
+funckja sortująca przez wstawianie i wyświetlająća grafczinnie tabelel po każdym znaczącym etapie 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & -\/ wskaźnik na tablice która ma być posortowana \\
+\hline
+{\em N} & -\/ ilośc elemntów tablicy \\
+\hline
+{\em max} & -\/ maksymalna wartość w tablicy \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sort__algorithms_8c_add2e665d83f67344a315c95e561dfe91}\label{sort__algorithms_8c_add2e665d83f67344a315c95e561dfe91}} 
+\index{sort\_algorithms.c@{sort\_algorithms.c}!insert\_sort\_draw\_step@{insert\_sort\_draw\_step}}
+\index{insert\_sort\_draw\_step@{insert\_sort\_draw\_step}!sort\_algorithms.c@{sort\_algorithms.c}}
+\doxysubsubsection{\texorpdfstring{insert\_sort\_draw\_step()}{insert\_sort\_draw\_step()}}
+{\footnotesize\ttfamily void insert\+\_\+sort\+\_\+draw\+\_\+step (\begin{DoxyParamCaption}\item[{int $\ast$}]{array,  }\item[{int}]{N,  }\item[{int}]{max }\end{DoxyParamCaption})}
+
+
+
+funckja sortująca przez wstawianie i wyświetlająća grafczinnie tabelel po każdym znaczącym etapie zatrzymując sie przy tym 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & -\/ wskaźnik na tablice która ma być posortowana \\
+\hline
+{\em N} & -\/ ilośc elemntów tablicy \\
+\hline
+{\em max} & -\/ maksymalna wartość w tablicy \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sort__algorithms_8c_afbc3a087bee7497f0e1a3aed587a4902}\label{sort__algorithms_8c_afbc3a087bee7497f0e1a3aed587a4902}} 
+\index{sort\_algorithms.c@{sort\_algorithms.c}!insert\_sort\_step@{insert\_sort\_step}}
+\index{insert\_sort\_step@{insert\_sort\_step}!sort\_algorithms.c@{sort\_algorithms.c}}
+\doxysubsubsection{\texorpdfstring{insert\_sort\_step()}{insert\_sort\_step()}}
+{\footnotesize\ttfamily void insert\+\_\+sort\+\_\+step (\begin{DoxyParamCaption}\item[{int $\ast$}]{array,  }\item[{int}]{N }\end{DoxyParamCaption})}
+
+
+
+funcja sortująca przez wstawiania wypisująca i zatrzymujaca się na znaczącym etapie 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & -\/ wskaźnik na tablice która ma być posortowana \\
+\hline
+{\em N} & -\/ ilośc elemntów tablicy \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sort__algorithms_8c_a1f86ccd67c5da129142e4f403c6d55e6}\label{sort__algorithms_8c_a1f86ccd67c5da129142e4f403c6d55e6}} 
+\index{sort\_algorithms.c@{sort\_algorithms.c}!shell\_sort@{shell\_sort}}
+\index{shell\_sort@{shell\_sort}!sort\_algorithms.c@{sort\_algorithms.c}}
+\doxysubsubsection{\texorpdfstring{shell\_sort()}{shell\_sort()}}
+{\footnotesize\ttfamily void shell\+\_\+sort (\begin{DoxyParamCaption}\item[{int $\ast$}]{array,  }\item[{int}]{N }\end{DoxyParamCaption})}
+
+
+
+funckja sortująca metoda shella 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & -\/ wskaźnik na tablice która ma być posortowana \\
+\hline
+{\em N} & -\/ ilośc elemntów tablicy \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sort__algorithms_8c_abf8c0f92597e9a43b11de42c71dd6c31}\label{sort__algorithms_8c_abf8c0f92597e9a43b11de42c71dd6c31}} 
+\index{sort\_algorithms.c@{sort\_algorithms.c}!shell\_sort\_calc@{shell\_sort\_calc}}
+\index{shell\_sort\_calc@{shell\_sort\_calc}!sort\_algorithms.c@{sort\_algorithms.c}}
+\doxysubsubsection{\texorpdfstring{shell\_sort\_calc()}{shell\_sort\_calc()}}
+{\footnotesize\ttfamily int shell\+\_\+sort\+\_\+calc (\begin{DoxyParamCaption}\item[{int $\ast$}]{array,  }\item[{int}]{N }\end{DoxyParamCaption})}
+
+
+
+funcja liczaća ilosć operacji w sortwoaniu przez metoda shella 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & -\/ wskaźnik na tablice która ma być posortowana \\
+\hline
+{\em N} & -\/ ilośc elemntów tablicy \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int -\/ zwraca ilośc wykoanych operacji 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sort__algorithms_8c_ac966620e21783f03d5efbd3f1dace2d4}\label{sort__algorithms_8c_ac966620e21783f03d5efbd3f1dace2d4}} 
+\index{sort\_algorithms.c@{sort\_algorithms.c}!shell\_sort\_draw@{shell\_sort\_draw}}
+\index{shell\_sort\_draw@{shell\_sort\_draw}!sort\_algorithms.c@{sort\_algorithms.c}}
+\doxysubsubsection{\texorpdfstring{shell\_sort\_draw()}{shell\_sort\_draw()}}
+{\footnotesize\ttfamily void shell\+\_\+sort\+\_\+draw (\begin{DoxyParamCaption}\item[{int $\ast$}]{array,  }\item[{int}]{N,  }\item[{int}]{max }\end{DoxyParamCaption})}
+
+
+
+funckja sortująca metoda shella i wyświetlająća grafczinnie tabelel po każdym znaczącym etapie 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & -\/ wskaźnik na tablice która ma być posortowana \\
+\hline
+{\em N} & -\/ ilośc elemntów tablicy \\
+\hline
+{\em max} & -\/ maksymalna wartość w tablicy \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sort__algorithms_8c_a350c3d3323a6b0586cd3491703367bad}\label{sort__algorithms_8c_a350c3d3323a6b0586cd3491703367bad}} 
+\index{sort\_algorithms.c@{sort\_algorithms.c}!shell\_sort\_draw\_step@{shell\_sort\_draw\_step}}
+\index{shell\_sort\_draw\_step@{shell\_sort\_draw\_step}!sort\_algorithms.c@{sort\_algorithms.c}}
+\doxysubsubsection{\texorpdfstring{shell\_sort\_draw\_step()}{shell\_sort\_draw\_step()}}
+{\footnotesize\ttfamily void shell\+\_\+sort\+\_\+draw\+\_\+step (\begin{DoxyParamCaption}\item[{int $\ast$}]{array,  }\item[{int}]{N,  }\item[{int}]{max }\end{DoxyParamCaption})}
+
+
+
+funckja sortująca metodą shella i wyświetlająća grafczinnie tabelel po każdym znaczącym etapie 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & -\/ wskaźnik na tablice która ma być posortowana \\
+\hline
+{\em N} & -\/ ilośc elemntów tablicy \\
+\hline
+{\em max} & -\/ maksymalna wartość w tablicy \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sort__algorithms_8c_a0c1aac2e04a33de0148eff7237854b67}\label{sort__algorithms_8c_a0c1aac2e04a33de0148eff7237854b67}} 
+\index{sort\_algorithms.c@{sort\_algorithms.c}!shell\_sort\_step@{shell\_sort\_step}}
+\index{shell\_sort\_step@{shell\_sort\_step}!sort\_algorithms.c@{sort\_algorithms.c}}
+\doxysubsubsection{\texorpdfstring{shell\_sort\_step()}{shell\_sort\_step()}}
+{\footnotesize\ttfamily void shell\+\_\+sort\+\_\+step (\begin{DoxyParamCaption}\item[{int $\ast$}]{array,  }\item[{int}]{N }\end{DoxyParamCaption})}
+
+
+
+funcja sortująca metoda shella wypsyiująca i zatrzymujaca się na znaczącym etapie 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & -\/ wskaźnik na tablice która ma być posortowana \\
+\hline
+{\em N} & -\/ ilośc elemntów tablicy \\
+\hline
+\end{DoxyParams}

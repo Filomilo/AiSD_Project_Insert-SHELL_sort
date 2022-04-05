@@ -1,0 +1,384 @@
+\hypertarget{sort__project_8h}{}\doxysection{D\+:/gogle drive/studia/\+Semestr 2/\+Algorytmy i struktury danych/\+Projekt -\/ Algorytmy i struktury danych/new/\+Ai\+SD\+\_\+\+Project\+\_\+\+Insert-\/\+SHELL\+\_\+sort/\+Ai\+SD\+\_\+\+Project/\+Ai\+SD\+\_\+\+Project/sort\+\_\+project.h File Reference}
+\label{sort__project_8h}\index{D:/gogle drive/studia/Semestr  2/Algorytmy i struktury danych/Projekt -\/ Algorytmy i struktury danych/new/AiSD\_Project\_Insert-\/SHELL\_sort/AiSD\_Project/AiSD\_Project/sort\_project.h@{D:/gogle drive/studia/Semestr  2/Algorytmy i struktury danych/Projekt -\/ Algorytmy i struktury danych/new/AiSD\_Project\_Insert-\/SHELL\_sort/AiSD\_Project/AiSD\_Project/sort\_project.h}}
+
+
+nagłówek biblioteki łączący pliki z kodem programmu  
+
+
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{sort__project_8h_a7b3b25cba33b07c303f3060fe41887f6}{BLACK}}~al\+\_\+map\+\_\+rgb(0, 0, 0)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{sort__project_8h_abbc9aa805502bee334dee31dca5f32a0}{insert\+\_\+sort}} (int $\ast$array, int N)
+\begin{DoxyCompactList}\small\item\em funckja sortująca poprzez wstawinie \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sort__project_8h_a1f86ccd67c5da129142e4f403c6d55e6}{shell\+\_\+sort}} (int $\ast$array, int N)
+\begin{DoxyCompactList}\small\item\em funckja sortująca metoda shella \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{sort__project_8h_a942abae17d63fb41e6038baac3ee2525}{insert\+\_\+sort\+\_\+calc}} (int $\ast$array, int N)
+\begin{DoxyCompactList}\small\item\em funcja liczaća ilosć operacji w sortwoaniu przez wstawianiae \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{sort__project_8h_abf8c0f92597e9a43b11de42c71dd6c31}{shell\+\_\+sort\+\_\+calc}} (int $\ast$array, int N)
+\begin{DoxyCompactList}\small\item\em funcja liczaća ilosć operacji w sortwoaniu przez metoda shella \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sort__project_8h_a0c1aac2e04a33de0148eff7237854b67}{shell\+\_\+sort\+\_\+step}} (int $\ast$array, int N)
+\begin{DoxyCompactList}\small\item\em funcja sortująca metoda shella wypsyiująca i zatrzymujaca się na znaczącym etapie \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sort__project_8h_afbc3a087bee7497f0e1a3aed587a4902}{insert\+\_\+sort\+\_\+step}} (int $\ast$array, int N)
+\begin{DoxyCompactList}\small\item\em funcja sortująca przez wstawiania wypisująca i zatrzymujaca się na znaczącym etapie \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sort__project_8h_ac966620e21783f03d5efbd3f1dace2d4}{shell\+\_\+sort\+\_\+draw}} (int $\ast$array, int N, int max)
+\begin{DoxyCompactList}\small\item\em funckja sortująca metoda shella i wyświetlająća grafczinnie tabelel po każdym znaczącym etapie \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sort__project_8h_ab6fa64f9dbbc4adff44768fbb155e1c0}{shuffle\+\_\+arry}} (int $\ast$array, int N)
+\begin{DoxyCompactList}\small\item\em funcka przetasuwjąca wszystkie elemnty tablicy \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sort__project_8h_a08736efb038e9fcd89cf4debaf25c5a5}{print\+\_\+array}} (int $\ast$array, int N)
+\begin{DoxyCompactList}\small\item\em funkcja ta wypisuje zawawrtość wszystkich elementów w tablicy \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sort__project_8h_a02a84e31996398d188e2e1c6c47796a2}{fill\+\_\+array\+\_\+rand}} (int $\ast$array, int N, int min, int max)
+\begin{DoxyCompactList}\small\item\em funckcja wypełnia table losowymi wartościami z podanego zakresu \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sort__project_8h_a2c969939a549cc4a3dc0500f2c89fe67}{fill\+\_\+array\+\_\+reverse}} (int $\ast$array, int N)
+\begin{DoxyCompactList}\small\item\em funckja wypełnijąca tablice wartościami od 1 do wielkości tablicy ale w kolejności odwrotnej \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sort__project_8h_a9d83e0979dbefd17ee96fd97832a87e6}{duplicate\+\_\+array}} (int $\ast$array, int $\ast$array\+\_\+to\+\_\+copy, int N)
+\begin{DoxyCompactList}\small\item\em funckja duplikująca zawartosć tablicy do drugiej tablicy \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sort__project_8h_ac72e98e7363d5751706884c967c4a534}{save\+\_\+array}} (char name\mbox{[}50\mbox{]}, int array\mbox{[}$\,$\mbox{]}, int N)
+\item 
+float \mbox{\hyperlink{sort__project_8h_a6439d811618499371b11c04a0d8dc499}{calc\+\_\+time}} (int $\ast$array, int N, void($\ast$sort)(int $\ast$, int))
+\begin{DoxyCompactList}\small\item\em funckja licząca czas potrzebny na posortwoanie tabeli \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sort__project_8h_aa7013a0857e1049af004513c230e53b2}{generarate\+\_\+times}} (int limit, int dif)
+\item 
+float \mbox{\hyperlink{sort__project_8h_a81b184622a38150b00087fbebd1d79b5}{calc\+\_\+proces}} (int $\ast$array, int N, int($\ast$sort)(int $\ast$, int))
+\item 
+void \mbox{\hyperlink{sort__project_8h_ac9cefab431333b5b75c8c585ea8b2143}{start\+\_\+gui}} ()
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyItemize}
+\item funkcja ropzycznajca działanie programu w formie graficznej 
+\end{DoxyItemize}\end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sort__project_8h_a63b266d495c11c906950d7277c65fefe}{draw\+\_\+array}} (int array\mbox{[}$\,$\mbox{]}, int N, int max)
+\item 
+void \mbox{\hyperlink{sort__project_8h_a339f3cbf817e9119286a6afb114850fa}{wait\+\_\+enter}} ()
+\begin{DoxyCompactList}\small\item\em funkcja oczekujaca na wciśniecie enter \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+nagłówek biblioteki łączący pliki z kodem programmu 
+
+\begin{DoxyAuthor}{Author}
+Tomasz Bogdan, Maciej Cedzyński, Filip Borowiec 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2022-\/04-\/05
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2022 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{sort__project_8h_a7b3b25cba33b07c303f3060fe41887f6}\label{sort__project_8h_a7b3b25cba33b07c303f3060fe41887f6}} 
+\index{sort\_project.h@{sort\_project.h}!BLACK@{BLACK}}
+\index{BLACK@{BLACK}!sort\_project.h@{sort\_project.h}}
+\doxysubsubsection{\texorpdfstring{BLACK}{BLACK}}
+{\footnotesize\ttfamily \#define BLACK~al\+\_\+map\+\_\+rgb(0, 0, 0)}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{sort__project_8h_a81b184622a38150b00087fbebd1d79b5}\label{sort__project_8h_a81b184622a38150b00087fbebd1d79b5}} 
+\index{sort\_project.h@{sort\_project.h}!calc\_proces@{calc\_proces}}
+\index{calc\_proces@{calc\_proces}!sort\_project.h@{sort\_project.h}}
+\doxysubsubsection{\texorpdfstring{calc\_proces()}{calc\_proces()}}
+{\footnotesize\ttfamily float calc\+\_\+proces (\begin{DoxyParamCaption}\item[{int $\ast$}]{array,  }\item[{int}]{N,  }\item[{int($\ast$)(int $\ast$, int)}]{sort }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{sort__project_8h_a6439d811618499371b11c04a0d8dc499}\label{sort__project_8h_a6439d811618499371b11c04a0d8dc499}} 
+\index{sort\_project.h@{sort\_project.h}!calc\_time@{calc\_time}}
+\index{calc\_time@{calc\_time}!sort\_project.h@{sort\_project.h}}
+\doxysubsubsection{\texorpdfstring{calc\_time()}{calc\_time()}}
+{\footnotesize\ttfamily float calc\+\_\+time (\begin{DoxyParamCaption}\item[{int $\ast$}]{array,  }\item[{int}]{N,  }\item[{void($\ast$)(int $\ast$, int)}]{sort }\end{DoxyParamCaption})}
+
+
+
+funckja licząca czas potrzebny na posortwoanie tabeli 
+
+funckja ta przyjmuje wskaźńik na tablice o raz jej wielkośc a także wskaźnik na funckje sortująca której czes ma być obliczony funckja ta najpierw duplikuje table a nastęnie zapiuje stan zsgera procesora, następnie sortuje taablele i zapiusuje stan zegera po sortowaniu na stępnie dzieli różnice tych wartości prez CLOCKS\+\_\+\+PER\+\_\+\+SEC otrzymujac w ten sposoć ilość sekund potrzebnych na posortowanie
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & -\/ wskaźnik na tabele do posortownia \\
+\hline
+{\em N} & -\/ ilość elemntó tabeli \\
+\hline
+{\em sort} & -\/ wskaźnik na funkce sortująca \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float -\/ zwraca wartosć typu float okreslając czas potrzsbyn na sortowanie 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sort__project_8h_a63b266d495c11c906950d7277c65fefe}\label{sort__project_8h_a63b266d495c11c906950d7277c65fefe}} 
+\index{sort\_project.h@{sort\_project.h}!draw\_array@{draw\_array}}
+\index{draw\_array@{draw\_array}!sort\_project.h@{sort\_project.h}}
+\doxysubsubsection{\texorpdfstring{draw\_array()}{draw\_array()}}
+{\footnotesize\ttfamily void draw\+\_\+array (\begin{DoxyParamCaption}\item[{int}]{array\mbox{[}$\,$\mbox{]},  }\item[{int}]{N,  }\item[{int}]{max }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{sort__project_8h_a9d83e0979dbefd17ee96fd97832a87e6}\label{sort__project_8h_a9d83e0979dbefd17ee96fd97832a87e6}} 
+\index{sort\_project.h@{sort\_project.h}!duplicate\_array@{duplicate\_array}}
+\index{duplicate\_array@{duplicate\_array}!sort\_project.h@{sort\_project.h}}
+\doxysubsubsection{\texorpdfstring{duplicate\_array()}{duplicate\_array()}}
+{\footnotesize\ttfamily void duplicate\+\_\+array (\begin{DoxyParamCaption}\item[{int $\ast$}]{array,  }\item[{int $\ast$}]{array\+\_\+to\+\_\+copy,  }\item[{int}]{N }\end{DoxyParamCaption})}
+
+
+
+funckja duplikująca zawartosć tablicy do drugiej tablicy 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & -\/ wskaźnik na tablice zawierająća elemnrty do skopiowniania \\
+\hline
+{\em array\+\_\+to\+\_\+copy} & -\/ wskaźnik na tablice do której ma zostać skopiowna tablica \\
+\hline
+{\em N} & -\/ zmienna informujaca o wielkośći tablicy do wypełnienia \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sort__project_8h_a02a84e31996398d188e2e1c6c47796a2}\label{sort__project_8h_a02a84e31996398d188e2e1c6c47796a2}} 
+\index{sort\_project.h@{sort\_project.h}!fill\_array\_rand@{fill\_array\_rand}}
+\index{fill\_array\_rand@{fill\_array\_rand}!sort\_project.h@{sort\_project.h}}
+\doxysubsubsection{\texorpdfstring{fill\_array\_rand()}{fill\_array\_rand()}}
+{\footnotesize\ttfamily void fill\+\_\+array\+\_\+rand (\begin{DoxyParamCaption}\item[{int $\ast$}]{array,  }\item[{int}]{N,  }\item[{int}]{min,  }\item[{int}]{max }\end{DoxyParamCaption})}
+
+
+
+funckcja wypełnia table losowymi wartościami z podanego zakresu 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & -\/ wskaźnik na tablice zawierająća elemnrty do wypełninia \\
+\hline
+{\em N} & -\/ zmienna informujaca o wielkośći tablicy do wypełnienia \\
+\hline
+{\em min} & -\/ minimalny zakres losowania \\
+\hline
+{\em max} & -\/ maksymalny zakres losowania \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sort__project_8h_a2c969939a549cc4a3dc0500f2c89fe67}\label{sort__project_8h_a2c969939a549cc4a3dc0500f2c89fe67}} 
+\index{sort\_project.h@{sort\_project.h}!fill\_array\_reverse@{fill\_array\_reverse}}
+\index{fill\_array\_reverse@{fill\_array\_reverse}!sort\_project.h@{sort\_project.h}}
+\doxysubsubsection{\texorpdfstring{fill\_array\_reverse()}{fill\_array\_reverse()}}
+{\footnotesize\ttfamily void fill\+\_\+array\+\_\+reverse (\begin{DoxyParamCaption}\item[{int $\ast$}]{array,  }\item[{int}]{N }\end{DoxyParamCaption})}
+
+
+
+funckja wypełnijąca tablice wartościami od 1 do wielkości tablicy ale w kolejności odwrotnej 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & -\/ wskaźnik na tablice zawierająća elemnrty do wypełninia \\
+\hline
+{\em N} & -\/ zmienna informujaca o wielkośći tablicy do wypełnienia \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sort__project_8h_aa7013a0857e1049af004513c230e53b2}\label{sort__project_8h_aa7013a0857e1049af004513c230e53b2}} 
+\index{sort\_project.h@{sort\_project.h}!generarate\_times@{generarate\_times}}
+\index{generarate\_times@{generarate\_times}!sort\_project.h@{sort\_project.h}}
+\doxysubsubsection{\texorpdfstring{generarate\_times()}{generarate\_times()}}
+{\footnotesize\ttfamily void generarate\+\_\+times (\begin{DoxyParamCaption}\item[{int}]{limit,  }\item[{int}]{dif }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{sort__project_8h_abbc9aa805502bee334dee31dca5f32a0}\label{sort__project_8h_abbc9aa805502bee334dee31dca5f32a0}} 
+\index{sort\_project.h@{sort\_project.h}!insert\_sort@{insert\_sort}}
+\index{insert\_sort@{insert\_sort}!sort\_project.h@{sort\_project.h}}
+\doxysubsubsection{\texorpdfstring{insert\_sort()}{insert\_sort()}}
+{\footnotesize\ttfamily void insert\+\_\+sort (\begin{DoxyParamCaption}\item[{int $\ast$}]{array,  }\item[{int}]{N }\end{DoxyParamCaption})}
+
+
+
+funckja sortująca poprzez wstawinie 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & -\/ wskaźnik na tablice która ma być posortowana \\
+\hline
+{\em N} & -\/ ilośc elemntów tablicy \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sort__project_8h_a942abae17d63fb41e6038baac3ee2525}\label{sort__project_8h_a942abae17d63fb41e6038baac3ee2525}} 
+\index{sort\_project.h@{sort\_project.h}!insert\_sort\_calc@{insert\_sort\_calc}}
+\index{insert\_sort\_calc@{insert\_sort\_calc}!sort\_project.h@{sort\_project.h}}
+\doxysubsubsection{\texorpdfstring{insert\_sort\_calc()}{insert\_sort\_calc()}}
+{\footnotesize\ttfamily int insert\+\_\+sort\+\_\+calc (\begin{DoxyParamCaption}\item[{int $\ast$}]{array,  }\item[{int}]{N }\end{DoxyParamCaption})}
+
+
+
+funcja liczaća ilosć operacji w sortwoaniu przez wstawianiae 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & -\/ wskaźnik na tablice która ma być posortowana \\
+\hline
+{\em N} & -\/ ilośc elemntów tablicy \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int -\/ zwraca ilośc wykoanych operacji 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sort__project_8h_afbc3a087bee7497f0e1a3aed587a4902}\label{sort__project_8h_afbc3a087bee7497f0e1a3aed587a4902}} 
+\index{sort\_project.h@{sort\_project.h}!insert\_sort\_step@{insert\_sort\_step}}
+\index{insert\_sort\_step@{insert\_sort\_step}!sort\_project.h@{sort\_project.h}}
+\doxysubsubsection{\texorpdfstring{insert\_sort\_step()}{insert\_sort\_step()}}
+{\footnotesize\ttfamily void insert\+\_\+sort\+\_\+step (\begin{DoxyParamCaption}\item[{int $\ast$}]{array,  }\item[{int}]{N }\end{DoxyParamCaption})}
+
+
+
+funcja sortująca przez wstawiania wypisująca i zatrzymujaca się na znaczącym etapie 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & -\/ wskaźnik na tablice która ma być posortowana \\
+\hline
+{\em N} & -\/ ilośc elemntów tablicy \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sort__project_8h_a08736efb038e9fcd89cf4debaf25c5a5}\label{sort__project_8h_a08736efb038e9fcd89cf4debaf25c5a5}} 
+\index{sort\_project.h@{sort\_project.h}!print\_array@{print\_array}}
+\index{print\_array@{print\_array}!sort\_project.h@{sort\_project.h}}
+\doxysubsubsection{\texorpdfstring{print\_array()}{print\_array()}}
+{\footnotesize\ttfamily void print\+\_\+array (\begin{DoxyParamCaption}\item[{int $\ast$}]{array,  }\item[{int}]{N }\end{DoxyParamCaption})}
+
+
+
+funkcja ta wypisuje zawawrtość wszystkich elementów w tablicy 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & -\/ wskaźnik na tablice zawierająća elemnrty do wyświeltenia \\
+\hline
+{\em N} & -\/ zmienna informujaca o wielkośći tablicy do wyświetlenia \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sort__project_8h_ac72e98e7363d5751706884c967c4a534}\label{sort__project_8h_ac72e98e7363d5751706884c967c4a534}} 
+\index{sort\_project.h@{sort\_project.h}!save\_array@{save\_array}}
+\index{save\_array@{save\_array}!sort\_project.h@{sort\_project.h}}
+\doxysubsubsection{\texorpdfstring{save\_array()}{save\_array()}}
+{\footnotesize\ttfamily void save\+\_\+array (\begin{DoxyParamCaption}\item[{char}]{name\mbox{[}50\mbox{]},  }\item[{int}]{array\mbox{[}$\,$\mbox{]},  }\item[{int}]{N }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & -\/ nazwa pliku do którego ma zostać zapisana \\
+\hline
+{\em array} & -\/ wskaźnik na tablice zawierająća elemnrty do zapisania \\
+\hline
+{\em N} & -\/ zmienna informujaca o wielkośći tablicy do wypełnienia \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sort__project_8h_a1f86ccd67c5da129142e4f403c6d55e6}\label{sort__project_8h_a1f86ccd67c5da129142e4f403c6d55e6}} 
+\index{sort\_project.h@{sort\_project.h}!shell\_sort@{shell\_sort}}
+\index{shell\_sort@{shell\_sort}!sort\_project.h@{sort\_project.h}}
+\doxysubsubsection{\texorpdfstring{shell\_sort()}{shell\_sort()}}
+{\footnotesize\ttfamily void shell\+\_\+sort (\begin{DoxyParamCaption}\item[{int $\ast$}]{array,  }\item[{int}]{N }\end{DoxyParamCaption})}
+
+
+
+funckja sortująca metoda shella 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & -\/ wskaźnik na tablice która ma być posortowana \\
+\hline
+{\em N} & -\/ ilośc elemntów tablicy \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sort__project_8h_abf8c0f92597e9a43b11de42c71dd6c31}\label{sort__project_8h_abf8c0f92597e9a43b11de42c71dd6c31}} 
+\index{sort\_project.h@{sort\_project.h}!shell\_sort\_calc@{shell\_sort\_calc}}
+\index{shell\_sort\_calc@{shell\_sort\_calc}!sort\_project.h@{sort\_project.h}}
+\doxysubsubsection{\texorpdfstring{shell\_sort\_calc()}{shell\_sort\_calc()}}
+{\footnotesize\ttfamily int shell\+\_\+sort\+\_\+calc (\begin{DoxyParamCaption}\item[{int $\ast$}]{array,  }\item[{int}]{N }\end{DoxyParamCaption})}
+
+
+
+funcja liczaća ilosć operacji w sortwoaniu przez metoda shella 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & -\/ wskaźnik na tablice która ma być posortowana \\
+\hline
+{\em N} & -\/ ilośc elemntów tablicy \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int -\/ zwraca ilośc wykoanych operacji 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sort__project_8h_ac966620e21783f03d5efbd3f1dace2d4}\label{sort__project_8h_ac966620e21783f03d5efbd3f1dace2d4}} 
+\index{sort\_project.h@{sort\_project.h}!shell\_sort\_draw@{shell\_sort\_draw}}
+\index{shell\_sort\_draw@{shell\_sort\_draw}!sort\_project.h@{sort\_project.h}}
+\doxysubsubsection{\texorpdfstring{shell\_sort\_draw()}{shell\_sort\_draw()}}
+{\footnotesize\ttfamily void shell\+\_\+sort\+\_\+draw (\begin{DoxyParamCaption}\item[{int $\ast$}]{array,  }\item[{int}]{N,  }\item[{int}]{max }\end{DoxyParamCaption})}
+
+
+
+funckja sortująca metoda shella i wyświetlająća grafczinnie tabelel po każdym znaczącym etapie 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & -\/ wskaźnik na tablice która ma być posortowana \\
+\hline
+{\em N} & -\/ ilośc elemntów tablicy \\
+\hline
+{\em max} & -\/ maksymalna wartość w tablicy \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sort__project_8h_a0c1aac2e04a33de0148eff7237854b67}\label{sort__project_8h_a0c1aac2e04a33de0148eff7237854b67}} 
+\index{sort\_project.h@{sort\_project.h}!shell\_sort\_step@{shell\_sort\_step}}
+\index{shell\_sort\_step@{shell\_sort\_step}!sort\_project.h@{sort\_project.h}}
+\doxysubsubsection{\texorpdfstring{shell\_sort\_step()}{shell\_sort\_step()}}
+{\footnotesize\ttfamily void shell\+\_\+sort\+\_\+step (\begin{DoxyParamCaption}\item[{int $\ast$}]{array,  }\item[{int}]{N }\end{DoxyParamCaption})}
+
+
+
+funcja sortująca metoda shella wypsyiująca i zatrzymujaca się na znaczącym etapie 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & -\/ wskaźnik na tablice która ma być posortowana \\
+\hline
+{\em N} & -\/ ilośc elemntów tablicy \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sort__project_8h_ab6fa64f9dbbc4adff44768fbb155e1c0}\label{sort__project_8h_ab6fa64f9dbbc4adff44768fbb155e1c0}} 
+\index{sort\_project.h@{sort\_project.h}!shuffle\_arry@{shuffle\_arry}}
+\index{shuffle\_arry@{shuffle\_arry}!sort\_project.h@{sort\_project.h}}
+\doxysubsubsection{\texorpdfstring{shuffle\_arry()}{shuffle\_arry()}}
+{\footnotesize\ttfamily void shuffle\+\_\+arry (\begin{DoxyParamCaption}\item[{int $\ast$}]{array,  }\item[{int}]{N }\end{DoxyParamCaption})}
+
+
+
+funcka przetasuwjąca wszystkie elemnty tablicy 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & -\/ wskaźnik na tablice zawierająća elemnrty do zapisania \\
+\hline
+{\em N} & -\/ zmienna informujaca o wielkośći tablicy do wypełnienia \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sort__project_8h_ac9cefab431333b5b75c8c585ea8b2143}\label{sort__project_8h_ac9cefab431333b5b75c8c585ea8b2143}} 
+\index{sort\_project.h@{sort\_project.h}!start\_gui@{start\_gui}}
+\index{start\_gui@{start\_gui}!sort\_project.h@{sort\_project.h}}
+\doxysubsubsection{\texorpdfstring{start\_gui()}{start\_gui()}}
+{\footnotesize\ttfamily void start\+\_\+gui (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+
+\begin{DoxyItemize}
+\item funkcja ropzycznajca działanie programu w formie graficznej 
+\end{DoxyItemize}
+
+\mbox{\Hypertarget{sort__project_8h_a339f3cbf817e9119286a6afb114850fa}\label{sort__project_8h_a339f3cbf817e9119286a6afb114850fa}} 
+\index{sort\_project.h@{sort\_project.h}!wait\_enter@{wait\_enter}}
+\index{wait\_enter@{wait\_enter}!sort\_project.h@{sort\_project.h}}
+\doxysubsubsection{\texorpdfstring{wait\_enter()}{wait\_enter()}}
+{\footnotesize\ttfamily void wait\+\_\+enter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+funkcja oczekujaca na wciśniecie enter 
+
+funkcja wchodzi w pętle i oczekuje wciśnięcie enter przez użytkownika 
