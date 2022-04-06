@@ -1,13 +1,14 @@
 /**
  * @file data_gather.c
  * @author Tomasz Bogdan, Maciej Cedzyński, Filip Borowiec
- * @brief funckje od zbierania danych odnośnie osrtowania
+ * @brief funkcje od zbierania danych odnośnie sortowania
  * @version 0.1
  * @date 2022-04-05
- * 
+ *
  * @copyright Copyright (c) 2022
- * 
+ *
  */
+
 
 #include "sort_project.h"
 #include <stdlib.h>
@@ -15,19 +16,20 @@
 #include <time.h>
 
 
-/**
- * @brief funckja licząca czas potrzebny na posortwoanie tabeli
- * 
- * funckja ta przyjmuje wskaźńik na tablice o raz jej wielkośc a także wskaźnik na funckje sortująca której czes ma być obliczony
- * funckja ta najpierw duplikuje table a nastęnie zapiuje stan zsgera procesora, następnie sortuje taablele i zapiusuje 
- * stan zegera po sortowaniu na stępnie dzieli różnice tych wartości prez CLOCKS_PER_SEC 
- * otrzymujac w ten sposoć ilość sekund potrzebnych na posortowanie
- *
- * @param array - wskaźnik na tabele do posortownia
- * @param N - ilość elemntó tabeli
- * @param sort - wskaźnik na funkce sortująca
- * @return float - zwraca wartosć typu float okreslając czas potrzsbyn na sortowanie
- */
+ /**
+  * @brief funkcja licząca czas potrzebny na sortowanie tabeli
+  *
+  * funkcja ta przyjmuje wskaźnik na tablice oraz jej wielkośc a także wskaźnik na funkcję sortująca której część ma być obliczony
+  * funkcja ta najpierw duplikuje table a następnie zapisuje stan zegara procesora, następnie sortuje tabele i zapisuje
+  * stan zegera po sortowaniu na wstępnie dzieli różnice tych wartości prez CLOCKS_PER_SEC
+  * otrzymując w ten sposób ilość sekund potrzebnych na sortowanie
+  *
+  * @param array - wskaźnik na tabele do posortowania
+  * @param N - ilość elementów tabeli
+  * @param sort - wskaźnik na funkcję sortująca
+  * @return float - zwraca wartość typu float określając czas potrzebny na sortowanie
+  */
+
 float calc_time(int* array, int N, void (*sort)(int*, int))
 {
 	

@@ -2,7 +2,7 @@
 \label{data__gather_8c}\index{D:/gogle drive/studia/Semestr  2/Algorytmy i struktury danych/Projekt -\/ Algorytmy i struktury danych/new/AiSD\_Project\_Insert-\/SHELL\_sort/AiSD\_Project/AiSD\_Project/data\_gather.c@{D:/gogle drive/studia/Semestr  2/Algorytmy i struktury danych/Projekt -\/ Algorytmy i struktury danych/new/AiSD\_Project\_Insert-\/SHELL\_sort/AiSD\_Project/AiSD\_Project/data\_gather.c}}
 
 
-funckje od zbierania danych odnośnie osrtowania  
+funkcje od zbierania danych odnośnie sortowania  
 
 
 {\ttfamily \#include \char`\"{}sort\+\_\+project.\+h\char`\"{}}\newline
@@ -13,11 +13,11 @@ funckje od zbierania danych odnośnie osrtowania
 \begin{DoxyCompactItemize}
 \item 
 float \mbox{\hyperlink{data__gather_8c_a6439d811618499371b11c04a0d8dc499}{calc\+\_\+time}} (int $\ast$array, int N, void($\ast$sort)(int $\ast$, int))
-\begin{DoxyCompactList}\small\item\em funckja licząca czas potrzebny na posortwoanie tabeli \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em funkcja licząca czas potrzebny na sortowanie tabeli \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-funckje od zbierania danych odnośnie osrtowania 
+funkcje od zbierania danych odnośnie sortowania 
 
 \begin{DoxyAuthor}{Author}
 Tomasz Bogdan, Maciej Cedzyński, Filip Borowiec 
@@ -42,19 +42,19 @@ Copyright (c) 2022
 
 
 
-funckja licząca czas potrzebny na posortwoanie tabeli 
+funkcja licząca czas potrzebny na sortowanie tabeli 
 
-funckja ta przyjmuje wskaźńik na tablice o raz jej wielkośc a także wskaźnik na funckje sortująca której czes ma być obliczony funckja ta najpierw duplikuje table a nastęnie zapiuje stan zsgera procesora, następnie sortuje taablele i zapiusuje stan zegera po sortowaniu na stępnie dzieli różnice tych wartości prez CLOCKS\+\_\+\+PER\+\_\+\+SEC otrzymujac w ten sposoć ilość sekund potrzebnych na posortowanie
+funkcja ta przyjmuje wskaźnik na tablice oraz jej wielkośc a także wskaźnik na funkcję sortująca której część ma być obliczony funkcja ta najpierw duplikuje table a następnie zapisuje stan zegara procesora, następnie sortuje tabele i zapisuje stan zegera po sortowaniu na wstępnie dzieli różnice tych wartości prez CLOCKS\+\_\+\+PER\+\_\+\+SEC otrzymując w ten sposób ilość sekund potrzebnych na sortowanie
 
 
 \begin{DoxyParams}{Parameters}
-{\em array} & -\/ wskaźnik na tabele do posortownia \\
+{\em array} & -\/ wskaźnik na tabele do posortowania \\
 \hline
-{\em N} & -\/ ilość elemntó tabeli \\
+{\em N} & -\/ ilość elementów tabeli \\
 \hline
-{\em sort} & -\/ wskaźnik na funkce sortująca \\
+{\em sort} & -\/ wskaźnik na funkcję sortująca \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-float -\/ zwraca wartosć typu float okreslając czas potrzsbyn na sortowanie 
+float -\/ zwraca wartość typu float określając czas potrzebny na sortowanie 
 \end{DoxyReturn}

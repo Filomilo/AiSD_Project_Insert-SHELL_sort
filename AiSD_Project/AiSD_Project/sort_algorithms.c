@@ -1,13 +1,14 @@
 /**
  * @file sort_algorithms.c
  * @author Tomasz Bogdan, Maciej Cedzyński, Filip Borowiec
- * @brief plik zawierajce wszystkie funkcje sortujace
+ * @brief plik zawierający wszystkie funkcje sortujące
  * @version 0.1
  * @date 2022-04-05
- * 
+ *
  * @copyright Copyright (c) 2022
- * 
+ *
  */
+
 
 #include "sort_project.h"
 #include <stdlib.h>
@@ -17,12 +18,13 @@
 
 
 
-/**
- * @brief funckja sortująca poprzez wstawinie
- * 
- * @param array - wskaźnik na tablice która ma być posortowana
- * @param N - ilośc elemntów tablicy
- */
+ /**
+  * @brief funkcja sortująca poprzez wstawienie
+  *
+  * @param array - wskaźnik na tablice która ma być posortowana
+  * @param N - ilość elementów tablicy
+  */
+
 void insert_sort(int* array, int N)
 {
 	int active;
@@ -44,10 +46,11 @@ void insert_sort(int* array, int N)
 
 /**
  * @brief funckja sortująca metoda shella
- * 
+ *
  * @param array - wskaźnik na tablice która ma być posortowana
- * @param N - ilośc elemntów tablicy
+ * @param N - ilość elementów tablicy
  */
+
 void shell_sort(int* array, int N)
 {
 	int active;
@@ -78,12 +81,13 @@ void shell_sort(int* array, int N)
 
 
 /**
- * @brief funcja liczaća ilosć operacji w sortwoaniu przez wstawianiae 
- * 
+ * @brief funkcja licząca ilość operacji w sortowaniu przez wstawianie
+ *
  * @param array - wskaźnik na tablice która ma być posortowana
- * @param N - ilośc elemntów tablicy
- * @return int - zwraca ilośc wykoanych operacji
+ * @param N - ilość elementów tablicy
+ * @return int - zwraca ilość wykonanych operacji
  */
+
 int insert_sort_calc(int* array, int N)
 {
 	int proces = 0;
@@ -109,12 +113,13 @@ int insert_sort_calc(int* array, int N)
 }
 
 /**
- * @brief funcja liczaća ilosć operacji w sortwoaniu przez metoda shella 
- * 
+ * @brief funkcja licząca ilość operacji w sortowaniu przez metoda shella
+ *
  * @param array - wskaźnik na tablice która ma być posortowana
- * @param N - ilośc elemntów tablicy
- * @return int - zwraca ilośc wykoanych operacji
+ * @param N - ilość elementów tablicy
+ * @return int - zwraca ilość wykonanych operacji
  */
+
 int shell_sort_calc(int* array, int N)
 {
 	int proces=0;
@@ -153,11 +158,12 @@ int shell_sort_calc(int* array, int N)
 
 
 /**
- * @brief funcja sortująca przez wstawiania wypisująca i zatrzymujaca się na znaczącym etapie
- * 
+ * @brief funkcja sortująca przez wstawiania wypisująca i zatrzymująca się na znaczącym etapie
+ *
  * @param array - wskaźnik na tablice która ma być posortowana
- * @param N - ilośc elemntów tablicy
+ * @param N - ilość elementów tablicy
  */
+
 void insert_sort_step(int* array, int N)
 {
 	int active;
@@ -184,12 +190,13 @@ void insert_sort_step(int* array, int N)
 	}
 }
 
-/**
- * @brief funcja sortująca metoda shella wypsyiująca i zatrzymujaca się na znaczącym etapie
- * 
+/**funkcja
+ * @brief funkcja sortująca metoda shella wypisująca zatrzymująca się na znaczącym etapie
+ *
  * @param array - wskaźnik na tablice która ma być posortowana
- * @param N - ilośc elemntów tablicy
+ * @param N - ilość elementów tablicy
  */
+
 void shell_sort_step(int* array, int N)
 {
 	int active;
@@ -228,12 +235,13 @@ void shell_sort_step(int* array, int N)
 
 
 /**
- * @brief funckja sortująca metoda shella i wyświetlająća grafczinnie tabelel po każdym znaczącym etapie
- * 
+ * @brief funkcja sortująca metoda shella i wyświetlająca graficzne tabele po każdym znaczącym etapie
+ *
  * @param array - wskaźnik na tablice która ma być posortowana
- * @param N - ilośc elemntów tablicy
+ * @param N - ilość elementów tablicy
  * @param max - maksymalna wartość w tablicy
  */
+
 void shell_sort_draw(int* array, int N, int max)
 {
 	int active;
@@ -270,12 +278,13 @@ void shell_sort_draw(int* array, int N, int max)
 
 
 /**
- * @brief funckja sortująca przez wstawianie i wyświetlająća grafczinnie tabelel po każdym znaczącym etapie
- * 
+ * @brief funkcja sortująca przez wstawianie i wyświetlająca graficznie tabele po każdym znaczącym etapie
+ *
  * @param array - wskaźnik na tablice która ma być posortowana
- * @param N - ilośc elemntów tablicy
+ * @param N - ilośc elementów tablicy
  * @param max - maksymalna wartość w tablicy
  */
+
 void insert_sort_draw(int* array, int N, int max)
 {
 	int active;
@@ -307,12 +316,13 @@ void insert_sort_draw(int* array, int N, int max)
 
 
 /**
- * @brief funckja sortująca przez wstawianie i wyświetlająća grafczinnie tabelel po każdym znaczącym etapie zatrzymując sie przy tym
- * 
+ * @brief funkcja sortująca przez wstawianie i wyświetlająca graficzne tabele po każdym znaczącym etapie zatrzymując się przy tym
+ *
  * @param array - wskaźnik na tablice która ma być posortowana
- * @param N - ilośc elemntów tablicy
+ * @param N - ilość elementów tablicy
  * @param max - maksymalna wartość w tablicy
  */
+
 void insert_sort_draw_step(int* array, int N, int max)
 {
 	int active;
@@ -342,12 +352,13 @@ void insert_sort_draw_step(int* array, int N, int max)
 }
 
 /**
- * @brief funckja sortująca metodą shella i wyświetlająća grafczinnie tabelel po każdym znaczącym etapie
- * 
+ * @brief funkcja sortująca metodą shella i wyświetlająca graficzne tabele po każdym znaczącym etapie
+ *
  * @param array - wskaźnik na tablice która ma być posortowana
- * @param N - ilośc elemntów tablicy
+ * @param N - ilość elementów tablicy
  * @param max - maksymalna wartość w tablicy
  */
+/
 void shell_sort_draw_step(int* array, int N, int max)
 {
 	int active;

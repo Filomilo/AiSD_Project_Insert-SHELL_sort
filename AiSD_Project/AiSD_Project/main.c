@@ -1,21 +1,22 @@
-/*! \mainpage Projekt podstawy programowania 2 - Sorotwanie przez wstawianie i metodą shella
+/*! \mainpage Projekt podstawy programowania 2 - Sortowanie przez wstawianie i metodą shella
  *
  * \section Opis
  *
- * PRogram umożliwa obserwacje i porównanie algorymów sortwoania przez wstawianie i sortowania shella
+ * program umożliwia obserwacje i porównanie algorytmów sortowania przez wstawianie i sortowania shella
  *
  * \section autorzy
  *
  * Tomasz Bogdan
- * 
- * Maciej Cedzyński
- * 
- * Filip Borowiec
- * 
- * 
  *
- * 
+ * Maciej Cedzyński
+ *
+ * Filip Borowiec
+ *
+ *
+ *
+ *
  */
+
 
 
 
