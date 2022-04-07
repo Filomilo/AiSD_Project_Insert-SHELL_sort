@@ -598,7 +598,7 @@ void generate_results(ALLEGRO_DISPLAY* display,int def, int max_el, int ch_array
 		case 1: strncpy_s(messege, 250, "Insert_Sort", 250); txt_w = al_get_text_width(font, messege); break;
 		case 2: strncpy_s(messege, 250, "Shell_Sort", 250); txt_w = al_get_text_width(font, messege); break;
 		}
-		al_draw_text(font, white, SCREEN_W / 2 - ((3 * ARRAT_ELEMENT_WIDTH) / 2) + ARRAT_ELEMENT_WIDTH * i, UPPER_COMENT_H, 0, messege);
+		al_draw_text(font, white, SCREEN_W / 2 - ((3 * ARRAT_ELEMENT_WIDTH) / 2) + ARRAT_ELEMENT_WIDTH * i+ ARRAT_ELEMENT_WIDTH/2- txt_w /2, UPPER_COMENT_H, 0, messege);
 		al_draw_rectangle(SCREEN_W / 2 - ((3 * ARRAT_ELEMENT_WIDTH)/2) + ARRAT_ELEMENT_WIDTH * i, UPPER_COMENT_H, SCREEN_W / 2 - ((3 * ARRAT_ELEMENT_WIDTH) / 2) + ARRAT_ELEMENT_WIDTH * (i+1), UPPER_COMENT_H * 2, al_map_rgb(100*i+100,100+200*i,100+300*i), 2);
 	}
 

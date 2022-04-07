@@ -44,6 +44,5 @@
 
 int main()
 {
-	system("CHCP 1250 >NUL");
 	start_gui();
 }

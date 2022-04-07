@@ -358,7 +358,7 @@ void insert_sort_draw_step(int* array, int N, int max)
  * @param N - ilość elementów tablicy
  * @param max - maksymalna wartość w tablicy
  */
-/
+
 void shell_sort_draw_step(int* array, int N, int max)
 {
 	int active;
