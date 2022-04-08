@@ -45,6 +45,7 @@ typedef struct timers_struct timers;
 #define SCREEN_W 1280
 
 
+#define GRAPH_GAP 75
 
 
 #define UPPER_COMENT_H 40
@@ -243,11 +244,118 @@ void wait_enter()
 
 	while (1)
 	{
-		al_get_keyboard_state(&key);
-		if (al_key_down(&key, ALLEGRO_KEY_ENTER))
-			break;
+		{
+			al_get_keyboard_state(&key);
+			if (al_key_down(&key, ALLEGRO_KEY_ENTER))
+				break;
+		}
 	}
 }
+
+
+
+void aproximate(float* data)
+{
+	if (*data <= 0)
+	{
+		*data = 0;
+		return;
+	}
+	int tmp = 1;
+	while (*data > tmp*10)
+	{
+		tmp *= 10;
+	//	printf("tmp= %d", tmp);
+	}
+
+	*data = ((int)(*data / tmp) + 1) * tmp;
+}
+
+void generate_graph(timers data[],int N)
+	{
+	ALLEGRO_COLOR white = al_map_rgb(255, 255, 255);
+	ALLEGRO_FONT* font = al_load_ttf_font("arial.ttf", 25, NULL);
+
+	float min_y = data[0].amount;
+	float max_y = data[0].amount;
+
+	float min_x = data[0].insert_time < data[0].shell_time ? data[0].insert_time : data[0].shell_time;
+	float max_x = data[0].insert_time > data[0].shell_time ? data[0].insert_time : data[0].shell_time;
+
+
+	for (int i = 0; i < N; i++)
+	{
+		if (data[i].amount < min_y)
+		{
+			min_y = data[i].amount;
+		}
+		else
+		{
+			if (data[i].amount > max_y)
+			{
+				max_y = data[i].amount;
+			}
+		}
+
+
+
+		if (data[i].insert_time < min_x)
+		{
+			min_x = data[i].insert_time;
+		}
+		else
+		{
+			if (data[i].insert_time > max_x)
+			{
+				max_x = data[i].insert_time;
+			}
+		}
+		
+		if (data[i].shell_time < min_x)
+		{
+			min_x = data[i].shell_time;
+		}
+		else
+		{
+			if (data[i].shell_time > max_x)
+			{
+				max_x = data[i].shell_time;
+			}
+		}
+
+	}
+
+	aproximate(&max_x);
+	aproximate(&max_y);
+	aproximate(&min_x);
+	aproximate(&min_y);
+
+	//printf("%f, %f\n %f, %f", min_y, max_y, min_x, max_x);
+	int x_gap = (max_x - min_x) / 5;
+	if (x_gap == 0)
+		x_gap = 1;
+	printf("x_gap= %d", x_gap);
+	for (int i = 0; i <= max_x / x_gap; i++)
+	{
+		al_draw_circle(i*((SCREEN_W-2*GRAPH_GAP)/(max_x/x_gap))+GRAPH_GAP, SCREEN_H-GRAPH_GAP,5, white, 5);
+		al_draw_textf(font, white, i*((SCREEN_W - 2 * GRAPH_GAP) / (max_x / x_gap)) + GRAPH_GAP, SCREEN_H - GRAPH_GAP+10, ALLEGRO_ALIGN_CENTER, "%d", i * x_gap);
+		
+		printf("%d", i);
+	}
+
+
+
+
+
+
+
+
+		al_draw_rectangle(0 + GRAPH_GAP, 0 + GRAPH_GAP, SCREEN_W - GRAPH_GAP, SCREEN_H - GRAPH_GAP, white, 5);
+
+		al_flip_display();
+		wait_enter();
+	}
+
 
 /**
  * @brief funkcja wyświetlająca komunikat o wciśnięciu  enter
@@ -858,30 +966,16 @@ void start_gui()
 	al_install_keyboard();
 	al_install_mouse();
 	display = al_create_display(SCREEN_W, SCREEN_H);
-	//generate_results(display,2000, 10000, 1, 50);
-	//cmp_ui();
-	 start_ui(display);
-	//observation_ui();
-	//text a[] = { "123","aaaaaaaaa","bbbbbbbbbb","cccccccccccc","ddddddddddd","eeeeeeeeeeeeeeeeeee","eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" ,"eeeeeeeeeeeeeeeeeee" };
-	//choice_menu(a, 2);
+
+//	 start_ui(display);
 
 
 
 
-	/*
-	int N = 500;
-	int min = 0;
-	int max = N;
-	int* array = calloc(N, sizeof(int));
-	fill_array_reverse(array, N);
-	//fill_array_rand(array,N, min, max);
-	print_array(array, N);
-	draw_array(array, N, max, 255, 255, 255);
-	getchar();
-	//shell_sort_draw(array, N, max);
-	
-	insert_sort_draw(array, N, max);
-	*/
+	timers tmp[] = { {0,0,0},{1,1,1},{2,2,4},{3,3,9},{4,4,16},{5,5,25},{6,6,36} };
+	 generate_graph(tmp, sizeof(tmp) / sizeof(tmp[0]));
+
+
 
 	al_destroy_display(display);
 }
