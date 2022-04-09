@@ -1,0 +1,49 @@
+\hypertarget{sort__project_8h_source}{}\doxysection{sort\+\_\+project.\+h}
+\label{sort__project_8h_source}\index{D:/dysk google/studia/Semestr  2/Algorytmy i struktury danych/Projekt -\/ Algorytmy i struktury danych/nwe/AiSD\_Project\_Insert-\/SHELL\_sort/AiSD\_Project/AiSD\_Project/sort\_project.h@{D:/dysk google/studia/Semestr  2/Algorytmy i struktury danych/Projekt -\/ Algorytmy i struktury danych/nwe/AiSD\_Project\_Insert-\/SHELL\_sort/AiSD\_Project/AiSD\_Project/sort\_project.h}}
+\mbox{\hyperlink{sort__project_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#ifndef SORT\_PROJECT}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#define SORT\_PROJECT}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#define BLACK al\_map\_rgb(0, 0, 0)}}
+\DoxyCodeLine{15 \textcolor{comment}{//algorytmy sortowania}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \mbox{\hyperlink{sort__project_8h_abbc9aa805502bee334dee31dca5f32a0}{insert\_sort}}(\textcolor{keywordtype}{int}* array, \textcolor{keywordtype}{int} N);}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \mbox{\hyperlink{sort__project_8h_a1f86ccd67c5da129142e4f403c6d55e6}{shell\_sort}}(\textcolor{keywordtype}{int}* array, \textcolor{keywordtype}{int} N);}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} \mbox{\hyperlink{sort__project_8h_a942abae17d63fb41e6038baac3ee2525}{insert\_sort\_calc}}(\textcolor{keywordtype}{int}* array, \textcolor{keywordtype}{int} N);}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} \mbox{\hyperlink{sort__project_8h_abf8c0f92597e9a43b11de42c71dd6c31}{shell\_sort\_calc}}(\textcolor{keywordtype}{int}* array, \textcolor{keywordtype}{int} N);}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \mbox{\hyperlink{sort__project_8h_a0c1aac2e04a33de0148eff7237854b67}{shell\_sort\_step}}(\textcolor{keywordtype}{int}* array, \textcolor{keywordtype}{int} N);}
+\DoxyCodeLine{29 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \mbox{\hyperlink{sort__project_8h_afbc3a087bee7497f0e1a3aed587a4902}{insert\_sort\_step}}(\textcolor{keywordtype}{int}* array, \textcolor{keywordtype}{int} N);}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \mbox{\hyperlink{sort__project_8h_ac966620e21783f03d5efbd3f1dace2d4}{shell\_sort\_draw}}(\textcolor{keywordtype}{int}* array, \textcolor{keywordtype}{int} N, \textcolor{keywordtype}{int} max);}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{keywordtype}{void} \mbox{\hyperlink{sort__project_8h_ab6fa64f9dbbc4adff44768fbb155e1c0}{shuffle\_arry}}(\textcolor{keywordtype}{int}* array, \textcolor{keywordtype}{int} N);}
+\DoxyCodeLine{34 \textcolor{comment}{//zarzadzanie tabela}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \mbox{\hyperlink{sort__project_8h_a08736efb038e9fcd89cf4debaf25c5a5}{print\_array}}(\textcolor{keywordtype}{int}* array, \textcolor{keywordtype}{int} N);}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \mbox{\hyperlink{sort__project_8h_a02a84e31996398d188e2e1c6c47796a2}{fill\_array\_rand}}(\textcolor{keywordtype}{int}* array, \textcolor{keywordtype}{int} N, \textcolor{keywordtype}{int} min, \textcolor{keywordtype}{int} max);}
+\DoxyCodeLine{39 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \mbox{\hyperlink{sort__project_8h_a2c969939a549cc4a3dc0500f2c89fe67}{fill\_array\_reverse}}(\textcolor{keywordtype}{int}* array, \textcolor{keywordtype}{int} N);}
+\DoxyCodeLine{40 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \mbox{\hyperlink{sort__project_8h_a9d83e0979dbefd17ee96fd97832a87e6}{duplicate\_array}}(\textcolor{keywordtype}{int}* array, \textcolor{keywordtype}{int}* array\_to\_copy, \textcolor{keywordtype}{int} N);}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{keywordtype}{void} \mbox{\hyperlink{sort__project_8h_ac72e98e7363d5751706884c967c4a534}{save\_array}}(\textcolor{keywordtype}{char} name[50], \textcolor{keywordtype}{int} array[], \textcolor{keywordtype}{int} N);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{comment}{//zodbywanie danych}}
+\DoxyCodeLine{46 \textcolor{keyword}{extern} \textcolor{keywordtype}{float} \mbox{\hyperlink{sort__project_8h_a6439d811618499371b11c04a0d8dc499}{calc\_time}}(\textcolor{keywordtype}{int}* array, \textcolor{keywordtype}{int} N, \textcolor{keywordtype}{void} (*sort)(\textcolor{keywordtype}{int}*, \textcolor{keywordtype}{int}));}
+\DoxyCodeLine{47 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \mbox{\hyperlink{sort__project_8h_aa7013a0857e1049af004513c230e53b2}{generarate\_times}}(\textcolor{keywordtype}{int} limit, \textcolor{keywordtype}{int} dif);}
+\DoxyCodeLine{48 \textcolor{keyword}{extern} \textcolor{keywordtype}{float} \mbox{\hyperlink{sort__project_8h_a81b184622a38150b00087fbebd1d79b5}{calc\_proces}}(\textcolor{keywordtype}{int}* array, \textcolor{keywordtype}{int} N, \textcolor{keywordtype}{int} (*sort)(\textcolor{keywordtype}{int}*, \textcolor{keywordtype}{int}));}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \mbox{\hyperlink{sort__project_8h_ac9cefab431333b5b75c8c585ea8b2143}{start\_gui}}();}
+\DoxyCodeLine{51 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \mbox{\hyperlink{sort__project_8h_a63b266d495c11c906950d7277c65fefe}{draw\_array}}(\textcolor{keywordtype}{int} array[], \textcolor{keywordtype}{int} N, \textcolor{keywordtype}{int} max);}
+\DoxyCodeLine{52 \textcolor{keywordtype}{void} \mbox{\hyperlink{sort__project_8h_a339f3cbf817e9119286a6afb114850fa}{wait\_enter}}();}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -266,7 +266,11 @@ void wait_enter()
 }
 
 
-
+/**
+ * @brief funkcja przybliza wartosc float w dół
+ * 
+ * @param data 
+ */
 void aproximate_up(float* data)
 {
 	if (*data <= 0)
@@ -283,36 +287,75 @@ void aproximate_up(float* data)
 
 	*data = ((int)(*data / tmp) + 1) * tmp;
 }
-
+/**
+ * @brief funkcja przybliza wartosc float w góre
+ * 
+ * @param data 
+ */
 void aproximate_down(float* data)
 {
 	return (float)((int)*data);
 }
 
 
-
+/**
+ * @brief funckja sprawdza czy myszka nachodzi na punkt
+ * 
+ * funckcja sprawdza czy ppodana pozycja znadjuje sie w odlgelosci RANGE od andego punktu i zwraca wartosc 0 jezeli nie i 1 jezeli tak
+ * 
+ * @param x1 - kordyanty x myszki
+ * @param y1  - kordyanty y myszki
+ * @param x2 - kordyanty x punktu
+ * @param y2 - kordyanty y punktu
+ * @return int - wartosc 0 jezeli nie , wartosc 1 jezeli tak
+ */
 int if_in_range(float x1, float y1, float x2, float y2)
 {
 	if (sqrt(pow(x1 - x2, 2) + pow(y1 - y2, 2)) < RANGE)
 		return 1;
 	return 0;
 }
-
+/**
+ * @brief funkcja pomocznica do wycnzaczneia kordynatów x punktówn a wykresie
+ * 
+ * @param x 
+ * @return float 
+ */
 float point_x(float x)
 {
 	return x + GRAPH_GAP;
 }
+/**
+ * @brief funkcja pomncnicza do wycznaczenia kordyntów y na pnuktu na wykresie
+ * 
+ * @param y 
+ * @return float 
+ */
 float point_y(float y)
 {
 	return SCREEN_H-y - GRAPH_GAP;
 }
 
-
+/**
+ * @brief funkcja pomocniza do rysowania punktów na wykresie
+ * 
+ * @param x 
+ * @param y 
+ * @param color 
+ */
 void draw_dot(float x, float y, ALLEGRO_COLOR color)
 {
 	al_draw_filled_circle(x, y, POINT_RAD, color);
 }
-
+/**
+ * @brief funcja rysująca wykres czasu od ilosci danych
+ * 
+ * funckja rusuje wykres na podstawie odanych danych a nastepnie pozwala takze wybrac punkt aby wysswietlic szegółowe  dane
+ * 
+ * @param data - wskaxnik na talbice zawierajaca dane do wyświetlenia
+ * @param N - ilość elemtów w talibcy do wyświetlenia
+ * @param display - wskanik na ekran na któym ma być wysietlony wkyres
+ */
 void generate_graph(timers data[],int N, ALLEGRO_DISPLAY* display)
 	{
 	ALLEGRO_BITMAP* graph_bitmap = al_create_bitmap(SCREEN_W, SCREEN_H);

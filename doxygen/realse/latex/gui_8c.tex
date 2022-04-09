@@ -1,5 +1,5 @@
-\hypertarget{gui_8c}{}\doxysection{D\+:/gogle drive/studia/\+Semestr 2/\+Algorytmy i struktury danych/\+Projekt -\/ Algorytmy i struktury danych/new/\+Ai\+SD\+\_\+\+Project\+\_\+\+Insert-\/\+SHELL\+\_\+sort/\+Ai\+SD\+\_\+\+Project/\+Ai\+SD\+\_\+\+Project/gui.c File Reference}
-\label{gui_8c}\index{D:/gogle drive/studia/Semestr  2/Algorytmy i struktury danych/Projekt -\/ Algorytmy i struktury danych/new/AiSD\_Project\_Insert-\/SHELL\_sort/AiSD\_Project/AiSD\_Project/gui.c@{D:/gogle drive/studia/Semestr  2/Algorytmy i struktury danych/Projekt -\/ Algorytmy i struktury danych/new/AiSD\_Project\_Insert-\/SHELL\_sort/AiSD\_Project/AiSD\_Project/gui.c}}
+\hypertarget{gui_8c}{}\doxysection{D\+:/dysk google/studia/\+Semestr 2/\+Algorytmy i struktury danych/\+Projekt -\/ Algorytmy i struktury danych/nwe/\+Ai\+SD\+\_\+\+Project\+\_\+\+Insert-\/\+SHELL\+\_\+sort/\+Ai\+SD\+\_\+\+Project/\+Ai\+SD\+\_\+\+Project/gui.c File Reference}
+\label{gui_8c}\index{D:/dysk google/studia/Semestr  2/Algorytmy i struktury danych/Projekt -\/ Algorytmy i struktury danych/nwe/AiSD\_Project\_Insert-\/SHELL\_sort/AiSD\_Project/AiSD\_Project/gui.c@{D:/dysk google/studia/Semestr  2/Algorytmy i struktury danych/Projekt -\/ Algorytmy i struktury danych/nwe/AiSD\_Project\_Insert-\/SHELL\_sort/AiSD\_Project/AiSD\_Project/gui.c}}
 
 
 funkcje odpowiadające za interfejs graficzny  
@@ -9,6 +9,7 @@ funkcje odpowiadające za interfejs graficzny
 {\ttfamily \#include $<$allegro5/allegro\+\_\+primitives.\+h$>$}\newline
 {\ttfamily \#include $<$allegro5/allegro\+\_\+font.\+h$>$}\newline
 {\ttfamily \#include $<$allegro5\textbackslash{}allegro\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include $<$allegro5\textbackslash{}allegro\+\_\+image.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}sort\+\_\+project.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$string.\+h$>$}\newline
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
@@ -22,15 +23,35 @@ struct \mbox{\hyperlink{structtimers__struct}{timers\+\_\+struct}}
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
+\#define \mbox{\hyperlink{gui_8c_ad8f131f7439f1b446a418c3a0f4adea8}{PRINT\+\_\+\+INT}}(x)~printf(\char`\"{}\%s=\%d\textbackslash{}n\char`\"{}, \#x, x)
+\item 
+\#define \mbox{\hyperlink{gui_8c_a146a82fa813cca66108993fa6f2e3917}{PRINT\+\_\+\+FL}}(x)~printf(\char`\"{}\%s=\%f\textbackslash{}n\char`\"{}, \#x, x)
+\item 
 \#define \mbox{\hyperlink{gui_8c_ae71449b1cc6e6250b91f539153a7a0d3}{M\+\_\+\+PI}}~3.\+14159265359
 \item 
 \#define \mbox{\hyperlink{gui_8c_a27cddfd509d28b4b2b0b44c093fac090}{SCREEN\+\_\+H}}~720
 \item 
 \#define \mbox{\hyperlink{gui_8c_a9b6bc9242882d1e758e06ed751a2e8ec}{SCREEN\+\_\+W}}~1280
 \item 
+\#define \mbox{\hyperlink{gui_8c_a0e2a15367b96a87665283b6c857b9eb1}{POINT\+\_\+\+RAD}}~7
+\item 
+\#define \mbox{\hyperlink{gui_8c_aa1295db9fd7a0338a8f5caa22f21cdc1}{GRAPH\+\_\+\+GAP}}~75
+\item 
 \#define \mbox{\hyperlink{gui_8c_ac3aff58faafc8f4ee6cc44681e2da797}{UPPER\+\_\+\+COMENT\+\_\+H}}~40
 \item 
 \#define \mbox{\hyperlink{gui_8c_ad17b60ed56645bd16d089acb387cd6e8}{ARRAT\+\_\+\+ELEMENT\+\_\+\+WIDTH}}~1200/3
+\item 
+\#define \mbox{\hyperlink{gui_8c_ab8835a0e356ed0128974fc996fdaac4f}{BOLD\+\_\+\+LINE}}~5
+\item 
+\#define \mbox{\hyperlink{gui_8c_a1db3544284130490e9053de952e2db19}{NARROW\+\_\+\+LINE}}~2
+\item 
+\#define \mbox{\hyperlink{gui_8c_adf1aa0e1b5d846160fba2a62ca60e2e9}{UP\+\_\+\+MOUSE\+\_\+\+GAP}}~25
+\item 
+\#define \mbox{\hyperlink{gui_8c_a98b703fcc4d5b791149f1e5cf50890f5}{MOUSE\+\_\+\+BOX\+\_\+W}}~150
+\item 
+\#define \mbox{\hyperlink{gui_8c_adc05fdd44de68c3a7314b10306113e75}{MOUSE\+\_\+\+BOX\+\_\+H}}~60
+\item 
+\#define \mbox{\hyperlink{gui_8c_ac04dd0afaf7ea3eb2ade2544d2d5f907}{RANGE}}~25
 \end{DoxyCompactItemize}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
@@ -51,6 +72,20 @@ int \mbox{\hyperlink{gui_8c_a27700436b3ef7d81690796b378d28c9e}{choice\+\_\+menu}
 \begin{DoxyCompactList}\small\item\em wyświetla menu wyboru \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{gui_8c_a339f3cbf817e9119286a6afb114850fa}{wait\+\_\+enter}} ()
 \begin{DoxyCompactList}\small\item\em funkcja oczekuje na wciśnięcie enter \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{gui_8c_a78dba1dac4485da10ac5dca29e4d736c}{aproximate\+\_\+up}} (float $\ast$data)
+\begin{DoxyCompactList}\small\item\em funkcja przybliza wartosc float w dół \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{gui_8c_ac9e738cb431315ac7dae144e3d0f5143}{aproximate\+\_\+down}} (float $\ast$data)
+\begin{DoxyCompactList}\small\item\em funkcja przybliza wartosc float w góre \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{gui_8c_a69137a985231ecb0aad0c91caa7b997c}{if\+\_\+in\+\_\+range}} (float x1, float y1, float x2, float y2)
+\begin{DoxyCompactList}\small\item\em funckja sprawdza czy myszka nachodzi na punkt \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{gui_8c_a2865cac07121c96319d7bfa48bd1101e}{point\+\_\+x}} (float x)
+\begin{DoxyCompactList}\small\item\em funkcja pomocznica do wycnzaczneia kordynatów x punktówn a wykresie \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{gui_8c_af6489ef7a7156237a0d4331e84eac6c4}{point\+\_\+y}} (float y)
+\begin{DoxyCompactList}\small\item\em funkcja pomncnicza do wycznaczenia kordyntów y na pnuktu na wykresie \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{gui_8c_a122a63649e72bc25857ae48e5b39c89b}{draw\+\_\+dot}} (float x, float y, ALLEGRO\+\_\+\+COLOR color)
+\begin{DoxyCompactList}\small\item\em funkcja pomocniza do rysowania punktów na wykresie \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{gui_8c_a4442177503e9108b366c86d9b23e6fd9}{generate\+\_\+graph}} (\mbox{\hyperlink{gui_8c_ae0c0f783435cf1d244e6b00f08daa0d6}{timers}} data\mbox{[}$\,$\mbox{]}, int N, ALLEGRO\+\_\+\+DISPLAY $\ast$display)
+\begin{DoxyCompactList}\small\item\em funcja rysująca wykres czasu od ilosci danych \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{gui_8c_a53d33e7a136d04313521145a57407bb7}{press\+\_\+enter}} ()
 \begin{DoxyCompactList}\small\item\em funkcja wyświetlająca komunikat o wciśnięciu enter \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{gui_8c_a122ec651bbff4dc01d05d4bb311a6826}{draw\+\_\+array}} (int array\mbox{[}$\,$\mbox{]}, int N, int max, int r, int g, int b)
@@ -61,7 +96,7 @@ void \mbox{\hyperlink{gui_8c_ae031487a3c4d8d7adac916e8262145b7}{draw\+\_\+array\
 \begin{DoxyCompactList}\small\item\em funkcja wyświetlająca graficznie tablice wartości z możliwością oznaczenia 2 elementów kolorem żółtym i 2 elementów zielonym \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{gui_8c_a8a670e8d899dbd2de53540c31a510218}{observation\+\_\+ui}} ()
 \begin{DoxyCompactList}\small\item\em menu odpowiedzialne za zaobserwowanie algorytmu sortowania \end{DoxyCompactList}\item 
-ALLEGRO\+\_\+\+BITMAP $\ast$ \mbox{\hyperlink{gui_8c_a932c1c701bc763efc33c9fecdbc98b0c}{generate\+\_\+bitmap}} (int amount\+\_\+of\+\_\+elements, \mbox{\hyperlink{gui_8c_ae0c0f783435cf1d244e6b00f08daa0d6}{timers}} data\mbox{[}$\,$\mbox{]})
+ALLEGRO\+\_\+\+BITMAP $\ast$ \mbox{\hyperlink{gui_8c_aad118eefd9538a8d07d4454b580e276a}{generate\+\_\+bitmap}} (int amount\+\_\+of\+\_\+elements, \mbox{\hyperlink{gui_8c_ae0c0f783435cf1d244e6b00f08daa0d6}{timers}} data\mbox{[}$\,$\mbox{]})
 \begin{DoxyCompactList}\small\item\em funkcja generuje tabele czasu sortowania w zależności od elementów \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{gui_8c_ab5c387b209fa75173e0f23cbb95de42c}{generate\+\_\+results}} (ALLEGRO\+\_\+\+DISPLAY $\ast$display, int def, int max\+\_\+el, int ch\+\_\+array, int max)
 \begin{DoxyCompactList}\small\item\em segment menu odpowiadający za generowanie czasów sortowania \end{DoxyCompactList}\item 
@@ -102,11 +137,65 @@ Copyright (c) 2022
 \doxysubsubsection{\texorpdfstring{ARRAT\_ELEMENT\_WIDTH}{ARRAT\_ELEMENT\_WIDTH}}
 {\footnotesize\ttfamily \#define ARRAT\+\_\+\+ELEMENT\+\_\+\+WIDTH~1200/3}
 
+\mbox{\Hypertarget{gui_8c_ab8835a0e356ed0128974fc996fdaac4f}\label{gui_8c_ab8835a0e356ed0128974fc996fdaac4f}} 
+\index{gui.c@{gui.c}!BOLD\_LINE@{BOLD\_LINE}}
+\index{BOLD\_LINE@{BOLD\_LINE}!gui.c@{gui.c}}
+\doxysubsubsection{\texorpdfstring{BOLD\_LINE}{BOLD\_LINE}}
+{\footnotesize\ttfamily \#define BOLD\+\_\+\+LINE~5}
+
+\mbox{\Hypertarget{gui_8c_aa1295db9fd7a0338a8f5caa22f21cdc1}\label{gui_8c_aa1295db9fd7a0338a8f5caa22f21cdc1}} 
+\index{gui.c@{gui.c}!GRAPH\_GAP@{GRAPH\_GAP}}
+\index{GRAPH\_GAP@{GRAPH\_GAP}!gui.c@{gui.c}}
+\doxysubsubsection{\texorpdfstring{GRAPH\_GAP}{GRAPH\_GAP}}
+{\footnotesize\ttfamily \#define GRAPH\+\_\+\+GAP~75}
+
 \mbox{\Hypertarget{gui_8c_ae71449b1cc6e6250b91f539153a7a0d3}\label{gui_8c_ae71449b1cc6e6250b91f539153a7a0d3}} 
 \index{gui.c@{gui.c}!M\_PI@{M\_PI}}
 \index{M\_PI@{M\_PI}!gui.c@{gui.c}}
 \doxysubsubsection{\texorpdfstring{M\_PI}{M\_PI}}
 {\footnotesize\ttfamily \#define M\+\_\+\+PI~3.\+14159265359}
+
+\mbox{\Hypertarget{gui_8c_adc05fdd44de68c3a7314b10306113e75}\label{gui_8c_adc05fdd44de68c3a7314b10306113e75}} 
+\index{gui.c@{gui.c}!MOUSE\_BOX\_H@{MOUSE\_BOX\_H}}
+\index{MOUSE\_BOX\_H@{MOUSE\_BOX\_H}!gui.c@{gui.c}}
+\doxysubsubsection{\texorpdfstring{MOUSE\_BOX\_H}{MOUSE\_BOX\_H}}
+{\footnotesize\ttfamily \#define MOUSE\+\_\+\+BOX\+\_\+H~60}
+
+\mbox{\Hypertarget{gui_8c_a98b703fcc4d5b791149f1e5cf50890f5}\label{gui_8c_a98b703fcc4d5b791149f1e5cf50890f5}} 
+\index{gui.c@{gui.c}!MOUSE\_BOX\_W@{MOUSE\_BOX\_W}}
+\index{MOUSE\_BOX\_W@{MOUSE\_BOX\_W}!gui.c@{gui.c}}
+\doxysubsubsection{\texorpdfstring{MOUSE\_BOX\_W}{MOUSE\_BOX\_W}}
+{\footnotesize\ttfamily \#define MOUSE\+\_\+\+BOX\+\_\+W~150}
+
+\mbox{\Hypertarget{gui_8c_a1db3544284130490e9053de952e2db19}\label{gui_8c_a1db3544284130490e9053de952e2db19}} 
+\index{gui.c@{gui.c}!NARROW\_LINE@{NARROW\_LINE}}
+\index{NARROW\_LINE@{NARROW\_LINE}!gui.c@{gui.c}}
+\doxysubsubsection{\texorpdfstring{NARROW\_LINE}{NARROW\_LINE}}
+{\footnotesize\ttfamily \#define NARROW\+\_\+\+LINE~2}
+
+\mbox{\Hypertarget{gui_8c_a0e2a15367b96a87665283b6c857b9eb1}\label{gui_8c_a0e2a15367b96a87665283b6c857b9eb1}} 
+\index{gui.c@{gui.c}!POINT\_RAD@{POINT\_RAD}}
+\index{POINT\_RAD@{POINT\_RAD}!gui.c@{gui.c}}
+\doxysubsubsection{\texorpdfstring{POINT\_RAD}{POINT\_RAD}}
+{\footnotesize\ttfamily \#define POINT\+\_\+\+RAD~7}
+
+\mbox{\Hypertarget{gui_8c_a146a82fa813cca66108993fa6f2e3917}\label{gui_8c_a146a82fa813cca66108993fa6f2e3917}} 
+\index{gui.c@{gui.c}!PRINT\_FL@{PRINT\_FL}}
+\index{PRINT\_FL@{PRINT\_FL}!gui.c@{gui.c}}
+\doxysubsubsection{\texorpdfstring{PRINT\_FL}{PRINT\_FL}}
+{\footnotesize\ttfamily \#define PRINT\+\_\+\+FL(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~printf(\char`\"{}\%s=\%f\textbackslash{}n\char`\"{}, \#x, x)}
+
+\mbox{\Hypertarget{gui_8c_ad8f131f7439f1b446a418c3a0f4adea8}\label{gui_8c_ad8f131f7439f1b446a418c3a0f4adea8}} 
+\index{gui.c@{gui.c}!PRINT\_INT@{PRINT\_INT}}
+\index{PRINT\_INT@{PRINT\_INT}!gui.c@{gui.c}}
+\doxysubsubsection{\texorpdfstring{PRINT\_INT}{PRINT\_INT}}
+{\footnotesize\ttfamily \#define PRINT\+\_\+\+INT(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~printf(\char`\"{}\%s=\%d\textbackslash{}n\char`\"{}, \#x, x)}
+
+\mbox{\Hypertarget{gui_8c_ac04dd0afaf7ea3eb2ade2544d2d5f907}\label{gui_8c_ac04dd0afaf7ea3eb2ade2544d2d5f907}} 
+\index{gui.c@{gui.c}!RANGE@{RANGE}}
+\index{RANGE@{RANGE}!gui.c@{gui.c}}
+\doxysubsubsection{\texorpdfstring{RANGE}{RANGE}}
+{\footnotesize\ttfamily \#define RANGE~25}
 
 \mbox{\Hypertarget{gui_8c_a27cddfd509d28b4b2b0b44c093fac090}\label{gui_8c_a27cddfd509d28b4b2b0b44c093fac090}} 
 \index{gui.c@{gui.c}!SCREEN\_H@{SCREEN\_H}}
@@ -119,6 +208,12 @@ Copyright (c) 2022
 \index{SCREEN\_W@{SCREEN\_W}!gui.c@{gui.c}}
 \doxysubsubsection{\texorpdfstring{SCREEN\_W}{SCREEN\_W}}
 {\footnotesize\ttfamily \#define SCREEN\+\_\+W~1280}
+
+\mbox{\Hypertarget{gui_8c_adf1aa0e1b5d846160fba2a62ca60e2e9}\label{gui_8c_adf1aa0e1b5d846160fba2a62ca60e2e9}} 
+\index{gui.c@{gui.c}!UP\_MOUSE\_GAP@{UP\_MOUSE\_GAP}}
+\index{UP\_MOUSE\_GAP@{UP\_MOUSE\_GAP}!gui.c@{gui.c}}
+\doxysubsubsection{\texorpdfstring{UP\_MOUSE\_GAP}{UP\_MOUSE\_GAP}}
+{\footnotesize\ttfamily \#define UP\+\_\+\+MOUSE\+\_\+\+GAP~25}
 
 \mbox{\Hypertarget{gui_8c_ac3aff58faafc8f4ee6cc44681e2da797}\label{gui_8c_ac3aff58faafc8f4ee6cc44681e2da797}} 
 \index{gui.c@{gui.c}!UPPER\_COMENT\_H@{UPPER\_COMENT\_H}}
@@ -165,6 +260,36 @@ Copyright (c) 2022
 \begin{DoxyReturn}{Returns}
 float -\/ zwraca wartość bezwzględną danej liczby float 
 \end{DoxyReturn}
+\mbox{\Hypertarget{gui_8c_ac9e738cb431315ac7dae144e3d0f5143}\label{gui_8c_ac9e738cb431315ac7dae144e3d0f5143}} 
+\index{gui.c@{gui.c}!aproximate\_down@{aproximate\_down}}
+\index{aproximate\_down@{aproximate\_down}!gui.c@{gui.c}}
+\doxysubsubsection{\texorpdfstring{aproximate\_down()}{aproximate\_down()}}
+{\footnotesize\ttfamily void aproximate\+\_\+down (\begin{DoxyParamCaption}\item[{float $\ast$}]{data }\end{DoxyParamCaption})}
+
+
+
+funkcja przybliza wartosc float w góre 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{gui_8c_a78dba1dac4485da10ac5dca29e4d736c}\label{gui_8c_a78dba1dac4485da10ac5dca29e4d736c}} 
+\index{gui.c@{gui.c}!aproximate\_up@{aproximate\_up}}
+\index{aproximate\_up@{aproximate\_up}!gui.c@{gui.c}}
+\doxysubsubsection{\texorpdfstring{aproximate\_up()}{aproximate\_up()}}
+{\footnotesize\ttfamily void aproximate\+\_\+up (\begin{DoxyParamCaption}\item[{float $\ast$}]{data }\end{DoxyParamCaption})}
+
+
+
+funkcja przybliza wartosc float w dół 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{gui_8c_a27700436b3ef7d81690796b378d28c9e}\label{gui_8c_a27700436b3ef7d81690796b378d28c9e}} 
 \index{gui.c@{gui.c}!choice\_menu@{choice\_menu}}
 \index{choice\_menu@{choice\_menu}!gui.c@{gui.c}}
@@ -277,11 +402,30 @@ funkcja wyświetla tablica graficznie w formie kolumn z tą różnica że że wy
 {\em y2} & -\/ indeks drugiego elementu do narysowania na żółto \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{gui_8c_a932c1c701bc763efc33c9fecdbc98b0c}\label{gui_8c_a932c1c701bc763efc33c9fecdbc98b0c}} 
+\mbox{\Hypertarget{gui_8c_a122a63649e72bc25857ae48e5b39c89b}\label{gui_8c_a122a63649e72bc25857ae48e5b39c89b}} 
+\index{gui.c@{gui.c}!draw\_dot@{draw\_dot}}
+\index{draw\_dot@{draw\_dot}!gui.c@{gui.c}}
+\doxysubsubsection{\texorpdfstring{draw\_dot()}{draw\_dot()}}
+{\footnotesize\ttfamily void draw\+\_\+dot (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{ALLEGRO\+\_\+\+COLOR}]{color }\end{DoxyParamCaption})}
+
+
+
+funkcja pomocniza do rysowania punktów na wykresie 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+{\em color} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{gui_8c_aad118eefd9538a8d07d4454b580e276a}\label{gui_8c_aad118eefd9538a8d07d4454b580e276a}} 
 \index{gui.c@{gui.c}!generate\_bitmap@{generate\_bitmap}}
 \index{generate\_bitmap@{generate\_bitmap}!gui.c@{gui.c}}
 \doxysubsubsection{\texorpdfstring{generate\_bitmap()}{generate\_bitmap()}}
-{\footnotesize\ttfamily ALLEGRO\+\_\+\+BITMAP$\ast$ generate\+\_\+bitmap (\begin{DoxyParamCaption}\item[{int}]{amount\+\_\+of\+\_\+elements,  }\item[{\mbox{\hyperlink{gui_8c_ae0c0f783435cf1d244e6b00f08daa0d6}{timers}}}]{data\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily ALLEGRO\+\_\+\+BITMAP $\ast$ generate\+\_\+bitmap (\begin{DoxyParamCaption}\item[{int}]{amount\+\_\+of\+\_\+elements,  }\item[{\mbox{\hyperlink{gui_8c_ae0c0f783435cf1d244e6b00f08daa0d6}{timers}}}]{data\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
 
 
 
@@ -299,6 +443,27 @@ funkcja generuje bitmapę tabeli z danymi odnośnie czasu sortownia
 \begin{DoxyReturn}{Returns}
 ALLEGRO\+\_\+\+BITMAP$\ast$ -\/ zwraca wygenerowana tablice w formie bitmapy 
 \end{DoxyReturn}
+\mbox{\Hypertarget{gui_8c_a4442177503e9108b366c86d9b23e6fd9}\label{gui_8c_a4442177503e9108b366c86d9b23e6fd9}} 
+\index{gui.c@{gui.c}!generate\_graph@{generate\_graph}}
+\index{generate\_graph@{generate\_graph}!gui.c@{gui.c}}
+\doxysubsubsection{\texorpdfstring{generate\_graph()}{generate\_graph()}}
+{\footnotesize\ttfamily void generate\+\_\+graph (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui_8c_ae0c0f783435cf1d244e6b00f08daa0d6}{timers}}}]{data\mbox{[}$\,$\mbox{]},  }\item[{int}]{N,  }\item[{ALLEGRO\+\_\+\+DISPLAY $\ast$}]{display }\end{DoxyParamCaption})}
+
+
+
+funcja rysująca wykres czasu od ilosci danych 
+
+funckja rusuje wykres na podstawie odanych danych a nastepnie pozwala takze wybrac punkt aby wysswietlic szegółowe dane
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & -\/ wskaxnik na talbice zawierajaca dane do wyświetlenia \\
+\hline
+{\em N} & -\/ ilość elemtów w talibcy do wyświetlenia \\
+\hline
+{\em display} & -\/ wskanik na ekran na któym ma być wysietlony wkyres \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{gui_8c_ab5c387b209fa75173e0f23cbb95de42c}\label{gui_8c_ab5c387b209fa75173e0f23cbb95de42c}} 
 \index{gui.c@{gui.c}!generate\_results@{generate\_results}}
 \index{generate\_results@{generate\_results}!gui.c@{gui.c}}
@@ -341,6 +506,32 @@ funkcja wyświetla komunikat podaje jako parametr i umożliwia użytkownikowi wp
 {\em messsege} & -\/ ciągów znaków wyświetlany jako nagłówek \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{gui_8c_a69137a985231ecb0aad0c91caa7b997c}\label{gui_8c_a69137a985231ecb0aad0c91caa7b997c}} 
+\index{gui.c@{gui.c}!if\_in\_range@{if\_in\_range}}
+\index{if\_in\_range@{if\_in\_range}!gui.c@{gui.c}}
+\doxysubsubsection{\texorpdfstring{if\_in\_range()}{if\_in\_range()}}
+{\footnotesize\ttfamily int if\+\_\+in\+\_\+range (\begin{DoxyParamCaption}\item[{float}]{x1,  }\item[{float}]{y1,  }\item[{float}]{x2,  }\item[{float}]{y2 }\end{DoxyParamCaption})}
+
+
+
+funckja sprawdza czy myszka nachodzi na punkt 
+
+funckcja sprawdza czy ppodana pozycja znadjuje sie w odlgelosci RANGE od andego punktu i zwraca wartosc 0 jezeli nie i 1 jezeli tak
+
+
+\begin{DoxyParams}{Parameters}
+{\em x1} & -\/ kordyanty x myszki \\
+\hline
+{\em y1} & -\/ kordyanty y myszki \\
+\hline
+{\em x2} & -\/ kordyanty x punktu \\
+\hline
+{\em y2} & -\/ kordyanty y punktu \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int -\/ wartosc 0 jezeli nie , wartosc 1 jezeli tak 
+\end{DoxyReturn}
 \mbox{\Hypertarget{gui_8c_a8a670e8d899dbd2de53540c31a510218}\label{gui_8c_a8a670e8d899dbd2de53540c31a510218}} 
 \index{gui.c@{gui.c}!observation\_ui@{observation\_ui}}
 \index{observation\_ui@{observation\_ui}!gui.c@{gui.c}}
@@ -351,7 +542,43 @@ funkcja wyświetla komunikat podaje jako parametr i umożliwia użytkownikowi wp
 
 menu odpowiedzialne za zaobserwowanie algorytmu sortowania 
 
-funkcja ta pozwala na wybór na jak wypełnionej tablicy użytkownik chce obserwować tablice, ,czy chce zaobserwować od razu całe sortowanie czy może krok po kroku, czy chce zaobserwować sortowanie shella czy przez wstawianie , \mbox{\Hypertarget{gui_8c_a53d33e7a136d04313521145a57407bb7}\label{gui_8c_a53d33e7a136d04313521145a57407bb7}} 
+funkcja ta pozwala na wybór na jak wypełnionej tablicy użytkownik chce obserwować tablice, ,czy chce zaobserwować od razu całe sortowanie czy może krok po kroku, czy chce zaobserwować sortowanie shella czy przez wstawianie , \mbox{\Hypertarget{gui_8c_a2865cac07121c96319d7bfa48bd1101e}\label{gui_8c_a2865cac07121c96319d7bfa48bd1101e}} 
+\index{gui.c@{gui.c}!point\_x@{point\_x}}
+\index{point\_x@{point\_x}!gui.c@{gui.c}}
+\doxysubsubsection{\texorpdfstring{point\_x()}{point\_x()}}
+{\footnotesize\ttfamily float point\+\_\+x (\begin{DoxyParamCaption}\item[{float}]{x }\end{DoxyParamCaption})}
+
+
+
+funkcja pomocznica do wycnzaczneia kordynatów x punktówn a wykresie 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{gui_8c_af6489ef7a7156237a0d4331e84eac6c4}\label{gui_8c_af6489ef7a7156237a0d4331e84eac6c4}} 
+\index{gui.c@{gui.c}!point\_y@{point\_y}}
+\index{point\_y@{point\_y}!gui.c@{gui.c}}
+\doxysubsubsection{\texorpdfstring{point\_y()}{point\_y()}}
+{\footnotesize\ttfamily float point\+\_\+y (\begin{DoxyParamCaption}\item[{float}]{y }\end{DoxyParamCaption})}
+
+
+
+funkcja pomncnicza do wycznaczenia kordyntów y na pnuktu na wykresie 
+
+
+\begin{DoxyParams}{Parameters}
+{\em y} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{gui_8c_a53d33e7a136d04313521145a57407bb7}\label{gui_8c_a53d33e7a136d04313521145a57407bb7}} 
 \index{gui.c@{gui.c}!press\_enter@{press\_enter}}
 \index{press\_enter@{press\_enter}!gui.c@{gui.c}}
 \doxysubsubsection{\texorpdfstring{press\_enter()}{press\_enter()}}
