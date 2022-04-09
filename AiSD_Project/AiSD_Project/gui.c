@@ -564,7 +564,7 @@ void press_enter()
 	ALLEGRO_COLOR white = al_map_rgb(255,255,255);
 	al_clear_to_color(black);
 	ALLEGRO_FONT* font = al_load_ttf_font("arial.ttf", 25, NULL);
-	text txt = "wcisninj enter aby kontynuwac";
+	text txt = "Wcisnij enter, aby kontynuowac";
 	float width = al_get_text_width(font, txt);
 	float height = al_get_font_line_height(font);
 	al_draw_text(font, white, SCREEN_W / 2 - width / 2, SCREEN_H / 2 + height, 0, txt);
@@ -749,17 +749,17 @@ void draw_array_a(int array[], int N, int max, int g, int g1, int y, int y2)
 void observation_ui()
 {
 
-	text messege = "na elemntach chia�bys przetesotwac sortowanie";
+	text messege = "Na ilu elementach chcialbys przetestowac sortowanie";
 	int N = get_user_value(messege);
 	int* array = calloc(N, sizeof(int));
-	text choices[] = { "na jakiej tabeli chesz osberowac","losowej","odworoenj","pomiesznej"};
+	text choices[] = { "Na jakiej tabeli chcesz obserwowac","losowej","odwrotnej","pomieszanej"};
 	int max = N;
 	int ch = choice_menu(choices, 3);
 	int min = 0;
 	if (ch == 0)
 	{
 		
-		 max = get_user_value("podaj maksymlany  zakres lsowania");
+		 max = get_user_value("Podaj maksymalny  zakres losowania");
 		fill_array_rand(array, N, min, max);
 	}
 	else
@@ -774,10 +774,10 @@ void observation_ui()
 	al_rest(0.1);
 
 	//print_array(array, N);
-	text choices2[] = {"wolisz prztestowac na krok po kroku czy czy cala operacje", "krok po korku", "cale"};
+	text choices2[] = {"Wolisz przetestować na krok po kroku czy cala operacje", "krok po kroku", "cala"};
 	ch= choice_menu(choices2, 2);
 	al_rest(0.1);
-	text choices3[] = { "wolisz algorytm shell sort czy isnert ", "shell", "insesrt" };
+	text choices3[] = { "wolisz algorytm shell sort czy insert ", "shell", "insert" };
 	int ch1 = choice_menu(choices3, 2);
 	if (ch == 0)
 	{
@@ -888,7 +888,7 @@ void generate_results(ALLEGRO_DISPLAY* display,int def, int max_el, int ch_array
 
 	al_draw_rectangle(0, 0, SCREEN_W, UPPER_COMENT_H, white, 2);
 	al_clear_to_color(black);
-	text messege = "prosze czekac genruje wyniki";
+	text messege = "prosze czekać generuje wyniki";
 	int txt_h = al_get_font_line_height(font);
 	int txt_w = al_get_text_width(font, messege);
 	al_draw_text(font, white, SCREEN_W / 2- txt_w/2, UPPER_COMENT_H / 2- txt_h/2, 0, messege);
@@ -899,7 +899,7 @@ void generate_results(ALLEGRO_DISPLAY* display,int def, int max_el, int ch_array
 	{
 		switch (i)
 		{
-		case 0: strncpy_s(messege, 250, "liczna elementow", 250); txt_w = al_get_text_width(font, messege); break;
+		case 0: strncpy_s(messege, 250, "liczba elementów", 250); txt_w = al_get_text_width(font, messege); break;
 		case 1: strncpy_s(messege, 250, "Insert_Sort", 250); txt_w = al_get_text_width(font, messege); break;
 		case 2: strncpy_s(messege, 250, "Shell_Sort", 250); txt_w = al_get_text_width(font, messege); break;
 		}
@@ -992,7 +992,7 @@ void generate_results(ALLEGRO_DISPLAY* display,int def, int max_el, int ch_array
 
 
 	al_draw_filled_rectangle(0, 0, SCREEN_W, UPPER_COMENT_H, green );
-	strcpy_s( messege,200, "wyniki zpisane w pliku resuluts.txt, wcisnij enter aby kontynuwawac",200);
+	strcpy_s( messege,200, "Wyniki zapisane w pliku resuluts.txt, wcisnij enter, aby kontynuowac",200);
 	txt_w = al_get_text_width(font, messege);
 	al_draw_text(font, white, SCREEN_W / 2 - txt_w / 2, UPPER_COMENT_H / 2 - txt_h / 2, 0, messege);
 
@@ -1067,21 +1067,21 @@ void generate_results(ALLEGRO_DISPLAY* display,int def, int max_el, int ch_array
 void cmp_ui(ALLEGRO_DISPLAY* display)
 {
 	
-	int def = get_user_value("podaj co ile mentow cheszcz zbierac dane");
-	int max_el = get_user_value("jakka jest maksymlana ilosc elemtow");
+	int def = get_user_value("Podaj co ile elementów chcesz zbierać dane");
+	int max_el = get_user_value("jaka jest maksymalna ilosc elementow");
 	while (max_el < def){
-		max_el = get_user_value("jakka jest maksymlana ilosc elemtow");
+		max_el = get_user_value("jaka jest maksymalna ilosc elementow");
 }
 
 
-	text choices[] = { "na jakiej tabeli chesz osberowac","losowej","odworoenj","pomiesznej" };
+	text choices[] = { "Na jakiej tabeli chcesz zaobserwowac","losowej","odwrotnej","pomieszanej" };
 	int ch_array = choice_menu(choices, 3);
 	int max = 0;
 	al_rest(0.1);
 	if (ch_array == 0)
 	{
 
-		max = get_user_value("podaj maksymlany  zakres lsowania");
+		max = get_user_value("Podaj maksymalny  zakres losowania");
 	}
 	
 	
@@ -1105,7 +1105,7 @@ void decision_ui(ALLEGRO_DISPLAY* display)
 {
 
 
-		text choice[] = { "co chialbys zrobic", "porwonac prekosc dzialania algorytmow", "zaobserowac dzialanie algorytmow" };
+		text choice[] = { "Co chcialbys zrobic", "Porownac predkosc dzialania algorytmow", "Zaobserwowac dzialanie algorytmow" };
 		al_rest(0.2);
 		int ch = choice_menu(choice, 2);
 		if (ch == 1)
@@ -1133,7 +1133,7 @@ void start_ui(ALLEGRO_DISPLAY* display)
 	while (1)
 	{
 		
-		text choice[] = { "witaj w porwnaniu osrtowania shell i insert", "kontunuj", "zakoncz" };
+		text choice[] = { "Witaj w porownaniu sortowania shell i insert", "kontynuuj", "zakoncz" };
 		int ch = choice_menu(choice, 2);
 		if (ch == 1)
 			return 0;
