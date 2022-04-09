@@ -662,11 +662,12 @@ get_user_value(text messsege)
 				input[++N] = c;
 				input[N + 1] = '\0';
 			}
-
-			if (ev.keyboard.keycode + 11 >= '0' && ev.keyboard.keycode + 11 <= '9' && N<=7)
+			
+			
+			
+			if ((ev.keyboard.keycode) >=27 && (ev.keyboard.keycode) <=46 && N<=7)
 			{
-				c = ev.keyboard.keycode + 11;
-
+				c = (ev.keyboard.keycode-7 ) % 10+48;
 				input[++N] = c;
 				input[N+1] = '\0';
 			}
@@ -935,7 +936,7 @@ void generate_results(ALLEGRO_DISPLAY* display,int def, int max_el, int ch_array
 
 	FILE* file;
 	fopen_s(&file, "results.txt", "w");
-
+	
 	for (int i = 0; i < amount_of_elements; i++)
 	{
 		al_destroy_bitmap(bitmap);
