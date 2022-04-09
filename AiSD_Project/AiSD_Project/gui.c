@@ -15,6 +15,7 @@
 #include <allegro5/allegro_primitives.h>
 #include <allegro5/allegro_font.h>
 #include <allegro5\allegro_ttf.h>
+#include <allegro5\allegro_image.h>
 #include "sort_project.h"
 #include <string.h>
 #include <stdio.h>
@@ -38,18 +39,30 @@ typedef struct timers_struct timers;
 
 
 
-
+#define PRINT_INT(x) printf("%s=%d\n", #x, x)
+#define PRINT_FL(x) printf("%s=%f\n", #x, x)
 
 #define M_PI 3.14159265359
 #define SCREEN_H 720
 #define SCREEN_W 1280
 
-
+#define POINT_RAD 7
 #define GRAPH_GAP 75
 
 
 #define UPPER_COMENT_H 40
 #define ARRAT_ELEMENT_WIDTH 1200/3
+
+#define BOLD_LINE 5
+#define NARROW_LINE 2
+
+#define UP_MOUSE_GAP 25
+#define MOUSE_BOX_W 150
+#define MOUSE_BOX_H 60
+
+#define RANGE 25
+
+
 
 
 typedef char text[250];
@@ -254,7 +267,7 @@ void wait_enter()
 
 
 
-void aproximate(float* data)
+void aproximate_up(float* data)
 {
 	if (*data <= 0)
 	{
@@ -271,89 +284,229 @@ void aproximate(float* data)
 	*data = ((int)(*data / tmp) + 1) * tmp;
 }
 
-void generate_graph(timers data[],int N)
+void aproximate_down(float* data)
+{
+	return (float)((int)*data);
+}
+
+
+
+int if_in_range(float x1, float y1, float x2, float y2)
+{
+	if (sqrt(pow(x1 - x2, 2) + pow(y1 - y2, 2)) < RANGE)
+		return 1;
+	return 0;
+}
+
+float point_x(float x)
+{
+	return x + GRAPH_GAP;
+}
+float point_y(float y)
+{
+	return SCREEN_H-y - GRAPH_GAP;
+}
+
+
+void draw_dot(float x, float y, ALLEGRO_COLOR color)
+{
+	al_draw_filled_circle(x, y, POINT_RAD, color);
+}
+
+void generate_graph(timers data[],int N, ALLEGRO_DISPLAY* display)
 	{
+	ALLEGRO_BITMAP* graph_bitmap = al_create_bitmap(SCREEN_W, SCREEN_H);
 	ALLEGRO_COLOR white = al_map_rgb(255, 255, 255);
+	ALLEGRO_COLOR black = al_map_rgb(0, 0, 0);
+	ALLEGRO_COLOR green = al_map_rgb(0, 255, 0);
+	ALLEGRO_COLOR grey = al_map_rgb(150, 150, 150);
+	ALLEGRO_COLOR red = al_map_rgb(255, 0, 0);
 	ALLEGRO_FONT* font = al_load_ttf_font("arial.ttf", 25, NULL);
+	int font_h = al_get_font_line_height(font);
+	float min_x = data[0].amount;
+	float max_x = data[0].amount;
 
-	float min_y = data[0].amount;
-	float max_y = data[0].amount;
+	float min_y = data[0].insert_time < data[0].shell_time ? data[0].insert_time : data[0].shell_time;
+	float max_y = data[0].insert_time > data[0].shell_time ? data[0].insert_time : data[0].shell_time;
 
-	float min_x = data[0].insert_time < data[0].shell_time ? data[0].insert_time : data[0].shell_time;
-	float max_x = data[0].insert_time > data[0].shell_time ? data[0].insert_time : data[0].shell_time;
 
+	al_set_target_bitmap(graph_bitmap);
+	al_clear_to_color(black);
+	al_draw_line(0 + GRAPH_GAP, GRAPH_GAP-50, 0 + GRAPH_GAP, SCREEN_H - GRAPH_GAP, white, BOLD_LINE);
+	al_draw_line(0 + GRAPH_GAP, SCREEN_H - GRAPH_GAP, SCREEN_W- GRAPH_GAP+50, SCREEN_H - GRAPH_GAP, white, BOLD_LINE);
+	al_draw_filled_triangle(SCREEN_W - GRAPH_GAP + 50, SCREEN_H - GRAPH_GAP - 10, SCREEN_W - GRAPH_GAP + 50, SCREEN_H - GRAPH_GAP + 10, SCREEN_W - GRAPH_GAP + 50 + 10, SCREEN_H - GRAPH_GAP, white);
+	al_draw_filled_triangle(0 + GRAPH_GAP-10, GRAPH_GAP - 50, 0 + GRAPH_GAP + 10, GRAPH_GAP - 50, 0 + 0 + GRAPH_GAP, GRAPH_GAP - 50-10,	white);
+	//al_draw_rectangle(0 + GRAPH_GAP, 0 + GRAPH_GAP, SCREEN_W - GRAPH_GAP, SCREEN_H - GRAPH_GAP, white, BOLD_LINE);
+
+	al_draw_filled_rectangle(100, 50, 100 + 25, 50 + 25, red);
+	al_draw_filled_rectangle(100+500, 50, 100 +500+ 25, 50 + 25, green);
+	al_draw_textf(font, red, 100 + 25 + 10, 50, 0, "insert sort");
+	al_draw_textf(font, green, 100 + 500 + 25+10, 50 ,0, "shell sort");
 
 	for (int i = 0; i < N; i++)
 	{
-		if (data[i].amount < min_y)
+		if (data[i].amount < min_x)
 		{
-			min_y = data[i].amount;
+			min_x = data[i].amount;
 		}
 		else
 		{
-			if (data[i].amount > max_y)
+			if (data[i].amount > max_x)
 			{
-				max_y = data[i].amount;
+				max_x = data[i].amount;
 			}
 		}
 
 
 
-		if (data[i].insert_time < min_x)
+		if (data[i].insert_time < min_y)
 		{
-			min_x = data[i].insert_time;
+			min_y = data[i].insert_time;
 		}
 		else
 		{
-			if (data[i].insert_time > max_x)
+			if (data[i].insert_time > max_y)
 			{
-				max_x = data[i].insert_time;
+				max_y = data[i].insert_time;
 			}
 		}
 		
-		if (data[i].shell_time < min_x)
+		if (data[i].shell_time < min_y)
 		{
-			min_x = data[i].shell_time;
+			min_y = data[i].shell_time;
 		}
 		else
 		{
-			if (data[i].shell_time > max_x)
+			if (data[i].shell_time > max_y)
 			{
-				max_x = data[i].shell_time;
+				max_y = data[i].shell_time;
 			}
 		}
 
 	}
+	PRINT_FL(max_y);
+	aproximate_up(&max_x);
+	aproximate_up(&max_y);
+	aproximate_down(&min_x);
+	aproximate_down(&min_y);
+	int x = 5;
+	PRINT_INT(x);
+	
+	//values used to cnvert point data to cordinates
+	float x_value = (SCREEN_W - 2 * GRAPH_GAP) / (max_x - min_x);
+	float y_value = (SCREEN_H - 2 * GRAPH_GAP) / (max_y - min_y);
 
-	aproximate(&max_x);
-	aproximate(&max_y);
-	aproximate(&min_x);
-	aproximate(&min_y);
-
-	//printf("%f, %f\n %f, %f", min_y, max_y, min_x, max_x);
-	int x_gap = (max_x - min_x) / 5;
+	//values used on axises
+	int x_gap= max_x / 5;
 	if (x_gap == 0)
-		x_gap = 1;
-	printf("x_gap= %d", x_gap);
-	for (int i = 0; i <= max_x / x_gap; i++)
 	{
-		al_draw_circle(i*((SCREEN_W-2*GRAPH_GAP)/(max_x/x_gap))+GRAPH_GAP, SCREEN_H-GRAPH_GAP,5, white, 5);
-		al_draw_textf(font, white, i*((SCREEN_W - 2 * GRAPH_GAP) / (max_x / x_gap)) + GRAPH_GAP, SCREEN_H - GRAPH_GAP+10, ALLEGRO_ALIGN_CENTER, "%d", i * x_gap);
+		x_gap = 1;
+	}
+	int y_gap = max_y / 5;
+	if (y_gap == 0)
+	{
+		y_gap = 1;
+	}
+	PRINT_FL(max_y);
+	PRINT_FL((max_x-min_x)*x_value+GRAPH_GAP);
+
+
+	//rysowanie wartosci osi
+	for (int i = 0; i<=max_x; i+=x_gap)
+	{
+		draw_dot(point_x((i - min_x) * x_value), point_y(0),white);
+		al_draw_textf(font, white, point_x((i - min_x) * x_value), point_y(0-25), ALLEGRO_ALIGN_CENTER, "%d", i);
+	}
+	for (int i = 0; i <= max_y; i += y_gap)
+	{
+		al_draw_line(point_x(0), point_y((i - min_y) * y_value), SCREEN_W - GRAPH_GAP + 50, point_y((i - min_y) * y_value), grey, NARROW_LINE);
+		draw_dot(point_x(0), point_y((i-min_y)*y_value), white);
+		al_draw_textf(font, white, point_x(0)-50, point_y((i - min_y) * y_value)-font_h, ALLEGRO_ALIGN_CENTER, "%d", i);
 		
-		printf("%d", i);
 	}
 
+	//rysowanie lini
+	for (int i= 0; i < N; i++)
+	{
+		draw_dot(point_x((data[i].amount - min_x) * x_value), point_y((data[i].insert_time - min_y) * y_value), red);
+		al_draw_line(point_x((data[i].amount - min_x) * x_value), point_y((data[i].insert_time - min_y) * y_value), point_x((data[i + 1 < N ? i + 1 : i].amount - min_x) * x_value), point_y((data[i + 1 < N ? i + 1 : i].insert_time - min_y) * y_value), red, BOLD_LINE);
+
+		draw_dot(point_x((data[i].amount - min_x) * x_value), point_y((data[i].shell_time - min_y) * y_value), green);
+		al_draw_line(point_x((data[i].amount - min_x) * x_value), point_y((data[i].shell_time - min_y) * y_value), point_x((data[i + 1 < N ? i + 1 : i].amount - min_x) * x_value), point_y((data[i + 1 < N ? i + 1 : i].shell_time - min_y) * y_value), green, BOLD_LINE);
+	}
+
+	al_save_bitmap("results.png", graph_bitmap);
+	al_set_target_backbuffer(display);
+
+
+	
+	ALLEGRO_KEYBOARD_EVENT key;
+	ALLEGRO_MOUSE_STATE mouse;
+	//petla interakcj
+	
+	float box_x_offset = 0;
+	float box_y_offset = 0;
+	while (1)
+	{
+
+		al_draw_bitmap(graph_bitmap, 0, 0, 0);
+		al_get_keyboard_state(&key);
+		if (al_key_down(&key, ALLEGRO_KEY_ENTER))
+			break;
+		al_get_mouse_state(&mouse);
+
+		for (int i = 0; i < N; i++)
+		{
+
+			//caclulatiuing box  oofset
+			if (mouse.x + MOUSE_BOX_W > SCREEN_W)
+				box_x_offset = (SCREEN_W - (mouse.x + MOUSE_BOX_W));
+			else
+			{
+				if (mouse.x - MOUSE_BOX_W < 0)
+					box_x_offset = abs((mouse.x - MOUSE_BOX_W));
+				else
+					box_x_offset = 0;
+			}
+
+
+			if (mouse.y - MOUSE_BOX_H-UP_MOUSE_GAP <0)
+				box_y_offset =abs(mouse.y - MOUSE_BOX_H - UP_MOUSE_GAP);
+				else
+					box_y_offset = 0;
 
 
 
 
 
+			//redniring box on slector
+			if (if_in_range(mouse.x, mouse.y, point_x((data[i].amount - min_x) * x_value), point_y((data[i].insert_time - min_y) * y_value)))
+			{
+				al_draw_circle(point_x((data[i].amount - min_x)* x_value), point_y((data[i].insert_time - min_y)* y_value), POINT_RAD, white, BOLD_LINE);
+				al_draw_filled_rectangle(mouse.x - MOUSE_BOX_W + box_x_offset, mouse.y - (UP_MOUSE_GAP + MOUSE_BOX_H) + box_y_offset, mouse.x + MOUSE_BOX_W + box_x_offset, mouse.y - UP_MOUSE_GAP + box_y_offset, black);
+				al_draw_rectangle(mouse.x - MOUSE_BOX_W + box_x_offset, mouse.y - (UP_MOUSE_GAP + MOUSE_BOX_H) + box_y_offset, mouse.x + MOUSE_BOX_W + box_x_offset, mouse.y - UP_MOUSE_GAP + box_y_offset, red, NARROW_LINE);
+				al_draw_textf(font, white, mouse.x - MOUSE_BOX_W + box_x_offset, mouse.y - (UP_MOUSE_GAP + MOUSE_BOX_H) + box_y_offset, 0, "amount : %d", data[i].amount);
+				al_draw_textf(font, white, mouse.x - MOUSE_BOX_W + box_x_offset, mouse.y - (UP_MOUSE_GAP + MOUSE_BOX_H) + font_h + box_y_offset, 0, "insert sort time : %.3f", data[i].insert_time);
+			}
 
+			if (if_in_range(mouse.x, mouse.y, point_x((data[i].amount - min_x) * x_value), point_y((data[i].shell_time - min_y) * y_value)))
+			{
+				al_draw_circle(point_x((data[i].amount - min_x) * x_value), point_y((data[i].shell_time - min_y) * y_value), POINT_RAD, white, BOLD_LINE);
+				al_draw_filled_rectangle(mouse.x - MOUSE_BOX_W + box_x_offset, mouse.y - (UP_MOUSE_GAP + MOUSE_BOX_H)+ box_y_offset, mouse.x + MOUSE_BOX_W+ box_x_offset, mouse.y - UP_MOUSE_GAP+ box_y_offset, black);
+				al_draw_rectangle(mouse.x - MOUSE_BOX_W+ box_x_offset, mouse.y - (UP_MOUSE_GAP + MOUSE_BOX_H)+ box_y_offset, mouse.x + MOUSE_BOX_W+ box_x_offset, mouse.y - UP_MOUSE_GAP+ box_y_offset, green, NARROW_LINE);
+				al_draw_textf(font, white, mouse.x - MOUSE_BOX_W+ box_x_offset, mouse.y - (UP_MOUSE_GAP + MOUSE_BOX_H)+ box_y_offset, 0, "amount : %d", data[i].amount);
+				al_draw_textf(font, white, mouse.x - MOUSE_BOX_W+ box_x_offset, mouse.y - (UP_MOUSE_GAP + MOUSE_BOX_H) + font_h+ box_y_offset, 0, "shell sort time : %.3f", data[i].shell_time);
+			}
+		}
 
-		al_draw_rectangle(0 + GRAPH_GAP, 0 + GRAPH_GAP, SCREEN_W - GRAPH_GAP, SCREEN_H - GRAPH_GAP, white, 5);
 
 		al_flip_display();
-		wait_enter();
+	}
+		
+	al_destroy_bitmap(graph_bitmap);
+	al_destroy_font(font);
+		
+		
 	}
 
 
@@ -629,7 +782,7 @@ void observation_ui()
  * @return ALLEGRO_BITMAP* - zwraca wygenerowana tablice w formie bitmapy
  */
 
-ALLEGRO_BITMAP* generate_bitmap(int amount_of_elements, timers data[])
+ALLEGRO_BITMAP* generate_bitmap(int amount_of_elements, timers data[] )
 {
 	ALLEGRO_BITMAP* bitmap = al_create_bitmap(ARRAT_ELEMENT_WIDTH * 3, amount_of_elements * UPPER_COMENT_H);
 	al_set_target_bitmap(bitmap);
@@ -728,7 +881,7 @@ void generate_results(ALLEGRO_DISPLAY* display,int def, int max_el, int ch_array
 
 
 
-	ALLEGRO_BITMAP* bitmap = generate_bitmap(amount_of_elements,data);
+	ALLEGRO_BITMAP* bitmap = generate_bitmap(amount_of_elements,data,display);
 	al_set_target_backbuffer(display);
 
 
@@ -851,7 +1004,10 @@ void generate_results(ALLEGRO_DISPLAY* display,int def, int max_el, int ch_array
 	al_destroy_bitmap(bitmap);
 
 
+
 	al_destroy_font(font);
+	al_rest(0.3);
+	generate_graph(data, amount_of_elements, display);
 }
 
 /**
@@ -965,16 +1121,29 @@ void start_gui()
 	al_init_ttf_addon();
 	al_install_keyboard();
 	al_install_mouse();
+	al_init_image_addon();
 	display = al_create_display(SCREEN_W, SCREEN_H);
 
-//	 start_ui(display);
+	start_ui(display);
 
 
 
-
-	timers tmp[] = { {0,0,0},{1,1,1},{2,2,4},{3,3,9},{4,4,16},{5,5,25},{6,6,36} };
-	 generate_graph(tmp, sizeof(tmp) / sizeof(tmp[0]));
-
+	/*
+	timers tmp[] = { 
+		
+		{10000,0.107,0.001},
+		{20000,0.409,0.001},
+		{30000,0.909,0.001},
+		{40000,1.744,0.002},
+		{50000,2.580,0.003},
+		{60000,3.598,0.004}, 
+		{70000,5.129,0.005},
+		{80000,6.838,0.005},
+		{90000,8.565,0.006},
+		{100000,9.989,0.007}
+	};
+	 generate_graph(tmp, sizeof(tmp) / sizeof(tmp[0]), display);
+	 */
 
 
 	al_destroy_display(display);
