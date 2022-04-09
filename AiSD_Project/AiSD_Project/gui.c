@@ -895,6 +895,7 @@ void generate_results(ALLEGRO_DISPLAY* display,int def, int max_el, int ch_array
 
 	for (int i = 0; i < amount_of_elements; i++)
 	{
+		al_destroy_bitmap(bitmap);
 		int* array = (int*)calloc((i + 1) * def, sizeof(int));
 
 
@@ -925,7 +926,7 @@ void generate_results(ALLEGRO_DISPLAY* display,int def, int max_el, int ch_array
 		al_draw_bitmap_region(bitmap, 0, i > 16 ? UPPER_COMENT_H * (i - 16) : 0, al_get_bitmap_width(bitmap), al_get_bitmap_height(bitmap), SCREEN_W / 2 - ((3 * ARRAT_ELEMENT_WIDTH) / 2) + ARRAT_ELEMENT_WIDTH * 0, UPPER_COMENT_H * 2, 0, 0);
 
 		al_flip_display();
-
+	
 
 
 
@@ -933,14 +934,14 @@ void generate_results(ALLEGRO_DISPLAY* display,int def, int max_el, int ch_array
 		fprintf(file, "%d;%.3f;%.3f\n", (i + 1) * def, data[i].insert_time, data[i].shell_time);
 
 
-
+	
 		free(array);
 	}
 
 	fclose(file);
 
 
-
+	
 
 
 
