@@ -564,7 +564,7 @@ void press_enter()
 	ALLEGRO_COLOR white = al_map_rgb(255,255,255);
 	al_clear_to_color(black);
 	ALLEGRO_FONT* font = al_load_ttf_font("arial.ttf", 25, NULL);
-	text txt = "Wcisnij enter, aby kontynuowac";
+	text txt = "Wciśnij enter, aby kontynuować";
 	float width = al_get_text_width(font, txt);
 	float height = al_get_font_line_height(font);
 	al_draw_text(font, white, SCREEN_W / 2 - width / 2, SCREEN_H / 2 + height, 0, txt);
@@ -749,10 +749,10 @@ void draw_array_a(int array[], int N, int max, int g, int g1, int y, int y2)
 void observation_ui()
 {
 
-	text messege = "Na ilu elementach chcialbys przetestowac sortowanie";
+	text messege = "Na ilu elementach chciałbyś przetestować sortowanie";
 	int N = get_user_value(messege);
 	int* array = calloc(N, sizeof(int));
-	text choices[] = { "Na jakiej tabeli chcesz obserwowac","losowej","odwrotnej","pomieszanej"};
+	text choices[] = { "Na jakiej tabeli chcesz obserwować","losowej","odwrotnej","pomieszanej"};
 	int max = N;
 	int ch = choice_menu(choices, 3);
 	int min = 0;
@@ -774,10 +774,10 @@ void observation_ui()
 	al_rest(0.1);
 
 	//print_array(array, N);
-	text choices2[] = {"Wolisz przetestować na krok po kroku czy cala operacje", "krok po kroku", "cala"};
+	text choices2[] = {"Wolisz przetestować na krok po kroku czy cala operacje", "krok po kroku", "całą"};
 	ch= choice_menu(choices2, 2);
 	al_rest(0.1);
-	text choices3[] = { "wolisz algorytm shell sort czy insert ", "shell", "insert" };
+	text choices3[] = { "Wolisz algorytm shell sort czy insert ", "shell", "insert" };
 	int ch1 = choice_menu(choices3, 2);
 	if (ch == 0)
 	{
@@ -992,7 +992,7 @@ void generate_results(ALLEGRO_DISPLAY* display,int def, int max_el, int ch_array
 
 
 	al_draw_filled_rectangle(0, 0, SCREEN_W, UPPER_COMENT_H, green );
-	strcpy_s( messege,200, "Wyniki zapisane w pliku resuluts.txt, wcisnij enter, aby kontynuowac",200);
+	strcpy_s( messege,200, "Wyniki zapisane w pliku resuluts.txt, wciśnij enter, aby kontynuować",200);
 	txt_w = al_get_text_width(font, messege);
 	al_draw_text(font, white, SCREEN_W / 2 - txt_w / 2, UPPER_COMENT_H / 2 - txt_h / 2, 0, messege);
 
@@ -1105,7 +1105,7 @@ void decision_ui(ALLEGRO_DISPLAY* display)
 {
 
 
-		text choice[] = { "Co chcialbys zrobic", "Porownac predkosc dzialania algorytmow", "Zaobserwowac dzialanie algorytmow" };
+		text choice[] = { "Co chciałbyś zrobić?", "Porównać prędkość działania algorytmów", "Zaobserwować działanie algorytmów" };
 		al_rest(0.2);
 		int ch = choice_menu(choice, 2);
 		if (ch == 1)
@@ -1133,7 +1133,7 @@ void start_ui(ALLEGRO_DISPLAY* display)
 	while (1)
 	{
 		
-		text choice[] = { "Witaj w porownaniu sortowania shell i insert", "kontynuuj", "zakoncz" };
+		text choice[] = { "Witaj w porównaniu sortowania shell i insert", "kontynuuj", "zakończ" };
 		int ch = choice_menu(choice, 2);
 		if (ch == 1)
 			return 0;
