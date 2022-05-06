@@ -3,7 +3,9 @@
  * \section Opis
  *
  * program umożliwia obserwacje i porównanie algorytmów sortowania przez wstawianie i sortowania shella
- *
+ * 
+ * <a href="AiSD.PRO.Gr1ID11A Cedzyński, Bogdan, Borowiec.KM.2.pdf" target="_blank"><b>Pdf file </b></a>
+ * 
  * \section autorzy
  *
  * Tomasz Bogdan
