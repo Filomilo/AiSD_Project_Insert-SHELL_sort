@@ -49,7 +49,7 @@ float calc_time(int* array, int N, void (*sort)(int*, int))
 
 
 
-
+//pozstałosć po wczesnje wersji
 /*
 float calc_proces(int* array, int N, int (*sort)(int*, int))
 {

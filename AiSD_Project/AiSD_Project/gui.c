@@ -38,33 +38,89 @@ struct timers_struct
 typedef struct timers_struct timers;
 
 
-
+/**
+ * @brief Makro służące do wyświetlania zminnej int i jej wartosći, funkcja służy do testów
+ * 
+ */
 #define PRINT_INT(x) printf("%s=%d\n", #x, x)
+/**
+ * @brief Makro służące do wyświetlania zminnej float i jej wartosći, funkcja służy do testów
+ * 
+ */
 #define PRINT_FL(x) printf("%s=%f\n", #x, x)
 
+/**
+ * @brief makro o wartośći pi 
+ */
 #define M_PI 3.14159265359
+/**
+ * @brief Makro wyznaczjące wysokość okna do wyświetlenia
+ * 
+ */
 #define SCREEN_H 720
+/**
+ * @brief Makro wyznaczjące szerokość okna do wyświetlenia
+ * 
+ */
 #define SCREEN_W 1280
-
+/**
+ * @brief makro wyznaczajće wielkość punktu na wkykresie
+ * 
+ */
 #define POINT_RAD 7
+/**
+ * @brief Makro wyznaczjący odstęp grafu od ekranu
+ * 
+ */
 #define GRAPH_GAP 75
 
-
+/**
+ * @brief makro wyznaczające wysokość górnego kometarza
+ * 
+ */
 #define UPPER_COMENT_H 40
+/**
+ * @brief makro wyznaczajaće szeroksć kolumny w tabeli
+ * 
+ */
 #define ARRAT_ELEMENT_WIDTH 1200/3
-
-#define BOLD_LINE 5
+/**
+ * @brief makro wyznaczające grubuść pogrubioenj lini w allegro
+ * 
+ */
+#define BOLD_LINE 5 
+/**
+ * @brief makro wyznaczające cienką linie w allegro
+ * 
+ */
 #define NARROW_LINE 2
-
+/**
+ * @brief makro wyznaczające odległość porstokąta z szegolowami danymi o punkcie nas pozycją myszke
+ * 
+ */
 #define UP_MOUSE_GAP 25
+/**
+ * @brief makro wyznaczjace szerokosć prostokąta zawierajćego szegołówe dane o punkcie na wykresie
+ * 
+ */
 #define MOUSE_BOX_W 150
+/**
+ * @brief makro wyznaczajće wysokość prostokąta zawierajcego szegółowe dane o punkcie na wykresie
+ * 
+ */
 #define MOUSE_BOX_H 60
-
+/**
+ * @brief makro wyznaczjaće odlgość od punktu na wykresie do wyśietlenia inoformacji o punkcie
+ * 
+ */
 #define RANGE 25
 
 
 
-
+/**
+ * @brief defincja typu tekstu w celu ułatiwenia pracy w programie
+ * 
+ */
 typedef char text[250];
 
 
@@ -350,7 +406,7 @@ void draw_dot(float x, float y, ALLEGRO_COLOR color)
 /**
  * @brief funcja rysująca wykres czasu od ilosci danych
  * 
- * funckja rusuje wykres na podstawie odanych danych a nastepnie pozwala takze wybrac punkt aby wysswietlic szegółowe  dane
+ * funckja rusuje wykres na podstawie podanych danych a nastepnie pozwala takze wybrac punkt aby wyswietlic szegółowe  dane
  * 
  * @param data - wskaxnik na talbice zawierajaca dane do wyświetlenia
  * @param N - ilość elemtów w talibcy do wyświetlenia
